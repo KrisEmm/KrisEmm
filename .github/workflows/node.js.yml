@@ -1,0 +1,31 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ master ]
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Github Checkout
+      uses: actions/checkout@v2
+    - name: Set up Git Token
+      uses: fregante/setup-git-token@v1
+      with:
+          token: ${{ secrets.GH_TOKEN }}
+    - name: Set Username
+      run: git config user.name "KrisEmm"
+    - name: Set Email
+      run: git config user.email "kristian.emm@gmail.com"
+    - name: Run Node.js 
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
+    - name: Install Dependencies
+      run: yarn install
+    - name: Build
+      run: yarn run build
+    - name: Deploy
+      run: yarn run deploy

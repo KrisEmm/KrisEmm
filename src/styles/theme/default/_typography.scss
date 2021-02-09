@@ -1,0 +1,40 @@
+@import url("");
+
+$font-families: (
+	"primary": (
+		"Poppins",
+		sans-serif,
+	),
+	"secundary": (
+		"Amatic SC",
+		cursive,
+	),
+	"monospace": monospace,
+);
+
+$font-sizes: (
+	"miniature": 0.9rem,
+	"small": 1.2rem,
+	"medium": 1.4rem,
+	"normal": 1.6rem,
+	"regular": 2rem,
+	"large": 4rem,
+	"huge": 6rem,
+	"full": 8rem,
+);
+
+$font-weights: (
+	"thin": 100,
+	"light": 200,
+	"medium": 300,
+	"normal": 500,
+	"regular": 600,
+	"strong": 700,
+	"bold": 800,
+);
+
+$font-styles: (
+	"normal": normal,
+	"italic": italic,
+);
+

@@ -1,0 +1,24 @@
+{
+    "name": "personal-portfolio",
+    "version": "0.0.1",
+    "license": "MIT",
+    "homepage": "https://krisemm.github.io/KrisEmm/",
+    "scripts": {
+        "build": "gulp prod",
+        "clean": "rm -rf public/",
+        "dev": "gulp dev",
+        "deploy": "gh-pages -d public",
+        "predeploy": "yarn run build"
+    },
+    "devDependencies": {
+        "del": "^6.0.0",
+        "gh-pages": "^3.1.0",
+        "gulp": "^4.0.2",
+        "gulp-pug": "^4.0.1",
+        "gulp-sass": "^4.1.0",
+        "inquirer": "^7.3.3",
+        "lowdb": "^1.0.0",
+        "pug-cli": "^1.0.0-alpha6",
+        "sass": "^1.32.6"
+    }
+}
