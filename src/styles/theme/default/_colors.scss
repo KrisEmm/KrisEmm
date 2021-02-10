@@ -1,31 +1,33 @@
-$primary: rgb(0, 255, 55);
-// $light-primary: ;
-// $dark-primary: ;
+$palette-primary: (
+    primary: #909090,
+    light-primary: #C4C4C4,
+    dark-primary: #747474,
 
-// $onPrimary: ;
-// $onLightPrimary: ;
-// $onDarkPrimary: ;
+    onPrimary: #f5f5f5,
+    onLightPrimary: #f2f2f2,
+    onDarkPrimary: #232e3b,
 
-// $secundary: ;
-// $light-secundary: ;
-// $dark-secundary: ;
+    secundary: #262C35, 
+    light-secundary: #383E45,
+    dark-secundary: #232931,
 
-// $onSecundary: ;
-// $onLightSecundary: ;
-// $onDarkSecundary: ;
+    onSecundary: #C4C4C4,
+    onLightSecundary: #E8E8E8,
+    onDarkSecundary: #909090,
 
-// $background: ;
-// $surface: ;
+    background: #F1F1F1,
+    surface: #E9E9E9,
 
-// $onBackground: ;
-// $onSurface:;
+    onBackground: #383E45,
+    onSurface: #FFFFFF,
 
-// $info: ;
-// $sucess: ;
-// $warning: ;
-// $danger: ;
-
-// $onInfo: ;
-// $onSucess: ;
-// $onWarning: ;
-// $onDanger: ;
+    red: #FC2B5D,
+    pink: #EA478B,
+    purple: #612BFC,
+    violet: #9847EA,
+    blue: #6EB6F9,
+    yellow: #EABC47,
+    orange: #FC8F2B,
+    green: #2BFC4C,
+    cyan: #2BFCB1,
+);
