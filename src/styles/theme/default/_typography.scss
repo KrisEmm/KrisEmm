@@ -1,40 +1,53 @@
-@import url("");
+@font-face {
+    font-family: "font-default";
+    src:url("../assets/fonts/Poppins/Poppins-Regular.ttf")
+};
+@font-face {
+    font-family: "font-primary-display-1";
+    src:url("../assets/fonts/Poppins/Poppins-Medium.ttf")
+};
+@font-face {
+    font-family: "font-primary-display-2";
+    src:url("../assets/fonts/Poppins/Poppins-Regular.ttf")
+};
+@font-face {
+    font-family: "font-primary-title-1";
+    src:url("../assets/fonts/Poppins/Poppins-Medium.ttf")
+};
+@font-face {
+    font-family: "font-primary-title-2";
+    src:url("../assets/fonts/Poppins/Poppins-Light.ttf")
+};
+@font-face {
+    font-family: "font-primary-subtitle-1";
+    src:url("../assets/fonts/Poppins/Poppins-Thin.ttf")
+};
+@font-face {
+    font-family: "font-primary-subtitle-2";
+    src:url("../assets/fonts/Poppins/Poppins-ExtraLight.ttf")
+};
+@font-face {
+    font-family: "font-primary-text-1";
+    src:url("../assets/fonts/Poppins/Poppins-Thin.ttf")
+};
+@font-face {
+    font-family: "font-primary-text-2";
+    src:url("../assets/fonts/Poppins/Poppins-ExtraLight.ttf")
+};
+@font-face {
+    font-family: "font-primary-control-1";
+    src:url("../assets/fonts/Poppins/Poppins-Light.ttf")
+};
+@font-face {
+    font-family: "font-primary-control-2";
+    src:url("../assets/fonts/Poppins/Poppins-ExtraLight.ttf")
+};
 
-$font-families: (
-	"primary": (
-		"Poppins",
-		sans-serif,
-	),
-	"secundary": (
-		"Amatic SC",
-		cursive,
-	),
-	"monospace": monospace,
-);
-
-$font-sizes: (
-	"miniature": 0.9rem,
-	"small": 1.2rem,
-	"medium": 1.4rem,
-	"normal": 1.6rem,
-	"regular": 2rem,
-	"large": 4rem,
-	"huge": 6rem,
-	"full": 8rem,
-);
-
-$font-weights: (
-	"thin": 100,
-	"light": 200,
-	"medium": 300,
-	"normal": 500,
-	"regular": 600,
-	"strong": 700,
-	"bold": 800,
-);
-
-$font-styles: (
-	"normal": normal,
-	"italic": italic,
-);
-
+@font-face {
+    font-family: "font-auxiliary-1";
+    src:url("../assets/fonts/Prata/Prata-Regular.ttf")
+};
+@font-face {
+    font-family: "font-auxiliary-2";
+    src:url("../assets/fonts/Roboto/Roboto-Thin.ttf")
+};
