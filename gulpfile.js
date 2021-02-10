@@ -7,7 +7,7 @@ sass.compiler = require('sass');
 
 const data = require('./src/data/data.json')
 function pugTranspile(cb) {
-    return src('src/pages/templates/*.pug')
+    return src('src/pages/*.pug')
         .pipe(pug({
             data: data,
             pretty: true
@@ -27,7 +27,7 @@ function assetsCopy(cb) {
 
 function watcher() {
     watch('src/styles/**/*.scss', sassTranspile);
-    watch('src/pages/templates/*.pug', pugTranspile);
+    watch(['src/pages/*.pug', 'src/pages/components/*.pug'], pugTranspile);
 };
 
 function clean() {
