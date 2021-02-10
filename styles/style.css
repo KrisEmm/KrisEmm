@@ -1,8 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 @font-face {
   font-family: "font-default";
   src: url("../assets/fonts/Poppins/Poppins-Regular.ttf");
@@ -54,4 +49,8 @@
 @font-face {
   font-family: "font-auxiliary-2";
   src: url("../assets/fonts/Roboto/Roboto-Thin.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
 }
