@@ -1,5 +1,57 @@
-@import url("");
 * {
   margin: 0;
   padding: 0;
+}
+
+@font-face {
+  font-family: "font-default";
+  src: url("../assets/fonts/Poppins/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: "font-primary-display-1";
+  src: url("../assets/fonts/Poppins/Poppins-Medium.ttf");
+}
+@font-face {
+  font-family: "font-primary-display-2";
+  src: url("../assets/fonts/Poppins/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: "font-primary-title-1";
+  src: url("../assets/fonts/Poppins/Poppins-Medium.ttf");
+}
+@font-face {
+  font-family: "font-primary-title-2";
+  src: url("../assets/fonts/Poppins/Poppins-Light.ttf");
+}
+@font-face {
+  font-family: "font-primary-subtitle-1";
+  src: url("../assets/fonts/Poppins/Poppins-Thin.ttf");
+}
+@font-face {
+  font-family: "font-primary-subtitle-2";
+  src: url("../assets/fonts/Poppins/Poppins-ExtraLight.ttf");
+}
+@font-face {
+  font-family: "font-primary-text-1";
+  src: url("../assets/fonts/Poppins/Poppins-Thin.ttf");
+}
+@font-face {
+  font-family: "font-primary-text-2";
+  src: url("../assets/fonts/Poppins/Poppins-ExtraLight.ttf");
+}
+@font-face {
+  font-family: "font-primary-control-1";
+  src: url("../assets/fonts/Poppins/Poppins-Light.ttf");
+}
+@font-face {
+  font-family: "font-primary-control-2";
+  src: url("../assets/fonts/Poppins/Poppins-ExtraLight.ttf");
+}
+@font-face {
+  font-family: "font-auxiliary-1";
+  src: url("../assets/fonts/Prata/Prata-Regular.ttf");
+}
+@font-face {
+  font-family: "font-auxiliary-2";
+  src: url("../assets/fonts/Roboto/Roboto-Thin.ttf");
 }
