@@ -18,7 +18,23 @@ html(lang="en")
           p(id="home-seccion-introduccion-text-3") Nice to meet you
           p(id="home-seccion-introduccion-text-4") Introduce myself
           img(id="home-seccion-introduccion-image-badge" alt="" src="./assets/illustrations/badge.svg")
-          a(class="button") More about me
+          div(class="contactInfo")
+            div(class="contactInfo_generalIcons")
+              div(class="contactInfo_generalIcons_icon")
+                img(class="icon" alt="" src="./assets/icons/email.svg")
+                a(href="malito:kristian.emm@gmail.com") kristian.emm@gmail.com
+              div(class="contactInfo_generalIcons_icon")
+                img(class="icon" alt="" src="./assets/icons/phone.svg")
+                span() 5516992467
+            div(class="contactInfo_socialNetworkIcons")
+              div(class="contactInfo_socialNetwork_icon")
+                img(class="icon" alt="" src="./assets/icons/github.svg")
+              div(class="contactInfo_socialNetwork_icon")
+                img(class="icon" alt="" src="./assets/icons/linkedin.svg")
+              div(class="contactInfo_socialNetwork_icon")
+                img(class="icon" alt="" src="./assets/icons/twitter.svg")
+            div(class="contactInfo_button")
+              a(class="button") More about me
       include components/footer.pug
       script
         include ../js/index.js
