@@ -12,7 +12,13 @@ html(lang="en")
       aside
         include components/navbar.pug
       main
-        seccion
+        seccion(id="home-seccion-introduccion")
+          p(id="home-seccion-introduccion-text-1") I
+          p(id="home-seccion-introduccion-text-2") Am
+          p(id="home-seccion-introduccion-text-3") Nice to meet you
+          p(id="home-seccion-introduccion-text-4") Introduce myself
+          img(id="home-seccion-introduccion-image-badge" alt="" src="./assets/illustrations/badge.svg")
+          a(class="button") More about me
       include components/footer.pug
       script
         include ../js/index.js
