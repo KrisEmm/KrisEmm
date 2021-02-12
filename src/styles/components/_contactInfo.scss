@@ -1,0 +1,64 @@
+.contactInfo{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    display: inline-block;
+    &_title{
+        h1{
+            color: $second-light-color;
+            font-family: "font-primary-title-3";
+            font-size: 1.2rem;
+            @include mediaQuery("mobil-landscape"){
+                font-size: 1rem; 
+            } 
+        }
+        &-hidden{
+            display:none;
+        }
+    }
+    &_generalIcons{    
+        &_icon{
+            display:flex;
+            align-items: center;
+            font-family: "font-primary-control-1";
+            a{
+                color: $first-dark-color;
+                font-size: 0.9rem;
+                @include mediaQuery("tablet-landscape"){
+                    font-size: 1.1rem; 
+                    
+                }
+            }
+            span{
+                color: $first-dark-color;
+                font-size: 0.85rem;
+                @include mediaQuery("tablet-landscape"){
+                    font-size: 0.95rem; 
+                    
+                }
+            }
+        }
+        &-hidden{
+            display:none;
+        }
+    }
+    &_socialNetworksIcons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &-hidden{
+            display:none;
+        }
+    }
+    &_button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &-hidden{
+            display:none;
+        }
+    }
+    &-hidden{
+        display:none;
+    }
+}

@@ -1,0 +1,52 @@
+.button{
+    $color-button: $first-color;
+    font-family: "font-primary-control-1";
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: $color-button;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+    border: 1px solid $color-button;
+    line-height: 1;
+    display: inline-block;
+    cursor: default;
+    position: relative;
+    &::before{
+        content: "";
+        display: inline-block;
+        width: 0%;
+        height: 100%;
+        background-color: rgba($color: $onSecond-dark-color, $alpha: 0.2);
+        // background-color: blue;
+        opacity: 0.9;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: -1;
+    }
+    @include mediaQueryHover(){
+        &:hover{
+            color: $second-light-color;
+            border: 1px solid $second-light-color;
+            transform: scale(1.05);
+            &::before{
+                animation: overlayButton;
+                animation-duration: 0.4s;
+                animation-fill-mode: forwards;
+            }
+        }
+    }
+    @include mediaQueryNoHover(){
+        &{
+            background-color: $onSecond-light-color;
+            color: $second-light-color;
+            border: 1px solid $second-light-color;
+        }
+    }
+}
+@keyframes overlayButton {
+    from{width: 0%;}
+    to{width: 100%;}
+}

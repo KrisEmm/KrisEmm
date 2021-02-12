@@ -1,0 +1,38 @@
+.menu{
+    display: none;
+    position: fixed;
+    top:0px; 
+    z-index: 1; 
+    background-color: $second-dark-color;
+    height: 100vh;
+    width: 100vw;
+    &_icon{
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        margin: 1.5rem
+    }
+    &_links{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        &_link{
+            font-family: "font-primary-control-2";
+            font-size: 2rem;
+            color:$first-light-color;
+            margin-bottom: 1.3rem;
+        }
+    }
+    &-show{
+        display: block;
+        overflow: hidden;
+        @include mediaQuery("desktop"){
+            display: none;
+        }
+        @include mediaQuery("full"){
+            display: none;
+        }
+    }
+}

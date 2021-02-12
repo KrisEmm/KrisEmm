@@ -1,0 +1,32 @@
+aside{
+    transform: rotateZ(-90deg);
+    position: fixed;
+    top: 50%;
+    left: -196px;
+    display: none;
+    @include mediaQuery("desktop"){
+        display: block;
+    }
+    @include mediaQuery("full"){
+        display: block;
+    }
+}
+.navbar{
+    display: flex;
+    justify-content: center;
+    &_link{
+        display: inline-block;
+        margin-left: 1.2rem;
+        margin-right: 1.2rem;
+        font-size: 1rem;
+        font-family: "font-primary-control-1";
+        color:$first-color;
+    }
+    &_link:hover{
+        transform: scale(1.1);
+        color:$second-color;
+        text-decoration: underline;
+        cursor:default;
+    }
+    
+}

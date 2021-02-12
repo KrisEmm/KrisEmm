@@ -1,0 +1,41 @@
+html{
+    font-size: $root-font-size;
+}
+
+body{
+    font-size: $body-font-size;
+    font-family: "font-default";
+    background-color: $background-color;
+}
+
+a{
+    display: block;
+    text-decoration: none;
+    color: $color-anchor;
+
+    :link { 
+    text-decoration: none;
+    color: $color-anchor;
+    }         
+    :visited { 
+    text-decoration: none;
+    color: $color-anchor;
+    }     
+    :hover { 
+    text-decoration: none;
+    color: $color-anchor;
+    } 
+    :active { 
+    text-decoration: none;
+    color: $color-anchor;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-size: $body-font-size;
+}

@@ -1,27 +1,27 @@
 $breakpoints:(
     "mobil-portrait":(
-        "minWidth": 360px,
-        "maxWidth": 420px,
+        "minWidth": 0px,
+        "maxWidth": 599px,
     ),
     "mobil-landscape":(
-        "minWidth": 640px,
+        "minWidth": 600px,
         "maxWidth": 767px,
     ),
     "tablet-portrait":(
         "minWidth": 768px,
-        "maxWidth": 1023px,
+        "maxWidth": 899px,
     ),
     "tablet-landscape":(
-        "minWidth": 1024px,
-        "maxWidth": 1200px,
+        "minWidth": 900px,
+        "maxWidth": 1209px,
     ),
     "desktop":(
-        "minWidth": 1220px,
+        "minWidth": 1210px,
         "maxWidth": 1399px,
     ),
     "full":(
         "minWidth": 1400px,
-        "maxWidth": 1600px,
+        "maxWidth": 3000px,
     )
 );
 
@@ -34,4 +34,19 @@ $breakpoints:(
         }
     }
 }
-
+@mixin mediaQueryCustom($breakpoint-min, $breakpoint-max){
+    @media screen and (min-width: $breakpoint-min) and (max-width: $breakpoint-max){
+         @content;
+    }
+}
+@mixin mediaQueryNoHover(){
+    @media (hover:none){
+        @content;
+    }
+    
+}
+@mixin mediaQueryHover(){
+    @media (hover){
+        @content;
+    }
+}

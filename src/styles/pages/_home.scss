@@ -1,0 +1,37 @@
+main{
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    @media screen and (min-height:850px ) {
+        height: 100vh;
+    }
+}
+#home-seccion-banner{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+#home-seccion-readAboutMe{
+    text-align: center;
+    @include mediaQuery("desktop"){
+        visibility: hidden;
+    }
+    @include mediaQuery("full"){
+        visibility: hidden;
+    }
+    h1{
+        font-family: "font-primary-title-3";
+        color:$second-color;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        @include mediaQuery("mobil-landscape"){
+            font-size: 1.2rem;
+        }
+        @include mediaQuery("tablet-portrait"){
+            font-size: 1.3rem;
+        }
+        @include mediaQuery("tablet-landscape"){
+            font-size: 1.4rem;
+        }
+        
+    }
+}

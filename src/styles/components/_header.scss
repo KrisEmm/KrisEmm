@@ -1,0 +1,210 @@
+.header{
+    display:flex;
+    justify-content: space-between;
+    background-color: $background-color;
+    margin-top: 15px;
+    margin-left: 24px;
+    margin-right: 24px;
+    position: relative;
+    &_logo{
+        display:flex;
+    }
+    &_logo_image{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 36.5px;
+            height: 42px;
+            cursor: default;
+        }
+    }
+    &_logo_lines-vertical{
+        display:inline;
+        position: absolute;
+        top:0px;
+        left:40px;
+        &-image{
+            background-image: url("../assets/illustrations/line-vertical-short.svg");
+            background-repeat: no-repeat;
+            height: 54px;
+            width: 1px;
+            @include mediaQuery("tablet-portrait"){
+                background-image: url("../assets/illustrations/line-vertical-large.svg");
+                height: 100px;
+            }
+            @include mediaQuery("tablet-landscape"){
+                display: block;
+                background-image: url("../assets/illustrations/line-vertical-large.svg");
+                height: 100px;
+
+            }
+            @include mediaQuery("desktop"){
+                display: block;
+                background-image: url("../assets/illustrations/line-vertical-large.svg");
+                height: 100px;
+
+            }
+            @include mediaQuery("full"){
+                display: block;
+                background-image: url("../assets/illustrations/line-vertical-large.svg");
+                height: 100px;
+
+            }
+        }
+    }
+    &_logo_line-horizontal{
+        height: 1px;
+        position: absolute;
+        top:35px;
+        left: 20px;
+        display: none;
+        @include mediaQuery("tablet-portrait"){
+           display: block;
+        }
+        @include mediaQuery("tablet-landscape"){
+           display: block;
+           
+        }
+        @include mediaQuery("desktop"){
+           display: block;
+            
+        }
+        @include mediaQuery("full"){
+           display: block;
+            
+        }
+    }
+    &_logo_text{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 0.5rem;
+        font-family: "font-primary-title-3";
+        font-size: 1.25rem;
+        line-height: 1.1;
+        color: $first-dark-color;
+        cursor: default;
+        :last-child{
+            color: $second-color;
+        }
+        :hover{
+             color: $first-dark-color;
+        }
+    }
+    &_nav{
+        display: flex;
+        &_link{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: default;
+        }
+        &_link-phone{
+            display: none;
+            p{
+                font-family: "font-primary-control-1";
+                color: $first-dark-color;
+                font-size: 0.8rem;
+            }
+            @include mediaQuery("desktop"){
+                display: flex;
+                
+            }
+            @include mediaQuery("full"){
+                display: flex;
+                
+            }
+        }
+        &_link-email{
+            display: none;
+            margin-left: 1.5rem;
+            margin-right: 1.5rem;
+            p{
+                font-family: "font-primary-control-1";
+                color: $first-dark-color;
+                font-size: 0.9rem;
+            }
+            @include mediaQuery("desktop"){
+                display: flex;
+                
+            }
+            @include mediaQuery("full"){
+                display: flex;
+            }
+
+        }
+        &_link-github{
+            display: none;
+            @include mediaQuery("tablet-portrait"){
+                display: flex;
+            }
+            @include mediaQuery("tablet-landscape"){
+                display: flex;
+            
+            }
+            @include mediaQuery("desktop"){
+                display: flex;
+                
+            }
+            @include mediaQuery("full"){
+                display: flex;
+                
+            }
+
+        }
+        &_link-linkedin{
+            display: none;
+            @include mediaQuery("tablet-portrait"){
+                display: flex;
+            }
+            @include mediaQuery("tablet-landscape"){
+                display: flex;
+            
+            }
+            @include mediaQuery("desktop"){
+                display: flex;
+                
+            }
+            @include mediaQuery("full"){
+                display: flex;
+                
+            }
+
+        }
+        &_link-twitter{
+            display: none;
+            @include mediaQuery("tablet-portrait"){
+                display: flex;
+            }
+            @include mediaQuery("tablet-landscape"){
+                display: flex;
+           
+            }
+            @include mediaQuery("desktop"){
+                display: flex;
+            
+            }
+            @include mediaQuery("full"){
+                display: flex;            
+            }
+
+        }
+        &_menu-icon{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 2rem;
+            visibility: visible;
+            @include mediaQuery("desktop"){
+                visibility: hidden;
+                margin-left: 0.5rem;
+            }
+            @include mediaQuery("full"){
+                visibility: hidden;  
+                margin-left: 0.5rem;
+
+            }
+        }
+    }
+}
