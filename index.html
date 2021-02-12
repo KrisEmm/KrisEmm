@@ -5,23 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/index.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
     <title>Home</title>
   </head>
   <body>
-    <div class="layout">
+    <div class="menu" id="menu_modal"><span class="menu_icon" id="menu_modal-close"><img src="./assets/icons/close.svg"></span>
+      <nav class="menu_links"><a class="menu_links_link" href="#">Home</a><a class="menu_links_link" href="#">About</a><a class="menu_links_link" href="#">Portfolio</a><a class="menu_links_link" href="#">Resumen</a><a class="menu_links_link" href="#">Contact</a></nav>
+    </div>
+    <div class="layout-container">
       <header class="header">
-        <div class="header_logo"><a class="header_logo_image"></a><a class="header_logo_text"></a></div>
-        <div class="header_navigation">
-          <div class="header_navigation">
-            <nav class="header_navigation_icons"><a class="header_navigation_icons_icon"></a><a class="header_navigation_icons_icon"></a><a class="header_navigation_icons_icon"></a><a class="header_navigation_icons_icon"></a><a class="header_navigation_icons_icon"></a><a class="header_navigation_icons_icon"></a></nav>
+        <div class="header_logo" title="KrisEmm"><a class="header_logo_image" href="#"><img alt="" src="./assets/logo.svg"></a>
+          <div class="header_logo_lines-vertical">
+            <div class="header_logo_lines-vertical-image"></div>
           </div>
+          <div class="header_logo_line-horizontal"><img alt="" src="./assets/illustrations/line-horizontal.svg"></div><a class="header_logo_text" href="#">
+            <p>hi,</p>
+            <p>there!</p></a>
         </div>
+        <nav class="header_nav"><a class="header_nav_link header_nav_link-phone" title="Contact me!" href="#"><img alt="phone-icon" src="./assets/icons/phone-first.svg">
+            <p>(55) 16 99 24 67</p></a><a class="header_nav_link header_nav_link-email" title="Contact me!" href="#"><img alt="email-icon" src="./assets/icons/email-first.svg">
+            <p>kristian.emm@gmail.com</p></a><a class="header_nav_link header_nav_link-github" title="Github" href="#"><img alt="menu-icon" src="./assets/icons/github-first.svg"></a><a class="header_nav_link header_nav_link-linkedin" title="Linkedin" href="#"><img alt="linkedin-icon" src="./assets/icons/linkedin-first.svg"></a><a class="header_nav_link header_nav_link-twitter" title="Twitter" href="#"><img alt="twitter-icon" src="./assets/icons/twitter-first.svg"></a>
+          <div class="header_nav_menu-icon" id="header_menu_button"><img alt="menu-icon" src="./assets/icons/menu.svg"></div>
+        </nav>
       </header>
       <aside>
-        <nav class="navbar"><a class="navbar_link"></a><a class="navbar_link"></a><a class="navbar_link"></a><a class="navbar_link"></a><a class="navbar_link"></a></nav>
+        <nav class="navbar"><a class="navbar_link" href="#" title="Go to Contact">Contact</a><a class="navbar_link" href="#" title="Go to Resumen">Resume</a><a class="navbar_link" href="#" title="Go to Portfolio">Portfolio</a><a class="navbar_link" href="#" title="Go to About">About</a><a class="navbar_link" href="#" title="Go to Home">Home</a></nav>
       </aside>
       <main>
-        <seccion></seccion>
+        <seccion class="seccion" id="home-seccion-banner">
+          <div class="bannerHome">
+            <div class="bannerHome_image"></div>
+            <div class="bannerHome_resumen">
+              <p class="bannerHome_resumen_text"><strong>I</strong> am an <strong>Industrial Robots Programmer</strong> and <strong>Web developer</strong>. This is my website where I show some projects and exercises that I have developed in my free time.</p>
+            </div>
+            <div class="bannerHome_contactInfo">
+              <div class="contactInfo">
+                <div class="contactInfo_title">
+                  <h1> Contact Me:</h1>
+                </div>
+                <div class="contactInfo_generalIcons"> 
+                  <div class="contactInfo_generalIcons_icon"><img class="icon" alt="" src="./assets/icons/email-first.svg"><a href="#">kristian.emm@gmail.com</a></div>
+                  <div class="contactInfo_generalIcons_icon"><img class="icon" alt="" src="./assets/icons/phone-first.svg"><span>(55) 16 99 24 67</span></div>
+                </div>
+                <div class="contactInfo_socialNetworksIcons"><a class="contactInfo_socialNetworkIcons_icon" href="#"><img class="icon" alt="" src="./assets/icons/github-second.svg"></a><a class="contactInfo_socialNetworksIcons_icon" href="#"><img class="icon" alt="" src="./assets/icons/linkedin-second.svg"></a><a class="contactInfo_socialNetworksIcons_icon" href="#"><img class="icon" alt="" src="./assets/icons/twitter-second.svg"></a></div>
+                <div class="contactInfo_button"><a class="button" href="#">drop your message</a></div>
+              </div>
+            </div>
+            <div class="bannerHome_question">
+              <h1>Would you like to read about me ?</h1><a class="button" title="Go to About" href="#">click here</a>
+            </div>
+          </div>
+        </seccion>
+        <seccion class="seccion" id="home-seccion-readAboutMe">
+          <h1>Would you like to read about me ?</h1><a class="button" title="Go to About" href="#">click here</a>
+        </seccion>
       </main>
       <footer class="footer">
         <div class="footer_body">
@@ -29,9 +66,34 @@
           <div class="footer_body_seccion"></div>
           <div class="footer_body_seccion"></div>
         </div>
-        <div class="footer_footer"></div>
+        <div class="footer_footer">
+          <p>This website was created by <strong>kristian Emmanuel </strong></p>
+          <p>Copyright &copy 2021 | All rights reserved.</p>
+        </div>
       </footer>
-      <script>console.log("Running")</script>
+      <script>console.log("Running")
+
+const $header_menu_button = document.querySelector('#header_menu_button');
+const $menu_modal = document.querySelector('#menu_modal');
+const $menu_modal_close_button = document.querySelector("#menu_modal-close")
+const $classToShowModal = "menu-show";
+
+if ($header_menu_button) {
+    $header_menu_button.addEventListener("click", cilckHandlerMenuButton)
+}
+if ($menu_modal_close_button) {
+    $menu_modal_close_button.addEventListener("click", cilckHandlerMenuModalCloseButton)
+}
+
+function cilckHandlerMenuModalCloseButton(e) {
+    if (!$menu_modal) return;
+    $menu_modal.classList.toggle($classToShowModal);
+}
+function cilckHandlerMenuButton(e) {
+    if (!$menu_modal) return;
+    $menu_modal.classList.toggle($classToShowModal);
+}
+      </script>
     </div>
   </body>
 </html>
