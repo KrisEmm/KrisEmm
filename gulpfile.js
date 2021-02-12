@@ -27,6 +27,7 @@ function assetsCopy(cb) {
 
 function watcher() {
     watch('src/styles/**/*.scss', sassTranspile);
+    watch('src/js/**/*.js', pugTranspile);
     watch(['src/pages/*.pug', 'src/pages/components/*.pug'], pugTranspile);
 };
 
