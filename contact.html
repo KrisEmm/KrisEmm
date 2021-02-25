@@ -5,43 +5,124 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/index.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
     <title>Contact</title>
   </head>
-  <body> 
+  <body>
+    <div class="menu" id="menu_modal"><span class="menu_icon" id="menu_modal-close"><img src="./assets/icons/close.svg"></span>
+      <nav class="menu_links"><a class="menu_links_link" href="index.html">Home</a><a class="menu_links_link" href="about.html">About</a><a class="menu_links_link" href="portfolio.html">Portfolio</a><a class="menu_links_link" href="./assets/files/Resume-Cristian_Emmanuel_Castillo_Medina.pdf" target="_blank">Curriculum</a><a class="menu_links_link" href="contact.html">Contact</a></nav>
+    </div>
+    <div class="notify_contact" id="notify_contact_success">
+      <div class="notify_contact_container">
+        <div class="notify_contact_content">
+          <div class="notify_contact_content_header">
+            <p>Your message has been sent successfully</p>
+          </div>
+          <div class="notify_contact_content_body"><img alt="image-message" src="./assets/illustrations/message-ok.svg">
+            <p>Thanks for visit my website. I am happy to receive your message, and I will try to answer you personally as soon as possible</p>
+          </div>
+          <div class="notify_contact_content_footer">
+            <button class="button" id="btn_close_notify_contact" type="button">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notify_contact" id="notify_contact_error">
+      <div class="notify_contact_container">
+        <div class="notify_contact_content">
+          <div class="notify_contact_content_header">
+            <p>Sorry, </p>
+            <p>your message could not be sent.</p>
+          </div>
+          <div class="notify_contact_content_body"><img alt="image-message" src="./assets/illustrations/message-wrong.svg">
+            <p>At the moment this service is not available, please try again later, thank you.</p>
+          </div>
+          <div class="notify_contact_content_footer">
+            <button class="button " id="btn_trylater_notify_contact" type="button">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="layout-container">
       <header class="header">
-        <div class="header_logo" title="KrisEmm"><a class="header_logo_image" href="#"><img alt="" src="./assets/logo.svg"></a>
+        <div class="header_logo" title="KrisEmm"><a class="header_logo_image" href="index.html"><img alt="logo_image" src="./assets/logo.svg"></a>
           <div class="header_logo_lines-vertical">
             <div class="header_logo_lines-vertical-image"></div>
           </div>
-          <div class="header_logo_line-horizontal"><img alt="" src="./assets/illustrations/line-horizontal.svg"></div><a class="header_logo_text" href="#">
-            <p>hi,</p>
-            <p>there!</p></a>
+          <div class="header_logo_line-horizontal"><img alt="logo_letters" src="./assets/illustrations/line-horizontal.svg"></div><a class="header_logo_text" href="index.html">
+            <p class="notranslate">hi,</p>
+            <p class="notranslate">there!</p></a>
         </div>
-        <nav class="header_nav"><a class="header_nav_link header_nav_link-phone" title="Contact me!" href="#"><img alt="phone-icon" src="./assets/icons/phone-first.svg">
-            <p>(55) 16 99 24 67</p></a><a class="header_nav_link header_nav_link-email" title="Contact me!" href="#"><img alt="email-icon" src="./assets/icons/email-first.svg">
-            <p>kristian.emm@gmail.com</p></a><a class="header_nav_link header_nav_link-github" title="Github" href="#"><img alt="menu-icon" src="./assets/icons/github-first.svg"></a><a class="header_nav_link header_nav_link-linkedin" title="Linkedin" href="#"><img alt="linkedin-icon" src="./assets/icons/linkedin-first.svg"></a><a class="header_nav_link header_nav_link-twitter" title="Twitter" href="#"><img alt="twitter-icon" src="./assets/icons/twitter-first.svg"></a>
+        <nav class="header_nav"><a class="header_nav_link header_nav_link-phone" title="Contact me!" href="contact.html"><img alt="phone-icon" src="./assets/icons/phone-first.svg">
+            <p>(55) 4089 6724</p></a><a class="header_nav_link header_nav_link-email" title="Contact me!" href="contact.html"><img alt="email-icon" src="./assets/icons/email-first.svg">
+            <p>kristian.emm@gmail.com</p></a><a class="header_nav_link header_nav_link-github" title="Github" href="https://github.com/krisemm" target="_blank"><img alt="menu-icon" src="./assets/icons/github-first.svg"></a><a class="header_nav_link header_nav_link-linkedin" title="Linkedin" href="https://www.linkedin.com/in/krisemm/" target="_blank"><img alt="linkedin-icon" src="./assets/icons/linkedin-first.svg"></a><a class="header_nav_link header_nav_link-twitter" title="Twitter" href="https://twitter.com/_kristianEmm" target="_blank"><img alt="twitter-icon" src="./assets/icons/twitter-first.svg"></a>
           <div class="header_nav_menu-icon" id="header_menu_button"><img alt="menu-icon" src="./assets/icons/menu.svg"></div>
         </nav>
       </header>
       <aside>
-        <nav class="navbar"><a class="navbar_link" href="#" title="Go to Contact">Contact</a><a class="navbar_link" href="#" title="Go to Resumen">Resume</a><a class="navbar_link" href="#" title="Go to Portfolio">Portfolio</a><a class="navbar_link" href="#" title="Go to About">About</a><a class="navbar_link" href="#" title="Go to Home">Home</a></nav>
+        <nav class="navbar notranslate"><a class="navbar_link" href="contact.html">Contact</a><a class="navbar_link" href="./assets/files/Resume-Cristian_Emmanuel_Castillo_Medina.pdf" target="_blank">Curriculum</a><a class="navbar_link" href="portfolio.html">Portfolio</a><a class="navbar_link" href="about.html">About </a><a class="navbar_link" href="index.html">Home</a></nav>
       </aside>
-      <main>
-        <seccion></seccion>
+      <main class="autofill contact-container">
+        <seccion class="seccion" id="contact-seccion-form">
+          <div class="contact_banner">
+            <h1 class="contact_banner_title">contact me</h1>
+            <p class="contact_banner_subtitle">drop your message</p>
+            <p class="contact_banner_text">If you like what I do and have any suggestions, comments, or feedback, feel free to contact me and share it.</p>
+            <div class="contact_banner_image"></div>
+          </div>
+          <form class="contact_form" id="contact_form">
+            <div class="contact_form_group">
+              <label for="name">name</label>
+              <input name="name" id="name" type="text" placeholder="type your name..." maxLength="35" required>
+              <p>*This field is require</p>
+            </div>
+            <div class="contact_form_group">
+              <label for="email">email</label>
+              <input name="email" id="email" type="email" placeholder="Type Your Email Address..." required>
+              <p>*This field is require</p>
+            </div>
+            <div class="contact_form_group">
+              <label for="message">message</label>
+              <textarea name="message" id="message" placeholder="Type Your Message..." maxLength="500" required></textarea>
+              <p>*This field is require</p>
+            </div>
+            <div class="contact_form_group contact_form_group-row">
+              <input type="checkbox" name="check_terms" id="check_terms" required>
+              <label class="terms" for="check_terms">I agree to the <strong>terms and conditions</strong></label>
+            </div>
+            <div class="contact_form_group contact_form_group-submit">
+              <button class="button" type="submit" form="contact_form" id="btn_send_message">send message</button>
+            </div>
+          </form>
+        </seccion>
       </main>
       <footer class="footer">
         <div class="footer_body">
-          <div class="footer_body_seccion"></div>
-          <div class="footer_body_seccion"></div>
-          <div class="footer_body_seccion"></div>
+          <div class="footer_body_seccion footer_body-whoIAm">
+            <h1>who I am</h1>
+            <p>I am an Industrial Robotics Engineer with a great passion for Web Development. This is my website where I share some projects that I have develop in my free time as a web programmer</p><a class="link link-first" href="./assets/files/Resume-Cristian_Emmanuel_Castillo_Medina.pdf" target="_blank">- Download CV</a>
+          </div>
+          <div class="footer_body_seccion footer_body-links">
+            <h1>Links</h1>
+            <ul><a class="link link-first" href="index.html">- Home</a><a class="link link-first" href="portfolio.html">- Portfolio</a><a class="link link-first" href="about.html#lastest-project">- Lastest Project</a><a class="link link-first" href="contact.html">- Contact</a></ul>
+          </div>
+          <div class="footer_body_seccion footer_body-contact">
+            <h1>Hava a suggestions ?</h1>
+            <div class="contact_group"> 
+              <div class="contact_group_email"><img class="icon" alt="email-icon" src="./assets/icons/email-first.svg"><a class="link link-first" href="contact.html">kristian.emm@gmail.com</a></div>
+              <div class="contact_group_phone"><img class="icon" alt="phone-icon" src="./assets/icons/phone-first.svg"><span>(55) 4089 6724</span></div>
+              <div class="contact_group_socialNetworksIcons"><a class="contact_group_socialNetworkIcons_icon" href="https://github.com/krisemm" target="_blank"><img class="icon" alt="github-icon" src="./assets/icons/github-second.svg"></a><a class="contact_group_socialNetworksIcons_icon" href="https://www.linkedin.com/in/krisemm/" target="_blank"><img class="icon" alt="linkedin-icon" src="./assets/icons/linkedin-second.svg"></a><a class="contact_group_socialNetworksIcons_icon" href="https://twitter.com/_kristianEmm" target="_blank"><img class="icon" alt="twitter-icon" src="./assets/icons/twitter-second.svg"></a></div>
+            </div>
+          </div>
         </div>
         <div class="footer_footer">
           <p>This website was created by <strong>kristian Emmanuel </strong></p>
           <p>Copyright &copy 2021 | All rights reserved.</p>
         </div>
       </footer>
-      <script>console.log("Running")
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+      <script>
+        console.log("Running")
 
 const $header_menu_button = document.querySelector('#header_menu_button');
 const $menu_modal = document.querySelector('#menu_modal');
@@ -62,6 +143,62 @@ function cilckHandlerMenuModalCloseButton(e) {
 function cilckHandlerMenuButton(e) {
     if (!$menu_modal) return;
     $menu_modal.classList.toggle($classToShowModal);
+}console.log("Contact");
+const $form_contact = document.querySelector("#contact_form")
+const $notify_contact_success = document.querySelector("#notify_contact_success")
+const $notify_contact_error = document.querySelector("#notify_contact_error")
+const $btn_close_notify_contact = document.querySelector("#btn_close_notify_contact")
+const $btn_trylater_notify_contact = document.querySelector("#btn_trylater_notify_contact")
+const $btn_send_message = document.querySelector("#btn_send_message")
+const info = {
+    user_id: "user_AhNWKrGDTxN7FLeKNYyoH",
+    service_id: "contact_service",
+    template_id: "contact_form",
+}
+
+if ($form_contact) {
+    $form_contact.addEventListener("submit", sendFormContact)
+}
+if ($btn_close_notify_contact) {
+    $btn_close_notify_contact.addEventListener("click", closeNotifyContactSucess)
+}
+if ($btn_trylater_notify_contact) {
+    $btn_trylater_notify_contact.addEventListener("click", closeNotifyContactError)
+}
+emailjs.init(info.user_id);
+function statusMessage(status) {
+    if (!$btn_send_message) return
+    $btn_send_message.innerText = status
+}
+function sendFormContact(e) {
+    e.preventDefault();
+    statusMessage("Wait Sending Message...")
+    emailjs.sendForm(info.service_id, info.template_id, e.target).then(function () {
+        showNotifyContactSuccess();
+        e.target.reset();
+        statusMessage("Send Message")
+    }, function (error) {
+        showNotifyContactError();
+        e.target.reset();
+        statusMessage("Send Message")
+    });
+
+}
+function showNotifyContactSuccess() {
+    if (!$notify_contact_success) return
+    $notify_contact_success.classList.add("notify_contact-show")
+}
+function showNotifyContactError() {
+    if (!$notify_contact_error) return
+    $notify_contact_error.classList.add("notify_contact-show")
+}
+function closeNotifyContactSucess(e) {
+    if (!$notify_contact_success) return
+    $notify_contact_success.classList.remove("notify_contact-show")
+}
+function closeNotifyContactError(e) {
+    if (!$notify_contact_error) return
+    $notify_contact_error.classList.remove("notify_contact-show")
 }
       </script>
     </div>
