@@ -1,0 +1,232 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: $first-color;
+  box-shadow: 0 0 0px 1000px rgba($color: $onSecond-light-color, $alpha: 0.6) inset;
+  border: 1px solid $first-light-color;
+  transition: background-color 5000s ease-in-out 0s;
+}
+#contact-seccion-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include mediaQuery("desktop"){
+        flex-direction: row;
+        justify-content: space-around;
+        width: 90%;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+    @include mediaQuery("full"){
+        flex-direction: row;
+        justify-content: space-around;
+        width: 90%;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+
+    }
+}
+.contact-container{
+    display: block;
+    @include mediaQuery("desktop"){
+        display: flex;
+    justify-content: center;
+    }
+    @include mediaQuery("full"){
+       display: flex;
+    justify-content: center;
+
+    }
+    
+}
+.contact_banner{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    @include mediaQuery("desktop"){
+        flex-basis: 60%;
+    }
+    @include mediaQuery("full"){
+        flex-basis: 60%;
+    }
+    &_title{
+        font-family: "font-primary-title-1";
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        text-align: center;
+        color: $second-light-color;
+    }
+    &_subtitle{
+        font-family: "font-primary-subtitle-2";
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        text-align: center;
+        color: $second-light-color;
+        margin-bottom: 0.8rem;
+    }
+    &_text{
+        display: none;
+        font-family: "font-primary-text-2";
+        font-size: 1.1rem;
+        text-align: center;
+        @include mediaQuery("mobil-landscape"){
+            display: block;
+            margin: 0 auto;
+            width: 90%;
+        }
+        @include mediaQuery("tablet-portrait"){
+            display: block;
+            margin: 0 auto;
+            width: 80%;
+
+        }
+        @include mediaQuery("tablet-landscape"){
+            display: block;
+            margin: 0 auto;
+            width: 60%;
+        }
+        @include mediaQuery("desktop"){
+            display: block;
+            margin: 0 auto;
+            width: 80%;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+        @include mediaQuery("full"){
+            display: block;
+            margin: 0 auto;
+            width: 80%;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+    }
+    &_image{
+        display: none;
+        width: 570px;
+        height: 369px;
+        background-image: url("../assets/illustrations/contact-2.svg");
+        @include mediaQuery("desktop"){
+            display: block;
+            margin: 0 auto;
+        }
+        @include mediaQuery("full"){
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}
+.contact_form{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    border: 1.5px solid $second-light-color;
+    width: 100%;
+    min-height: 420px;
+    max-height: 500px;
+    margin: 0 auto;
+    @include mediaQuery("desktop"){
+        flex-basis: 30%;
+        margin-right: 3rem;
+        margin-top: 2rem;
+    }
+    @include mediaQuery("full"){
+        flex-basis: 30%;
+        margin-right: 3rem;
+        margin-top: 2rem;
+ 
+    }
+    @include mediaQuery("mobil-landscape"){
+        width: 65%;
+    }
+    @include mediaQuery("tablet-portrait"){
+        width: 55%;
+    }
+    @include mediaQuery("tablet-landscape"){
+        width: 55%;
+    }
+    @include mediaQuery("desktop"){
+        width: 35%;
+    }
+    @include mediaQuery("full"){
+        width: 35%;
+    }
+    &_group{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-bottom: 1rem;
+        label{
+            font-family:"font-primary-control-1";
+            font-size: 1rem;
+            text-transform: capitalize;
+            color: $second-light-color;
+            &.terms{
+                font-family:"font-primary-control-1";
+                font-size: 0.9rem;
+                padding-left: 0.4rem;
+                color:$second-light-color;
+                font-size: 0.8rem;
+            }
+        }
+        input[type="checkbox"]{
+            width: 18px;
+            height: 18px;
+        }
+        input[type="text"]{
+            text-transform: capitalize;
+        }
+        input[type="text"],
+        input[type="email"]{
+            min-height: 2.5rem;
+            font-family:"font-primary-control-1";
+            font-size: 0.95rem;
+            background-color: rgba($color: $onSecond-light-color, $alpha: 0.6);
+            border: 1px solid $first-light-color;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            color:$first-color;
+            &:focus{
+                outline: none;
+                border: 1px solid $first-color;
+            }
+        }
+        textarea{
+            min-height: 7rem;
+            font-family:"font-primary-control-1";
+            font-size: 0.95rem;
+            background-color: rgba($color: $onSecond-light-color, $alpha: 0.6);
+            border: 1px solid $first-light-color;
+            resize: none;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            color:$first-color;
+
+            &:focus{
+                outline: none;
+                border: 1px solid $first-color;
+            }
+        }
+        p{
+            font-family:"font-primary-control-1";
+            font-size: 0.9rem;
+            padding-left: 0.4rem;
+            color:$second-light-color;
+        }
+        &-row{
+            flex-direction: row;
+            justify-content: center;
+        }
+        &-submit{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            button{
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+    }
+}

@@ -5,14 +5,43 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet" href="./styles/index.css")
+    link(rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon")
     title Contact
-  body 
+  body
+    include components/menu.pug
+    include components/notifyContact_Success.pug
+    include components/notifyContact_Error.pug
     div(class="layout-container")
       include components/header.pug
       aside
         include components/navbar.pug
-      main
-        seccion
+      main(class="autofill contact-container")
+        seccion(class="seccion" id="contact-seccion-form")
+          div(class="contact_banner")
+            h1(class="contact_banner_title") contact me
+            p(class="contact_banner_subtitle") drop your message
+            p(class="contact_banner_text") If you like what I do and have any suggestions, comments, or feedback, feel free to contact me and share it.
+            div(class="contact_banner_image")
+          form(class="contact_form" id="contact_form")
+            div(class="contact_form_group")
+              label(for="name") name
+              input(name="name" id="name" type="text" placeholder="type your name..." maxLength="35" required)
+              p *This field is require
+            div(class="contact_form_group")
+              label(for="email") email
+              input(name="email" id="email" type="email" placeholder="Type Your Email Address..." required)
+              p *This field is require
+            div(class="contact_form_group")
+              label(for="message") message
+              textarea(name="message" id="message" placeholder="Type Your Message..." maxLength="500" required)
+              p *This field is require
+            div(class="contact_form_group contact_form_group-row")
+              input(type="checkbox" name="check_terms" id="check_terms" required)
+              label(class="terms" for="check_terms") I agree to the #[strong terms and conditions]
+            div(class="contact_form_group contact_form_group-submit")
+              button(class="button" type="submit" form="contact_form" id="btn_send_message") send message
       include components/footer.pug
+      script(type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js")
       script
         include ../js/index.js
+        include ../js/contact.js

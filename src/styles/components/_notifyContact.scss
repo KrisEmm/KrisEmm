@@ -1,0 +1,79 @@
+.notify_contact{
+    display: none;
+    position: fixed;
+    top:0px;
+    z-index: 2;
+    height: 100vh;
+    background-color: rgba($color: $second-color, $alpha: 0.8);   
+    &-show{
+        display: block;
+    }
+    &_container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    &_content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: $background-color;
+        padding: 1rem;
+        width: 95%;
+        @include mediaQuery("desktop"){
+            width: 70%;
+        } 
+        @include mediaQuery("full"){
+            width: 70%;
+
+        }
+            &_header{
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                p{
+                    font-family: "font-primary-title-1";
+                    font-size: 1.1rem;
+                    text-align: center;
+                    color: $second-light-color;
+                    text-transform: uppercase;
+                    @include mediaQuery("desktop"){
+                        font-size: 1.3rem;
+                    } 
+                    @include mediaQuery("full"){
+                        font-size: 1.25rem;
+                    } 
+                }
+            }
+            &_body{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                img{
+                    width: 100px;
+                    height: 100px;
+                    margin-bottom: 1rem;
+                }
+                p{
+                    font-family: "font-primary-title-2";
+                    font-size: 1.1rem;
+                    text-align: center;
+                    color: $second-light-color;
+
+                }
+
+            }
+            &_footer{
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+    }
+}
