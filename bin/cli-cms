@@ -1,0 +1,118 @@
+#!/usr/bin/env node
+const axios = require('axios');
+const cfonts = require('cfonts');
+const low = require('lowdb');
+const FileSync = require('lowdb/adapters/FileSync');
+const { program } = require('commander');
+const inquirer = require('inquirer');
+const { Project, Exercise } = require("./models.js");
+const github_url = "https://api.github.com/repos/";
+
+const adapter = new FileSync("./src/data/db.json");
+const db = low(adapter);
+
+function banner(text) {
+    CFonts.say(`${text}`, {
+        font: 'block',
+        align: 'left',
+        colors: ['system'],
+        background: 'transparent',
+        letterSpacing: 1,
+        lineHeight: 1,
+        space: true,
+        maxLength: '0',
+        gradient: false,
+        independentGradient: false,
+        transitionGradient: false,
+        env: 'node'
+    });
+}
+program
+    .version('0.1.0')
+    .description('Content Management System in a Command Line Interface for my personal portfolio and website.')
+program
+    .addHelpText("afterAll", " Visit: https://krisemm.github.io/KrisEmm/")
+
+program
+    .command("add")
+    .option("-p, --project [name]", "add new project")
+    .option("-e, --exercise [name]", "add new exercise")
+    .description("Add new project or exercise")
+    .action((name, options, command) => {
+        //bienvenida
+        banner("Welcome")
+        console.log(options.project)
+        console.log(options.exercise)
+        console.log(name)
+        //sin no coloca option solicitar si es projecto o ejercicio
+        //solicitar nombre de usuario de github
+        //nombre de repositorio para agregar
+        //conectar a github 
+        //mostrar repo
+        //cofirmar
+        // extraer informacion repo
+        //solicitar informacion restante
+    })
+
+program
+    .command("update")
+    .arguments("<name>", "name project or exercise")
+    .option("-p, --project", "type project")
+    .option("-e, --exercise", "type exercise")
+    .description("Update project or exercise")
+    .action((name, options, command) => {
+        console.log(name)
+        console.log(options.exercise)
+        console.log(options.project)
+        console.log(command.name())
+        //bienvenida
+        //sin no coloca option solicitar si es projecto o ejercicio
+        //nombre del proyecto o ejercicio a buscar
+        //buscar en db
+        //mostrar resultado
+        //si exite seleccionar campos a modificar
+    })
+
+program
+    .command("delete")
+    .arguments("<name>", "name project or exercise")
+    .option("-p, --project", "type project")
+    .option("-e, --exercise", "type exercise")
+    .description("Delete project or exercise")
+    .action((name, options, command) => {
+        console.log(name)
+        console.log(options.exercise)
+        console.log(options.project)
+        console.log(command.name())
+        //bienvenida
+        //sin no coloca option solicitar si es projecto o ejercicio
+        //nombre del proyecto o ejercicio a eliminar
+        //buscar en db
+        //mostrar resultado
+        //si exite confirmar eliminacion
+    })
+
+program
+    .command("list")
+    .option("-p, --project", "list all project")
+    .option("-e, --exercise", "list all exercise")
+    .option("-a, --all", "list all database")
+    .option("-l, --lastest", "show lastest project")
+    .option("-c, --currently", "list all repositories currently working")
+    .description("List projects, exercises or db")
+    .action((options, command) => {
+        console.log(options.exercise)
+        console.log(options.project)
+        console.log(options.all)
+        console.log(options.lastest)
+        console.log(options.currently)
+        console.log(command.name())
+        //bienvenida
+        //sin no coloca option solicitar si es projecto o ejercicio o all etc
+        //buscar en db
+        //mostrar resultado
+    })
+
+
+
+program.parse(process.argv)
