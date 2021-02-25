@@ -5,17 +5,59 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet" href="./styles/index.css")
-    title Project Name
+    link(rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon")
+    title Name Project
   body
+    include components/menu.pug
     div(class="layout-container")
       include components/header.pug
       aside
         include components/navbar.pug
       main
-        a(class="backAction")
-          span(class="backAction_icon")
-          p(class="backAction_text")
-        seccion
+        seccion(class="seccion container_details")
+          a(class="backAction link-second" href="portfolio.html") &#8592; back
+          h1(id="page_project_title") Project
+        seccion(class="seccion container_details")
+          h2(class="project_details_project_title") Name Project
+          div(class="project_details_project_image")
+            img()
+        hr(class="line_break container_details")
+        seccion(class="seccion container_details")
+          div(class="project_details_description")
+            h2(class="project_details_description_title") Description
+            p(class="project_details_description_text") Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras maximus ligula nisl, eu iaculis purus porttitor eget. Ut augue sapien, iaculis quis porttitor sit amet, laoreet et ipsum.
+          div(class="project_details_repo")
+            h2(class="project_details_repo_title") Github Repository
+            a(class="project_details_repo_link") Readme.md
+          div(class="project_details_lenguages")
+            h2(class="project_details_lenguages_title") Lenguages
+            ul(class="project_details_lenguages_list")
+              li(class="project_details_lenguages_list_lenguage") Javascript
+          div(class="project_details_techs")
+            h2(class="project_details_techs_title") Techonologies
+            ul(class="project_details_techs_list")
+              li(class="project_details_techs_list_tech")
+          div(class="project_details_related")
+            h2(class="project_details_related_title") Projects Related
+            ul(class="project_details_related_list")
+              li(class="project_details_related_list_project")
+        seccion(class="seccion container_details")
+          details(class="project_tryout")
+            summary(class="project_tryout_title") 
+              h2 Try it out now
+            div(class="project_tryout_requirements")
+              h3(class="project_tryout_requirements_title") Requirements
+                ul(class="project_tryout_requirements_list")
+                  li(class="project_tryout_requirements_list_requirement")            
+            div(class="project_tryout_install")
+              h3(class="project_tryout_install_title") How to install
+              div(class="project_tryout_install_info")            
+            div(class="project_tryout_run")
+              h3(class="project_tryout_run_title") How to Run
+              div(class="project_tryout_run_info")           
+
+
+
       include components/footer.pug
       script
         include ../js/index.js
