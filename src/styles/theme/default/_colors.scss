@@ -11,7 +11,7 @@ $palette-primary: (
     "lightSecond": #383E45,
     "darkSecond": #232931,
 
-    "onSeconc": #C4C4C4,
+    "onSecond": #C4C4C4,
     "onLightSecond": #E8E8E8,
     "onDarkSecond": #909090,
 
@@ -31,7 +31,6 @@ $palette-primary: (
     "orange": #FC8F2B,
     "green": #2BFC4C,
     "cyan": #2BFCB1,
-    "gray": #D2D2D2,
 );
 
 $first-color:map-get($map: $palette-primary, $key:"first" );
@@ -56,4 +55,13 @@ $surface-color:map-get($map: $palette-primary, $key:"surface" );
 $onBackground-color:map-get($map: $palette-primary, $key:"onBackground" );
 $onSurface-light-color:map-get($map: $palette-primary, $key:"OnSurface" );
 
-$gray-color:map-get($map: $palette-primary, $key:"gray" );
+$red-color:map-get($map: $palette-primary, $key:"red" );
+$pink-color:map-get($map: $palette-primary, $key:"pink" );
+$purple-color:map-get($map: $palette-primary, $key:"purple" );
+$violet-color:map-get($map: $palette-primary, $key:"violet" );
+$dark-blue-color:map-get($map: $palette-primary, $key:"dark-blue" );
+$blue-color:map-get($map: $palette-primary, $key:"blue" );
+$yellow-color:map-get($map: $palette-primary, $key:"yellow" );
+$orange-color:map-get($map: $palette-primary, $key:"orange" );
+$green-color:map-get($map: $palette-primary, $key:"green" );
+$cyan-color:map-get($map: $palette-primary, $key:"cyan" );
