@@ -5,22 +5,170 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet" href="./styles/index.css")
-    title About
+    link(rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon")
+    title(class="notranslate") About Me
   body
+    include components/logos_frontend.pug
+    include components/logos_backend.pug
+    include components/menu.pug
     div(class="layout-container")
       include components/header.pug
       aside
         include components/navbar.pug
       main
-        seccion
-        seccion
-        seccion
-        seccion
-        seccion
-        seccion
-        seccion
-        seccion
-        seccion
+        seccion(class="seccion" id="about-seccion-banner")
+          include components/bannerAbout.pug
+        hr(class="line_break")
+        seccion(class="seccion" id="about-seccion-generalInfo")
+          div(class="about-seccion-title")
+            h1 general information
+          div(class="generalInfo")
+            div(class="generalInfo_group")  
+              p(class="generalInfo_group_title") Full name
+              p(class="generalInfo_group_subtitle") Cristian Emmanuel Castillo Medina
+            div(class="generalInfo_group")
+              p(class="generalInfo_group_title") From
+              p(class="generalInfo_group_subtitle") México
+            div(class="generalInfo_group") 
+              p(class="generalInfo_group_title") Languages
+              p(class="generalInfo_group_subtitle") Spanish
+            div(class="generalInfo_group") 
+              p(class="generalInfo_group_title") Hobbies
+            div(class="generalInfo_likes")
+              div(class="generalInfo_likes_item huhu_up")
+                img(src="./assets/illustrations/grill.svg")
+                p grill
+              div(class="generalInfo_likes_item huhu_down")
+                img(src="./assets/illustrations/cooking.svg")
+                p cooking     
+              div(class="generalInfo_likes_item huhu_up") 
+                img(src="./assets/illustrations/basketball.svg")
+                p basketball
+              div(class="generalInfo_likes_item huhu_down") 
+                img(src="./assets/illustrations/movies.svg")
+                p action movies
+        hr(class="line_break")
+        seccion(class="seccion" id="about-seccion-whoIam")
+          div(class="about-seccion-title")
+            h1 Who I am
+          div(class="whoIam")
+            div(class="whoIam_text")
+              p I am an engineer and industrial robots programmer. I have participated in automation projects and robots maintenance and programming services for companies in the automotive sector such as:
+            div(class="whoIam_image")
+        hr(class="line_break")
+        seccion(class="seccion" id="about-seccion-newJob")
+          div(class="about-seccion-title")
+            h1 However
+          div(class="newJob")
+            div(class="newJob_text")
+              p My passion is creating web applications and software development. I love to practice and learn new web programming technologies and languages. And I have developed some personal projects that are posted on this website.
+            div(class="newJob_group")
+              div(class="newJob_group_skills")
+                p(class="newJob_group_skills_role notranslate" id="role") Frontend
+                p(class="newJob_group_skills_lenguages_technologies notranslate" id="tool") Javascript
+              div(class="newJob_group_image")
+                <svg id="path-robot-1" width="47" height="158" viewBox="0 0 47 158" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 0V90L46.5 110V157.5"/>
+                </svg>
+                <svg id="path-robot-2"width="240" height="108" viewBox="0 0 240 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.5 0.5C1.7 1.3 6.33333 44.5 8.5 66L186.5 72.5L239.5 107"/>
+                </svg>
+                <svg class="object-1" role="img" title="css_logo">
+                  <use id="obj_1" href="#js"/>
+                </svg>
+                <svg class="object-2" role="img" title="css_logo">
+                  <use id="obj_2"/>
+                </svg>
+        hr(class="line_break")
+        seccion(class="seccion" id="about-seccion-score")
+          div(class="about-seccion-title")
+            h1 Personal score
+          div(class="score")
+            div(class="score_group")
+              div(class="score_group_number") 
+                p 00
+              div(class="score_group_activity") 
+                p Personal Projects
+            div(class="score_group")
+              div(class="score_group_number") 
+                p 00
+              div(class="score_group_activity") 
+                p Github Repos
+            div(class="score_group")
+              div(class="score_group_number")  
+                p 00
+              div(class="score_group_activity") 
+                p Websites
+            div(class="score_group")
+              div(class="score_group_number") 
+                p 00
+              div(class="score_group_activity") 
+                p Years Practicing
+        hr(class="line_break" id="lastest-project")
+        seccion(class="seccion" id="about-seccion-project")
+          div(class="about-seccion-title")
+            h1 Latest Project
+            a(class="link link-second-decorated" href="portfolio.html") View All Projects
+          div(class="project")
+            div(class="project_info")
+              a(class="project_info_name link link-second" href="#") project name
+            div(class="project_image")
+            div(class="project_info")
+              p(class="project_info_skills") technologies and lenguages
+              p(class="project_info_description") Donec et viverra odio. Fusce nec pretium nunc. Nulla eu odio ac libero dapibus commodo. Nullam egestas lacinia nulla, vitae dapibus ex facilisis at. In in nisi convallis, tempus nisi non, gravida.
+              a(class="project_info_source link link-second" href="#") source
+        hr(class="line_break")
+        seccion(class="seccion" id="about-seccion-repos")
+          div(class="about-seccion-title")
+            h1 Github Repos
+            a() Currently working with:
+          ul(class="repos")
+            li(class="repos_repo")
+              div(class="repos_repo_icon")
+                include components/push-pin.pug
+              div(class="repos_repo_info")
+                a(class="repos_repo_info_name link link-second" href="project.html") 
+                  span(class="repos_repo_info_name_icon") 
+                    include components/push-pin.pug
+                  span project name
+                p(class="repos_repo_info_skills") technologies and lenguages
+              div(class="repos_repo_source")
+                a(class="link link-second-decorated" href="#") source
+            li(class="repos_repo")
+              div(class="repos_repo_icon")
+                include components/push-pin.pug
+              div(class="repos_repo_info")
+                a(class="repos_repo_info_name link link-second" href="#") 
+                  span(class="repos_repo_info_name_icon") 
+                    include components/push-pin.pug
+                  span project name
+                p(class="repos_repo_info_skills") technologies and lenguages
+              div(class="repos_repo_source")
+                a(class="link link-second-decorated" href="#") source
+            li(class="repos_repo")
+              div(class="repos_repo_icon")
+                include components/push-pin.pug
+              div(class="repos_repo_info")
+                a(class="repos_repo_info_name link link-second" href="#") 
+                  span(class="repos_repo_info_name_icon") 
+                    include components/push-pin.pug
+                  span project name
+                p(class="repos_repo_info_skills") technologies and lenguages
+              div(class="repos_repo_source")
+                a(class="link link-second-decorated" href="#") source
+        hr(class="line_break")
+        seccion(class="seccion" id="about-seccion-contact")
+          div(class="about_contact")
+            div(class="about_contact_title")
+              p(class="about_contact_title-left notranslate") It is always good to learn new
+              p(class="about_contact_title-right notranslate") things and improve every day
+            div(class="about_contact_group")
+              div(class="about_contact_group_image")
+              div(class="about_contact_group_text")
+                p If you like what I do and have any suggestions, comments, or feedback, feel free to contact me and share it.
+                div(class="about_contact_group_text_button")
+                  a(class="button" href="contact.html") Drop your message
       include components/footer.pug
-      script
-        include ../js/index.js
+  script
+    include ../js/index.js
+    include ../js/about.js

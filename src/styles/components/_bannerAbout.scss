@@ -1,0 +1,74 @@
+.bannerAbout{
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    &_image{
+        background-image: url("../assets/illustrations/robot-me-mobil-portrait.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 273px;
+        height: 483.5px;
+        margin-right: 16px;
+        @include mediaQuery("mobil-landscape"){
+            background-image: url("../assets/illustrations/robot-me-mobil-landscape.svg");
+            width: 414px;
+            height: 483.5px;
+            margin-right: 0px;
+        }
+        @include mediaQuery("tablet-portrait"){
+            background-image: url("../assets/illustrations/robot-me-tablet-portrait.svg");
+            width: 687px;
+            height: 587px;
+            margin-right: 0px;
+
+        }
+        @include mediaQuery("tablet-landscape"){
+            background-image: url("../assets/illustrations/robot-me-tablet-landscape.svg");
+            width: 774px;
+            height: 587px;
+            margin-right: 0px;
+
+        }
+        @include mediaQuery("desktop"){
+            background-image: url("../assets/illustrations/robot-me-desktop.svg");
+            width: 1011px;
+            height: 547px;
+            margin-right: 0px;
+
+        }
+        @include mediaQuery("full"){
+            background-image: url("../assets/illustrations/robot-me-desktop.svg");
+            width: 1011px;
+            height: 547px;
+            margin-right: 0px;
+
+        }
+    }
+    &_cv{
+        position: absolute;
+        bottom:-15px;
+        @include mediaQuery("mobil-portrait"){
+            left: 90px;
+        }
+        @include mediaQuery("mobil-landscape"){
+            bottom: -15px;
+            left: 160px;
+        }
+        @include mediaQuery("tablet-portrait"){
+            bottom: 100px;
+            right: 100px;
+        }
+        @include mediaQuery("tablet-landscape"){
+            bottom: 100px;
+            right: 100px;
+        }
+        @include mediaQuery("desktop"){
+            bottom: 100px;
+            right: 250px;
+        }
+        @include mediaQuery("full"){
+            bottom: 100px;
+            right: 250px;
+        }
+    }
+}
