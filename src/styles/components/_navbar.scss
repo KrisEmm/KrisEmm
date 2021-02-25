@@ -2,8 +2,9 @@ aside{
     transform: rotateZ(-90deg);
     position: fixed;
     top: 50%;
-    left: -196px;
+    left: -210px;
     display: none;
+    user-select: none;
     @include mediaQuery("desktop"){
         display: block;
     }
