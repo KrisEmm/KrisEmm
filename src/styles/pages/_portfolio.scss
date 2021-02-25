@@ -1,0 +1,245 @@
+details[open]{
+   summary[class="projects_list_project_header"]{
+       @include mediaQuery("tablet-landscape"){
+           pointer-events: none;
+       }
+       @include mediaQuery("desktop"){
+           pointer-events: none;
+       }
+       @include mediaQuery("full"){
+           pointer-events: none;
+       }
+       .projects_list_project_header_toogle{
+           svg{
+               transform: rotateZ(180deg);
+           }
+       }
+   }
+}
+#portfolio-seccion-projects{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+.projects_title{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    @include mediaQuery("desktop"){
+        margin-top: 2.5rem;
+    }
+    @include mediaQuery("desktop"){}
+    h1{
+        font-family: "font-primary-title-1";
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        text-align: center;
+        color: $second-light-color;
+        user-select: none;
+    }
+}
+.projects_filter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 20rem;
+    user-select: none;
+    input[type="search"]{
+        min-height: 2rem;
+        font-family: "font-primary-title-3";
+        font-size: 1.2rem;
+        background-color: $background-color;
+        border: none;
+        border-bottom: 1.5px solid $first-dark-color;
+        color: $second-light-color;
+        margin-bottom: 1rem;
+        width: 90%;
+        appearance: none;
+        text-align: center;
+        // &::-webkit-search-cancel-button{
+        //     display: none;
+        // }
+        &::placeholder{
+            color: $second-light-color;
+            text-align: center;
+        }
+        &:focus{
+            outline: none;
+        }
+        }
+}
+.projects_filter_result{
+    p{
+        font-family: "font-primary-title-2";
+        font-size: 1.5rem;
+        text-transform: capitalize;
+        color: $first-dark-color; 
+    }
+}
+.projects_tabs{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    &_tab{
+        font-family: "font-primary-title-3";
+        font-size: 1.1rem;
+        margin-right: 1rem;
+        cursor: pointer;
+        user-select: none;
+        color: $second-light-color;
+        &-selected{
+            text-decoration: underline;
+        }
+    }
+    :last-child{
+            margin-right: 0rem;
+    }
+    
+}
+.projects_list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    @include mediaQuery("mobil-landscape"){
+        width: 85%;
+    }
+    @include mediaQuery("tablet-portrait"){
+        width: 75%;
+    }
+    @include mediaQuery("tablet-landscape"){
+        width: 90%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    @include mediaQuery("desktop"){
+        width: 95%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    @include mediaQuery("full"){
+        width: 95%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    &_project{
+        margin-bottom: 1rem;
+        background-color: $surface-color;
+        padding: 0.5rem 1rem;
+        min-width: 250px;
+
+        @include mediaQuery("tablet-landscape"){
+            min-width: 350px;
+            max-width: 400px;
+            flex-basis: 40%;
+        }
+        @include mediaQuery("desktop"){
+             min-width: 400px;
+            max-width: 550px;
+            flex-basis: 40%;
+        }
+        @include mediaQuery("full"){
+            min-width: 400px;
+            max-width: 550px;
+            flex-basis: 40%;
+        }
+        summary::-webkit-details-marker{
+            display: none;
+        }
+        summary:focus{
+            outline: none;
+        }
+        &_header{
+            display: flex;
+            flex-direction: column;
+            user-select: none;
+            &_title{
+                display: flex;
+                align-items: center;
+                user-select: none;
+                svg{
+                    width: 40px;                    
+                    height: 40px;
+                }
+                &_name{
+                font-family: "font-primary-title-2";
+                font-size: 1.1rem;
+                text-transform: capitalize;
+                color: $second-color;
+                    @include mediaQuery("tablet-landscape"){
+                        pointer-events: visible;
+                    }
+                    @include mediaQuery("desktop"){
+                        pointer-events: visible;
+                    }
+                    @include mediaQuery("full"){
+                        pointer-events: visible;
+                    }
+                }
+            }
+            &_skills{
+                font-family: "font-primary-title-3";
+                font-size: 1rem;
+                text-transform: capitalize;
+                user-select: none;
+                color: $second-light-color;
+            }
+            &_toogle{
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                @include mediaQuery("tablet-landscape"){
+                    display: none;
+                }
+                @include mediaQuery("desktop"){
+                    display: none;
+                }
+                @include mediaQuery("full"){
+                    display: none;
+                }
+                svg{
+                    width: 20px;
+                    height: 20px;
+                    color: $first-dark-color;
+                }
+            }
+        }
+        &_body{
+            &_text{
+                font-family: "font-primary-text-2";
+                font-size: 1.05rem;
+                color: $second-light-color;
+            }
+        }
+        &_footer{
+            display: flex;
+            justify-content: space-between;
+            &_link{
+                font-family: "font-primary-control-1";
+                font-size: 1rem;
+                padding: 0.8rem;
+                color: $first-dark-color;
+            }
+            &_status{
+                font-family: "font-primary-control-1";
+                font-size: 0.9rem;
+                padding: 0.8rem;
+                color: $first-dark-color;
+                margin-right: 1.5rem;
+                @include mediaQuery("mobil-portrait"){
+                    margin-right: 0.5rem;
+                }
+                span{
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+    
+}
+.filtered{
+  display: none;
+}
