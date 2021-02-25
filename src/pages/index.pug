@@ -13,12 +13,12 @@ html(lang="en")
       include components/header.pug
       aside
         include components/navbar.pug
-      main
+      main(class="autofill")
         seccion(class="seccion" id="home-seccion-banner")
           include components/bannerHome.pug
         seccion(class="seccion" id="home-seccion-readAboutMe")
           h1 Would you like to read about me ?
-          a(class="button" title="Go to About" href="#") click here
+          a(class="button" href="about.html") click here
       include components/footer.pug
       script
         include ../js/index.js
