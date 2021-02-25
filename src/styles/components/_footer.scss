@@ -1,6 +1,211 @@
 .footer{
     background-color: $second-color;
-    // &_body{}
+    user-select: none;
+    &_body{
+        display: none;
+        @include mediaQuery("desktop"){
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            width: 90%;
+        }
+        @include mediaQuery("full"){
+             margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            width: 90%;
+        }
+        &_seccion{
+            @include mediaQuery("desktop"){
+                flex-basis: 25%;
+                padding: 1rem;
+                margin: 1.5rem;
+            }
+            @include mediaQuery("full"){
+                flex-basis: 25%;
+                padding: 1rem;
+                margin: 1.5rem;
+            }
+        }
+        &-whoIAm{
+           h1{
+                @include mediaQuery("desktop"){
+                    margin-bottom: 0.6rem;
+                    color: $first-light-color;
+                    padding-left: 3rem;
+                    font-family: "font-auxiliary-3";
+                    font-size: 1.2rem;
+                    text-transform: capitalize;
+                }
+                @include mediaQuery("full"){
+                     font-family: "font-auxiliary-3";
+                    margin-bottom: 0.6rem;
+                    color: $first-light-color;
+                    padding-left: 3rem;
+                    font-size: 1.2rem;
+                    
+                }
+           }
+           p{
+                @include mediaQuery("desktop"){
+                    color: $first-light-color;
+                    font-family: "font-primary-text-2";
+                    font-size: 1rem;
+                    margin-bottom: 0.5rem;
+                    }
+                    @include mediaQuery("full"){
+                       color: $first-light-color;
+                       font-family: "font-primary-text-2";
+                       font-size: 1rem;
+                    margin-bottom: 0.5rem;
+                    } 
+           }
+           a{
+                @include mediaQuery("desktop"){
+                    color: $first-light-color;
+                    font-family: "font-primary-text-2";
+                    font-size: 1rem;
+                    margin-bottom: 0.5rem;
+                    padding-left: 2rem;
+
+                    }
+                    @include mediaQuery("full"){
+                       color: $first-light-color;
+                       font-family: "font-primary-text-2";
+                       font-size: 1rem;
+                    margin-bottom: 0.5rem;
+                    padding-left: 2rem;
+                    } 
+           }
+        }
+        &-links{
+            h1{
+                @include mediaQuery("desktop"){
+                     padding-left: 4rem;
+                     margin-bottom: 0.6rem;
+                    color: $first-light-color;
+                     font-family: "font-auxiliary-3";
+                    font-size: 1.2rem;
+                }
+                @include mediaQuery("full"){
+                     padding-left: 4rem;
+                     margin-bottom: 0.6rem;
+                    color: $first-light-color;
+                     font-family: "font-auxiliary-3";
+                    font-size: 1.2rem;
+                }
+            }
+            ul{
+                @include mediaQuery("desktop"){
+                    padding-left: 4rem;
+                }
+                @include mediaQuery("full"){
+                    padding-left: 4rem;
+                } 
+                a{
+                    @include mediaQuery("desktop"){
+                    color: $first-light-color;
+                    font-family: "font-primary-text-2";
+                    font-size: 1rem;
+                    margin-bottom: 0.5rem;
+                    
+                    }
+                    @include mediaQuery("full"){
+                       color: $first-light-color;
+                       font-family: "font-primary-text-2";
+                       font-size: 1rem;
+                    margin-bottom: 0.5rem;
+
+                    } 
+                }  
+            }
+        }
+        &-contact{
+            h1{
+                @include mediaQuery("desktop"){
+                     margin-bottom: 0.6rem;
+                    color: $first-light-color;
+                    font-family: "font-auxiliary-3";
+                    font-size: 1.2rem;
+               
+                }
+                @include mediaQuery("full"){
+                        margin-bottom: 0.6rem;
+                    color: $first-light-color;
+                    font-family: "font-auxiliary-3";
+                    font-size: 1.2rem;
+                    
+                }
+           }
+           .contact_group{
+               &_email{
+                   @include mediaQuery("desktop"){
+                     display: flex;
+                     align-items: center;
+                    }
+                    @include mediaQuery("full"){
+                        display: flex;
+                        align-items: center;
+                     
+                    
+                }
+                   a{
+                       @include mediaQuery("desktop"){
+                    color: $first-light-color;
+                    font-family: "font-primary-text-2";
+                    font-size: 0.9rem;
+                    
+                    
+                }
+                @include mediaQuery("full"){
+                    color: $first-light-color;
+                    font-family: "font-primary-text-2";
+                    font-size: 0.9rem;
+                   
+
+                    } 
+                   }
+               }
+               &_phone{
+                   @include mediaQuery("desktop"){
+                     display: flex;
+                     align-items: center;
+                     
+                    }
+                    @include mediaQuery("full"){
+                        display: flex;
+                        align-items: center;
+                     
+                    
+                }
+                   span{
+                       @include mediaQuery("desktop"){
+                    color: $first-light-color;
+                    font-family: "font-primary-text-2";
+                    font-size: 0.8rem;
+                    }
+                    @include mediaQuery("full"){
+                       color: $first-light-color;
+                       font-family: "font-primary-text-2";
+                       font-size: 0.8rem;
+
+                    } 
+                   }
+               }
+               &_socialNetworksIcons{
+                    @include mediaQuery("desktop"){
+                        display: flex;
+                        padding-left: 0.5rem;
+                    }
+                    @include mediaQuery("full"){
+                        display: flex;
+                        padding-left: 0.5rem;
+
+                    } 
+               }
+           }
+        }
+    }
     &_footer{
         margin-left: 24px;
         margin-right: 24px;
