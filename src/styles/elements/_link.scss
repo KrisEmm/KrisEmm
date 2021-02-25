@@ -1,0 +1,54 @@
+.link{
+    cursor: default;
+    
+    @include mediaQueryHover(){
+        &:hover{
+            transform: scale(1.03);
+            }
+        }
+        @include mediaQueryNoHover(){
+        
+        }
+    &-first-decorated{
+        @include mediaQueryHover(){
+        &:hover{
+            color: $first-color;
+            text-decoration: underline;
+            }
+        }
+        @include mediaQueryNoHover(){
+        
+        }
+    }
+    &-second-decorated{
+        @include mediaQueryHover(){
+        &:hover{
+            color: $second-color;
+            text-decoration: underline;
+            }
+        }
+        @include mediaQueryNoHover(){
+        
+        }
+    }
+    &-second{
+        @include mediaQueryHover(){
+            &:hover{
+                color: $second-color;
+            }   
+        }
+        @include mediaQueryNoHover(){
+        
+        }
+    }
+    &-first{
+        @include mediaQueryHover(){
+        &:hover{
+            color: $onFirst-color;
+            }
+        }
+        @include mediaQueryNoHover(){
+        
+        }
+    }
+}
