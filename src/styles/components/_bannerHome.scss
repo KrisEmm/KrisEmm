@@ -70,21 +70,21 @@
         }
         &_text{
             font-family: "font-primary-text-2";
-            
+            color:$second-light-color;
             @include mediaQuery("tablet-portrait"){
-                font-size: 16px;
+                font-size: 1rem;
                 width: 340px;
             }
             @include mediaQuery("tablet-landscape"){
-                font-size: 20px;
+                font-size: 1.2rem;
                 width: 400px;
             }
             @include mediaQuery("desktop"){
-                font-size: 21px;
+                font-size: 1.2rem;
                 width: 630px;
             }
             @include mediaQuery("full"){
-                font-size: 21px;
+                font-size: 1.2rem;
                 width: 630px;
             }
         }
@@ -106,7 +106,7 @@
         }
         h1{
             font-family: "font-primary-subtitle-2";
-            color:$second-color;
+            color:$second-light-color;
             margin-bottom: 1rem;
             font-size: 1.5rem;
         }
@@ -122,7 +122,7 @@
         @include mediaQuery("tablet-portrait"){
             display: inline-block;
             position: absolute;
-            top: 345px;
+            top: 350px;
             left: 10px;
         }
         @include mediaQuery("tablet-landscape"){
