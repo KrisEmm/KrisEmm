@@ -1,0 +1,192 @@
+summary:focus{
+    outline: none;
+}
+#page_project_title{
+    font-family: "font-primary-title-1";
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: $second-light-color;
+    user-select: none;
+}
+.container_details{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    @include mediaQuery("mobil-landscape"){
+        width: 80%;
+    }
+    @include mediaQuery("tablet-portrait"){
+        width: 80%;
+    }
+    @include mediaQuery("tablet-landscape"){
+        width:75%;
+    }
+    @include mediaQuery("desktop"){
+        width: 75%;
+    }
+    @include mediaQuery("full"){
+        width: 75%;
+    }
+}
+.backAction{
+    display:flex;
+    align-items: center;
+    padding: 0.5rem;
+    font-size: 1.15rem;
+    font-family: "font-primary-control-1";
+    color:$first-color; 
+}
+.project_details_project{
+    margin-bottom: 1rem;
+    &_title{
+        font-family: "font-primary-title-3";
+        font-size: 1.15rem;
+        color:$second-light-color;
+        text-align: center;
+        
+    }
+    // &_image{}
+}
+.project_details_description{
+    margin-bottom: 1rem;
+
+    &_title{
+        font-family: "font-primary-title-3";
+        font-size: 1.1rem;
+        color:$second-light-color;
+
+    }
+    &_text{
+        font-family: "font-primary-text-2";
+        font-size: 1.1rem;
+        color:$second-color;
+         padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
+.project_details_repo{
+    margin-bottom: 1rem;
+
+    &_title{
+        font-family: "font-primary-title-3";
+        font-size: 1.1rem;
+        color:$second-light-color;
+
+        
+    }
+    &_link{
+        font-family: "font-primary-text-2";
+        font-size: 1.1rem;
+        color:$second-color;
+         padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
+.project_details_lenguages{
+    margin-bottom: 1rem;
+
+    &_title{
+        font-family: "font-primary-title-3";
+        font-size: 1.1rem;
+        color:$second-light-color;
+        
+    }
+    &_list{
+        font-family: "font-primary-text-2";
+        font-size: 1.1rem;
+        color:$second-color;
+         padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        list-style: none;
+    }
+}
+.project_details_techs{
+    margin-bottom: 1rem;
+
+    &_title{
+        font-family: "font-primary-title-3";
+        font-size: 1.1rem;
+        color:$second-light-color;
+        user-select: none;
+    }
+    &_list{
+        font-family: "font-primary-text-2";
+        font-size: 1.1rem;
+        color:$second-color;
+         padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        list-style: none;
+    }
+}
+.project_details_related{
+    margin-bottom: 1rem;
+
+    &_title{
+        font-family: "font-primary-title-3";
+        font-size: 1.1rem;
+        color:$second-light-color;
+        user-select: none;
+    }
+    &_list{
+        font-family: "font-primary-text-2";
+        font-size: 1.1rem;
+        color:$second-color;
+         padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        list-style: none;
+    }
+}
+.project_tryout{
+    margin-bottom: 1rem;
+    &_title{
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding-left: 0.5rem;
+        h2{
+            font-family: "font-primary-title-3";
+            font-size: 1.2rem;
+            color:$second-light-color;
+            user-select: none;
+        }
+        
+    }
+    &_requirements{
+        margin-bottom: 1rem;
+        padding-left: 0.5rem;
+        &_title{
+            font-family: "font-primary-title-3";
+            font-size: 1.1rem;
+            color:$second-light-color;
+        }
+        &_list{
+             font-family: "font-primary-text-2";
+            font-size: 1.1rem;
+            color:$second-color;
+            list-style: none;
+        }
+    }
+    &_install{
+        margin-bottom: 1rem;
+        padding-left: 0.5rem;
+
+        &_title{
+            font-family: "font-primary-title-3";
+            font-size: 1.1rem;
+            color:$second-light-color;
+        }
+        
+    }
+    &_run{
+        margin-bottom: 1rem;
+        padding-left: 0.5rem;
+
+        &_title{
+            font-family: "font-primary-title-3";
+            font-size: 1.1rem;
+            color:$second-light-color;
+        }
+       
+    }
+}
