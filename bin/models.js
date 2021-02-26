@@ -5,51 +5,54 @@ module.exports = {
         this.image_url = ""
         this.technologies = []
         this.lenguages = []
-        this.source_url = ""
+        this.code_url = ""
         this.status = ""
     },
     LastestRepos: function () {
         this.name = ""
         this.technologies = []
         this.lenguages = []
-        this.source_url = ""
+        this.code_url = ""
         this.status = ""
     },
     Project: function () {
         this.id = ""
+        this.type = ""
         this.registeredAt = ""
         this.name = ""
         this.description = ""
         this.image_url = ""
         this.technologies = []
         this.lenguages = []
-        this.source_url = ""
+        this.code_url = ""
         this.status = ""
-        this.repos_related = {
-            name: "",
-            url: ""
-        }
+        this.repos_related = [
+            {
+                name: "",
+                url: ""
+            }
+        ]
         this.requirements = []
         this.install = ""
         this.run = ""
     },
     Exercise: function () {
         this.id = ""
+        this.type = ""
         this.registeredAt = ""
         this.name = ""
         this.description = ""
         this.image_url = ""
         this.technologies = []
         this.lenguages = []
-        this.source_url = ""
+        this.code_url = ""
         this.status = ""
         this.repos_related = {
             name: "",
             url: ""
         }
-        this.type = ""
         this.reference = {
-            type: "",
+            source: "",
             url: ""
         }
         this.requirements = []

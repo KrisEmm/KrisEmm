@@ -3,11 +3,8 @@
     "version": "0.0.1",
     "license": "MIT",
     "homepage": "https://krisemm.github.io/KrisEmm/",
-    "bin": {
-        "cms": "./bin/cli-cms"
-    },
     "scripts": {
-        "cms": "node ./bin/cli-cms",
+        "cms": "node ./bin/cli-cms.js",
         "build": "gulp prod",
         "clean": "rm -rf public/",
         "dev": "gulp dev",

@@ -1,8 +1,22 @@
 {
-    "websites": 0,
-    "years_experience": 0,
-    "projects_length": 0,
-    "repos_length": 0,
+    "user": {
+        "full_name": "",
+        "github_username": "",
+        "phone": "",
+        "email": "",
+        "social": {
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+        },
+        "from": "",
+        "languages": "",
+        "hobbies": "",
+        "experence": "",
+        "websites": 0,
+        "projects_length": 0,
+        "repos_length": 0
+    },
     "lastest_project": {},
     "lastest_repos": [],
     "exercises": [],
