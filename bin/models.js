@@ -4,14 +4,14 @@ module.exports = {
         this.description = ""
         this.image_url = ""
         this.technologies = []
-        this.lenguages = []
+        this.languages = []
         this.code_url = ""
         this.status = ""
     },
     LastestRepos: function () {
         this.name = ""
         this.technologies = []
-        this.lenguages = []
+        this.languages = []
         this.code_url = ""
         this.status = ""
     },
@@ -23,7 +23,7 @@ module.exports = {
         this.description = ""
         this.image_url = ""
         this.technologies = []
-        this.lenguages = []
+        this.languages = []
         this.code_url = ""
         this.status = ""
         this.repos_related = [
@@ -44,7 +44,7 @@ module.exports = {
         this.description = ""
         this.image_url = ""
         this.technologies = []
-        this.lenguages = []
+        this.languages = []
         this.code_url = ""
         this.status = ""
         this.repos_related = {

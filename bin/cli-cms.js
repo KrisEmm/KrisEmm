@@ -8,17 +8,82 @@ const FileSync = require('lowdb/adapters/FileSync');
 const { program } = require('commander');
 const inquirer = require('inquirer');
 const { Project, Exercise } = require("./models.js");
+const { isArray } = require('util');
 
 const adapter = new FileSync("./src/data/db.json");
 const db = low(adapter);
 const maxLengthToLastestRepos = 3;
 const questions = {
+    type: {
+        type: "list",
+        name: "name",
+        message: "Select the type repository",
+        choices: ["project", "exercise"],
+    },
+    list: {
+        type: "list",
+        name: "option",
+        message: "Select a option to list",
+        choices: ["user", "projects", "exercises", "lastest_project", "lastest_repos", "all"],
+    },
+    update: {
+        list: {
+            type: "list",
+            name: "option",
+            message: "Select a option to update",
+            choices: ["user", "project", "exercise"],
+        },
+        repo: {
+            type: "input",
+            name: "name",
+            message: "Do you want to search by this name ?",
+            validate: (input) => input != "" ? true : "Please type a name",
+        },
+        OneMoreConfirm: {
+            type: "confirm",
+            name: "update",
+            message: "Do you want to add one more??",
+        },
+        user: {
+            type: "list",
+            name: "user",
+            message: "Select field to update",
+        },
+        project: {
+            type: "list",
+            name: "project",
+            message: "Select field to update",
+        },
+        exercise: {
+            type: "list",
+            name: "exercise",
+            message: "Select field to update",
+        },
+    },
+    delete: {
+        repo: {
+            type: "input",
+            name: "repo_name",
+            message: "Do you want to search by this name ?",
+            validate: (input) => input != "" ? true : "Please type a name",
+        },
+        confirm: {
+            type: "confirm",
+            name: "delete",
+            message: "Are you sure you want to delete it ?",
+        },
+        list: {
+            type: "list",
+            name: "repo_selected",
+            message: "Select manually the project or exercise to delete",
+        },
+    },
     add: {
         user: {
             type: "input",
             name: "user_name",
             message: "type your github username",
-            default: "KrisEmm",
+            default: db.get("user.github_username").value(),
             validate: (input) => input != "" ? true : "Please type a github username",
         },
         repo: {
@@ -31,12 +96,6 @@ const questions = {
             type: "confirm",
             name: "isRepoWantToSave",
             message: "Is this the repository you would like to add ?",
-        },
-        type: {
-            type: "list",
-            name: "name",
-            message: "what type is the repository you want to add ?",
-            choices: ["project", "exercise"],
         },
         project: {
             status: {
@@ -78,7 +137,7 @@ const questions = {
             addMoreConfirm: {
                 type: "confirm",
                 name: "add",
-                message: "do you want to add one more??",
+                message: "Do you want to add one more??",
             },
         },
         exercise: {
@@ -121,7 +180,7 @@ const questions = {
             addMoreConfirm: {
                 type: "confirm",
                 name: "add",
-                message: "do you want to add one more??",
+                message: "Do you want to add one more??",
             },
             reference_source: {
                 type: "list",
@@ -141,7 +200,25 @@ const questions = {
 const textBanner = {
     add: [
         "Description:\n",
-        "You are trying add new project or exercise to post into your website.",
+        "You can add new project or exercise to post into your website.",
+        "Please follow the steps below to complete the operation successfully.",
+        "Thanks!"
+    ],
+    update: [
+        "Description:\n",
+        "You can update a project, exercise or user information posted into your website.",
+        "Please follow the steps below to complete the operation successfully.",
+        "Thanks!"
+    ],
+    delete: [
+        "Description:\n",
+        "You can delete a project or exercise posted into your website.",
+        "Please follow the steps below to complete the operation successfully.",
+        "Thanks!"
+    ],
+    list: [
+        "Description:\n",
+        "You can list the user information, projects, exercises, lastest project completed, the repos list actually working or all database saved",
         "Please follow the steps below to complete the operation successfully.",
         "Thanks!"
     ]
@@ -161,7 +238,7 @@ async function getRepoFromGithub(user_name, repo_name) {
             name: "",
             description: "",
             source: "",
-            lenguages: {},
+            languages: {},
             githubpage: ""
         }
         const github_url = `https://api.github.com/repos/${user_name}/${repo_name}`;
@@ -171,8 +248,8 @@ async function getRepoFromGithub(user_name, repo_name) {
         repo.description = res.data.description;
         repo.source = res.data.html_url;
         repo.githubpage = res.data.homepage;
-        const resLenguages = await axios.get(res.data.languages_url);
-        repo.lenguages = Object.keys(resLenguages.data);
+        const reslanguages = await axios.get(res.data.languages_url);
+        repo.languages = Object.keys(reslanguages.data);
         return {
             repo,
             message: null
@@ -186,7 +263,7 @@ async function getRepoFromGithub(user_name, repo_name) {
 }
 async function getTypeFromUser() {
     let res = await inquirer.prompt([
-        questions.add.type,
+        questions.type,
     ])
     return res
 }
@@ -215,7 +292,7 @@ async function setProject(repo, type) {
         newProject.name = repo.name;
         newProject.description = repo.description;
         newProject.code_url = repo.source;
-        newProject.lenguages = repo.lenguages;
+        newProject.languages = repo.languages;
         res = await inquirer.prompt([
             questions.add.exercise.status,
             questions.add.exercise.image,
@@ -311,7 +388,7 @@ async function setExercise(repo, type) {
         newExercise.name = repo.name;
         newExercise.description = repo.description;
         newExercise.code_url = repo.source;
-        newExercise.lenguages = repo.lenguages;
+        newExercise.languages = repo.languages;
         res = await inquirer.prompt([
             questions.add.exercise.status,
             questions.add.exercise.image,
@@ -454,8 +531,367 @@ async function interfaceAddCommand(name, isProjectSelected, isExerciseSelected) 
         console.log(error)
     }
 }
+function generateQuestion(field, value) {
+    let question = {
+        type: "",
+        name: "",
+        message: "",
+        default: "",
+    }
+    if (field === "id" || field === "type" || field === "registeredAt") {
+        console.log("Sorry, You can not modify this field.")
+        return question = {}
+    }
+    if (typeof value === "string") {
+        if (field === "image_url") {
+            question.type = "input"
+            question.name = field
+            question.message = "type the new name file to update, remember put the image in the dir src/assets/images"
+            question.validate = (input) => {
+                if (input === "") return true
+                const url = path.join(__dirname, `../src/assets/images/${input}`)
+                if (fs.existsSync(url)) {
+                    return true
+                } else {
+                    return `This file no exists: ${url}`
+                }
+            }
+            return question
+        }
+        if (field === "status") {
+            question.type = "list"
+            question.name = "status"
+            question.message = "what is the status of this project"
+            question.choices = ["starting", "working", "pending", "completed"]
+            question.default = value
+            return question
+        }
+        question.type = "input"
+        question.name = field
+        question.message = "type the new value to update"
+        question.default = value
+        return question
+    }
+    if (typeof value === "object") {
+        if (Array.isArray(value) && value.length > 0) {
+            question.type = "list"
+            question.name = field
+            question.message = "Select the value to update"
+            question.choices = [...value, "Add New"]
+            return question
+        }
+        if (Array.isArray(value) && value.length === 0) {
+            question.type = "input"
+            question.name = field
+            question.message = "type the new value to update"
+            question.default = value
+            return question
+        }
+        question.type = "list"
+        question.name = field
+        question.message = "Select the value to update"
+        question.choices = Object.keys(value)
+        return question
+    }
+    return question = {}
+}
+async function updateField(field, value, target, id) {
+    let newQuestion = generateQuestion(field, value)
+    let addNewValueToList = false
+    let updatedTarget = null;
+    let valueSelectedFromListQuestion = null
+    if (Object.keys(newQuestion).length === 0) return
+    if (newQuestion.type === "list" && field != "status") {
+        let fieldChanged = await inquirer.prompt([
+            newQuestion
+        ])
+        if (fieldChanged[field] === "Add New") {
+            addNewValueToList = true
+        }
+        newQuestion = generateQuestion(field, "")
+        valueSelectedFromListQuestion = fieldChanged[field]
+    }
+    let fieldChanged = await inquirer.prompt([
+        newQuestion
+    ])
+    if (Array.isArray(value) && value.length === 0) fieldChanged[field] = [fieldChanged[field]]
+    if (Array.isArray(value) && value.length > 0) {
+        if (addNewValueToList) {
+            if (fieldChanged[field] != "") {
+                fieldChanged[field] = [...value, fieldChanged[field]]
+                addNewValueToList = false
 
+            } else {
+                fieldChanged[field] = value
+            }
+        } else {
+            if (fieldChanged[field] === "") {
+                fieldChanged[field] = value.filter(val => val != valueSelectedFromListQuestion)
 
+            } else {
+                value[value.indexOf(valueSelectedFromListQuestion)] = fieldChanged[field]
+                fieldChanged[field] = value
+            }
+        }
+    }
+    if (field == "image_url" && fieldChanged[field] != "") fieldChanged[field] = `assets/images/${fieldChanged[field]}`
+    updatedTarget = updateFieldIntoDb(field, fieldChanged[field], target, id)
+    console.clear()
+    console.log(`the field: ${field} updated successfully`)
+    console.log(updatedTarget)
+    console.log("\n")
+    console.log("Do not forget to see these changes on your website enter the following commands")
+    console.log("\n")
+    console.log("git add src/data/db.json")
+    console.log("git commit")
+    console.log("git push origin master")
+    return
+}
+function updateFieldIntoDb(field, newValue, target, id) {
+    if (target === "user") {
+        db.get(target).assign({ [field]: newValue }).write()
+        const updatedTarget = db.get(target).value()
+        return updatedTarget
+    }
+    db.get(target).find({ id: id }).assign({ [field]: newValue }).write()
+    if (target === "projects" || target === "exercises") {
+        db.get("lastest_repos").find({ id: id }).assign({ [field]: newValue }).write()
+    }
+    if (target === "projects") {
+        db.get("lastest_project").find({ id: id }).assign({ [field]: newValue }).write()
+    }
+    const updatedTarget = db.get(target).filter({ id: id }).value()
+    return updatedTarget[0]
+}
+async function interfaceUpdateCommand(name, options) {
+    try {
+        if (Object.entries(options).length === 0) {
+            const optionSelected = await inquirer.prompt([
+                questions.update.list
+            ])
+            console.log(optionSelected.option)
+            if (optionSelected.option === "user") {
+                const result = db.get(optionSelected.option).value()
+                console.log("Result:")
+                console.log(result)
+                questions.update.user.choices = Object.keys(result)
+                const fieldSelected = await inquirer.prompt([
+                    questions.update.user,
+                ])
+                console.log("Field Selected:")
+                console.log(fieldSelected.user)
+                console.log("Value:")
+                console.log(result[fieldSelected.user])
+                updateField(fieldSelected.user, result[fieldSelected.user], optionSelected.option)
+                return
+            }
+            const list = optionSelected.option === "exercise" ? "exercises" : "projects"
+            if (name) questions.update.repo.default = name
+            let repoNameSeleted = await inquirer.prompt([
+                questions.update.repo,
+            ])
+            name = repoNameSeleted.name
+            const repo = db.get(list).filter({ name: name }).value()
+            if (repo.length <= 0) {
+                console.log(`there is no match with ${name} name into ${list} list`)
+                return
+            }
+            console.log("Result:")
+            console.log(repo[0])
+            questions.update[optionSelected.option].choices = Object.keys(repo[0])
+            let fieldSelected = await inquirer.prompt([
+                questions.update[optionSelected.option],
+            ])
+            console.log("Field Selected:")
+            console.log(fieldSelected[optionSelected.option])
+            console.log("Value:")
+            console.log(repo[0][fieldSelected[optionSelected.option]])
+            updateField(fieldSelected[optionSelected.option], repo[0][fieldSelected[optionSelected.option]], list, repo[0].id)
+
+            return
+        }
+        const optionSelected = Object.keys(options)
+        console.log("Option Selected:")
+        console.log(optionSelected)
+        if (optionSelected[0] === "user") {
+            const result = db.get(optionSelected).value()
+            console.log("Result:")
+            console.log(result)
+            questions.update.user.choices = Object.keys(result)
+            const fieldSelected = await inquirer.prompt([
+                questions.update.user,
+            ])
+            console.log("Field Selected:")
+            console.log(fieldSelected.user)
+            console.log("Value:")
+            console.log(result[fieldSelected.user])
+            updateField(fieldSelected.user, result[fieldSelected.user], optionSelected[0])
+            return
+        }
+        const list = optionSelected[0] === "exercise" ? "exercises" : "projects"
+        if (name) questions.update.repo.default = name
+        let repoNameSeleted = await inquirer.prompt([
+            questions.update.repo,
+        ])
+        name = repoNameSeleted.name
+        const repo = db.get(list).filter({ name: name }).value()
+        if (repo.length <= 0) {
+            console.log(`there is no match with ${name} name into ${list} list`)
+            return
+        }
+        console.log("Result:")
+        console.log(repo[0])
+        questions.update[optionSelected[0]].choices = Object.keys(repo[0])
+        let fieldSelected = await inquirer.prompt([
+            questions.update[optionSelected[0]],
+        ])
+        console.log("Field Selected:")
+        console.log(fieldSelected[optionSelected[0]])
+        console.log("Value:")
+        console.log(repo[0][fieldSelected[optionSelected[0]]])
+        updateField(fieldSelected[optionSelected[0]], repo[0][fieldSelected[optionSelected[0]]], list, repo[0].list)
+
+        return
+    } catch (error) {
+
+    }
+}
+
+async function deleteWithNameRepo(name, type) {
+    const list = type === "project" ? "projects" : "exercises"
+    questions.delete.repo.default = name
+    let repoNameSeleted = await inquirer.prompt([
+        questions.delete.repo,
+    ])
+    name = repoNameSeleted.repo_name
+    if (name === "") {
+        deleteWithoutNameRepo(type)
+        return
+    }
+    const result = db.get(list).filter({ name: name }).value()
+    if (result.length <= 0) {
+        console.log(`there is no match with ${name} name into ${list} list`)
+        deleteWithoutNameRepo(type)
+        return
+    }
+    console.log(result[0])
+    const res = await inquirer.prompt([
+        questions.delete.confirm,
+    ])
+    if (!res.delete) return
+    console.log("deleting...")
+    db.get(list).remove({ name: result[0].name }).write()
+    db.get("lastest_repos").remove({ name: result[0].name }).write()
+    if (type === "project") {
+        db.get("lastest_project").remove({ name: result[0].name }).write()
+        let projects_length = db.get("user.projects_length").value();
+        projects_length = projects_length - 1;
+        db.set("user.projects_length", projects_length).write();
+    }
+    let repos_length = db.get("user.repos_length").value();
+    repos_length = repos_length - 1;
+    db.set("user.repos_length", repos_length).write();
+    console.clear()
+    console.log("deleted successfully")
+    console.log(result[0])
+    console.log("\n")
+    console.log("Do not forget to see these changes on your website enter the following commands")
+    console.log("\n")
+    console.log("git add src/data/db.json")
+    console.log("git commit")
+    console.log("git push origin master")
+}
+async function deleteWithoutNameRepo(type) {
+    const list = type === "project" ? "projects" : "exercises"
+    const result = db.get(list).map("name").value()
+    if (result.length <= 0) {
+        console.log(`the ${list} list is empty`)
+        return
+    }
+    questions.delete.list.choices = result
+    const repoNameSeleted = await inquirer.prompt([
+        questions.delete.list,
+    ])
+    const repo = db.get(list).filter({ name: repoNameSeleted.repo_selected }).value()
+    console.log(repo)
+    const res = await inquirer.prompt([
+        questions.delete.confirm,
+    ])
+    if (!res.delete) return
+    console.log("deleting...")
+    db.get(list).remove({ name: repoNameSeleted.repo_selected }).write()
+    db.get("lastest_repos").remove({ name: repoNameSeleted.repo_selected }).write()
+    if (type === "project") {
+        db.get("lastest_project").remove({ name: repoNameSeleted.repo_selected }).write()
+        let projects_length = db.get("user.projects_length").value();
+        projects_length = projects_length - 1;
+        db.set("user.projects_length", projects_length).write();
+    }
+    let repos_length = db.get("user.repos_length").value();
+    repos_length = repos_length - 1;
+    db.set("user.repos_length", repos_length).write();
+    console.clear()
+    console.log("deleted successfully")
+    console.log(repo)
+    console.log("\n")
+    console.log("Do not forget to see these changes on your website enter the following commands")
+    console.log("\n")
+    console.log("git add src/data/db.json")
+    console.log("git commit")
+    console.log("git push origin master")
+}
+async function interfaceDeleteCommand(name, isProjectSelected, isExerciseSelected) {
+    try {
+        if (!isProjectSelected && !isExerciseSelected) {
+            const type = await getTypeFromUser()
+            if (!name) {
+                deleteWithoutNameRepo(type.name)
+            } else {
+                deleteWithNameRepo(name, type.name)
+            }
+        } else {
+            const type = isExerciseSelected ? "exercise" : "project"
+            if (!name) {
+                deleteWithoutNameRepo(type)
+            } else {
+                deleteWithNameRepo(name, type)
+            }
+        }
+    } catch (error) {
+
+    }
+}
+async function interfaceListCommand(options) {
+    if (Object.entries(options).length === 0) {
+        const optionSelected = await inquirer.prompt([
+            questions.list
+        ])
+        if (optionSelected.option === "all") {
+            console.log(`Result:`)
+            console.log(db.getState())
+            return
+        }
+        const result = db.get(optionSelected.option).value()
+        console.log(`Result:`)
+        console.log(result)
+        return
+    }
+    const optionSelected = Object.keys(options)
+    if (optionSelected[0] === "all") {
+        console.log(`Opcion Selected:`)
+        console.log(optionSelected)
+        console.log("\n")
+        console.log(`Result:`)
+        console.log(db.getState())
+        return
+    }
+    const result = db.get(optionSelected).value()
+    console.log(`Opcion Selected:`)
+    console.log(optionSelected)
+    console.log("\n")
+    console.log(`Result:`)
+    console.log(result)
+}
 program
     .version('0.1.0')
     .description('Content Management System in a Command Line Interface for my personal portfolio and website.')
@@ -469,21 +905,28 @@ program
     .option("-e, --exercise", "add new exercise")
     .description("Add new project or exercise")
     .action((name, options, command) => {
+        if (Object.entries(options).length > 1) {
+            console.log("it is not valid to put more than one option for this command")
+            return
+        }
         banner(command.name());
         interfaceAddCommand(name, options.project, options.exercise);
     })
 
 program
     .command("update")
-    .arguments("<name>", "name project or exercise")
-    .option("-p, --project", "type project")
-    .option("-e, --exercise", "type exercise")
-    .description("Update project or exercise")
+    .arguments("[name]", "name project or exercise to update")
+    .option("-u, --user", "update user")
+    .option("-e, --exercise", "update exercise")
+    .option("-p, --project", "update project")
+    .description("Update project or exercise, and user information")
     .action((name, options, command) => {
-        console.log(name)
-        console.log(options.exercise)
-        console.log(options.project)
-        console.log(command.name())
+        if (Object.entries(options).length > 1) {
+            console.log("it is not valid to put more than one option for this command")
+            return
+        }
+        banner(command.name());
+        interfaceUpdateCommand(name, options);
         //bienvenida
         //sin no coloca option solicitar si es projecto o ejercicio
         //nombre del proyecto o ejercicio a buscar
@@ -494,42 +937,35 @@ program
 
 program
     .command("delete")
-    .arguments("<name>", "name project or exercise")
-    .option("-p, --project", "type project")
-    .option("-e, --exercise", "type exercise")
+    .arguments("[name]", "name project or exercise to delete")
+    .option("-p, --project", "delete project")
+    .option("-e, --exercise", "delete exercise")
     .description("Delete project or exercise")
     .action((name, options, command) => {
-        console.log(name)
-        console.log(options.exercise)
-        console.log(options.project)
-        console.log(command.name())
-        //bienvenida
-        //sin no coloca option solicitar si es projecto o ejercicio
-        //nombre del proyecto o ejercicio a eliminar
-        //buscar en db
-        //mostrar resultado
-        //si exite confirmar eliminacion
+        if (Object.entries(options).length > 1) {
+            console.log("it is not valid to put more than one option for this command")
+            return
+        }
+        banner(command.name());
+        interfaceDeleteCommand(name, options.project, options.exercise);
     })
 
 program
     .command("list")
-    .option("-p, --project", "list all project")
-    .option("-e, --exercise", "list all exercise")
+    .option("-u, --user", "list user information")
+    .option("-p, --projects", "list all project")
+    .option("-e, --exercises", "list all exercise")
+    .option("-l, --lastest_project", "show lastest project")
+    .option("-r, --lastest_repos", "list all repositories currently working")
     .option("-a, --all", "list all database")
-    .option("-l, --lastest", "show lastest project")
-    .option("-c, --currently", "list all repositories currently working")
-    .description("List projects, exercises or db")
-    .action((options, command) => {
-        console.log(options.exercise)
-        console.log(options.project)
-        console.log(options.all)
-        console.log(options.lastest)
-        console.log(options.currently)
-        console.log(command.name())
-        //bienvenida
-        //sin no coloca option solicitar si es projecto o ejercicio o all etc
-        //buscar en db
-        //mostrar resultado
+    .description("List user information, projects, exercises or all db")
+    .action((options) => {
+        if (Object.entries(options).length > 1) {
+            console.log("it is not valid to put more than one option for this command")
+            return
+        }
+        banner("list");
+        interfaceListCommand(options);
     })
 
 
