@@ -927,12 +927,6 @@ program
         }
         banner(command.name());
         interfaceUpdateCommand(name, options);
-        //bienvenida
-        //sin no coloca option solicitar si es projecto o ejercicio
-        //nombre del proyecto o ejercicio a buscar
-        //buscar en db
-        //mostrar resultado
-        //si exite seleccionar campo a modificar bucle hasta confirmar
     })
 
 program
