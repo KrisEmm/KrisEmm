@@ -5,7 +5,7 @@ const del = require('del');
 
 sass.compiler = require('sass');
 
-const data = require('./src/data/data.json')
+const data = require('./src/data/db.json')
 function pugTranspile(cb) {
     return src('src/pages/*.pug')
         .pipe(pug({
