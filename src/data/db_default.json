@@ -1,6 +1,5 @@
 {
     "user": {
-        "full_name": "",
         "github_username": "",
         "phone": "",
         "email": "",
@@ -9,16 +8,12 @@
             "linkedin": "",
             "twitter": ""
         },
-        "from": "",
-        "languages": "",
-        "hobbies": "",
-        "experence": "",
+        "experence": 0,
         "websites": 0,
         "projects_length": 0,
         "repos_length": 0
     },
     "lastest_project": {},
     "lastest_repos": [],
-    "exercises": [],
-    "projects": []
+    "repositories": []
 }

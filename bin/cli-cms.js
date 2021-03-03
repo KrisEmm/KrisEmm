@@ -344,7 +344,7 @@ async function setProject(repo, type) {
         newProject.registeredAt = timestamp.toISOString()
 
         console.log("wait a moment while saving this project")
-        db.get('projects').unshift(newProject).write();
+        db.get('repositories').unshift(newProject).write();
         let projects_length = db.get("user.projects_length").value();
         projects_length = projects_length + 1;
         db.set("user.projects_length", projects_length).write();
@@ -449,7 +449,7 @@ async function setExercise(repo, type) {
         const timestamp = new Date();
         newExercise.registeredAt = timestamp.toISOString();
         console.log("wait a moment while saving this project")
-        db.get('exercises').unshift(newExercise).write();
+        db.get('repositories').unshift(newExercise).write();
         let repos_length = db.get("user.repos_length").value();
         repos_length = repos_length + 1;
         db.set("user.repos_length", repos_length).write();
@@ -590,12 +590,87 @@ function generateQuestion(field, value) {
         question.type = "list"
         question.name = field
         question.message = "Select the value to update"
-        question.choices = Object.keys(value)
+        question.choices = [...Object.keys(value), "Add New"]
+        return question
+    }
+    if (typeof value === "number") {
+        question.type = "number"
+        question.name = field
+        question.message = "type the new value to update"
+        question.default = value
         return question
     }
     return question = {}
 }
 async function updateField(field, value, target, id) {
+    if (typeof value[0] === "object") {
+        let updatedTarget = null;
+        const names = value.map(val => val.name)
+        let nameObjectSelected = await inquirer.prompt([
+            {
+                type: "list",
+                name: field,
+                message: "Select the value to update",
+                choices: [...names, "Add New"]
+            }
+        ])
+        if (nameObjectSelected[field] === "Add New") {
+            const choices = {
+                repos_related: ["name", "url"],
+                requirements: [],
+                install: [],
+                run: []
+            }
+            const newObject = {}
+            for (const key of choices[field]) {
+                let valueKeyAdded = await inquirer.prompt([
+                    {
+                        type: "input",
+                        name: key,
+                        message: `Add value to ${key} new ${field}`,
+                        validate: (input) => input != "" ? true : "Please type a name",
+                    }
+                ])
+                newObject[key] = valueKeyAdded[key]
+            }
+            value.push(newObject)
+        } else {
+            const objectSelected = value.filter(val => val.name === nameObjectSelected[field])[0]
+            let keySelected = await inquirer.prompt([
+                {
+                    type: "list",
+                    name: nameObjectSelected[field],
+                    message: "Select the value to update",
+                    choices: Object.keys(objectSelected)
+                }
+            ])
+            let valueKeySelected = await inquirer.prompt([
+                {
+                    type: "input",
+                    name: keySelected[nameObjectSelected[field]],
+                    message: "Select the value to update",
+                    default: objectSelected[keySelected[nameObjectSelected[field]]]
+                }
+            ])
+            if (valueKeySelected[keySelected[nameObjectSelected[field]]] === "") {
+                value.splice(value.findIndex(val => val.name === nameObjectSelected[field], 1))
+            } else {
+                value[value.findIndex(val => val.name === nameObjectSelected[field])][keySelected[nameObjectSelected[field]]] = valueKeySelected[keySelected[nameObjectSelected[field]]]
+
+            }
+        }
+        updatedTarget = updateFieldIntoDb(field, value, target, id)
+        console.clear()
+        console.log(`the field: ${field} updated successfully`)
+        console.log(updatedTarget)
+        console.log("\n")
+        console.log("Do not forget to see these changes on your website enter the following commands")
+        console.log("\n")
+        console.log("git add src/data/db.json")
+        console.log("git commit")
+        console.log("git push origin master")
+        return
+    }
     let newQuestion = generateQuestion(field, value)
     let addNewValueToList = false
     let updatedTarget = null;
@@ -614,10 +689,35 @@ async function updateField(field, value, target, id) {
     let fieldChanged = await inquirer.prompt([
         newQuestion
     ])
+    if (typeof value === "object" && !Array.isArray(value)) {
+        if (addNewValueToList) {
+            if (fieldChanged[field] === "") {
+                fieldChanged[field] = value
+            } else {
+                const newFieldAdded = fieldChanged[field]
+                value[newFieldAdded] = ""
+                addNewValueToList = false
+                newQuestion = generateQuestion(newFieldAdded, "")
+                let newValueToFieldAdded = await inquirer.prompt([
+                    newQuestion
+                ])
+                value[newFieldAdded] = newValueToFieldAdded[newFieldAdded]
+                fieldChanged[field] = value
+            }
+        } else {
+            if (fieldChanged[field] === "") {
+                delete value[valueSelectedFromListQuestion]
+                fieldChanged[field] = value
+            } else {
+                value[valueSelectedFromListQuestion] = fieldChanged[field]
+                fieldChanged[field] = value
+            }
+        }
+    }
     if (Array.isArray(value) && value.length === 0) fieldChanged[field] = [fieldChanged[field]]
     if (Array.isArray(value) && value.length > 0) {
         if (addNewValueToList) {
-            if (fieldChanged[field] != "") {
+            if (typeoffieldChanged[field] != "") {
                 fieldChanged[field] = [...value, fieldChanged[field]]
                 addNewValueToList = false
 
@@ -653,14 +753,14 @@ function updateFieldIntoDb(field, newValue, target, id) {
         const updatedTarget = db.get(target).value()
         return updatedTarget
     }
-    db.get(target).find({ id: id }).assign({ [field]: newValue }).write()
+    db.get("repositories").find({ id: id }).assign({ [field]: newValue }).write()
     if (target === "projects" || target === "exercises") {
         db.get("lastest_repos").find({ id: id }).assign({ [field]: newValue }).write()
     }
     if (target === "projects") {
-        db.get("lastest_project").find({ id: id }).assign({ [field]: newValue }).write()
+        db.get("lastest_project").assign({ [field]: newValue }).write()
     }
-    const updatedTarget = db.get(target).filter({ id: id }).value()
+    const updatedTarget = db.get("repositories").filter({ id: id }).value()
     return updatedTarget[0]
 }
 async function interfaceUpdateCommand(name, options) {
@@ -691,7 +791,7 @@ async function interfaceUpdateCommand(name, options) {
                 questions.update.repo,
             ])
             name = repoNameSeleted.name
-            const repo = db.get(list).filter({ name: name }).value()
+            const repo = db.get("repositories").filter({ type: optionSelected.option }).filter({ name: name }).value()
             if (repo.length <= 0) {
                 console.log(`there is no match with ${name} name into ${list} list`)
                 return
@@ -734,7 +834,7 @@ async function interfaceUpdateCommand(name, options) {
             questions.update.repo,
         ])
         name = repoNameSeleted.name
-        const repo = db.get(list).filter({ name: name }).value()
+        const repo = db.get("repositories").filter({ type: optionSelected[0] }).filter({ name: name }).value()
         if (repo.length <= 0) {
             console.log(`there is no match with ${name} name into ${list} list`)
             return
@@ -749,7 +849,7 @@ async function interfaceUpdateCommand(name, options) {
         console.log(fieldSelected[optionSelected[0]])
         console.log("Value:")
         console.log(repo[0][fieldSelected[optionSelected[0]]])
-        updateField(fieldSelected[optionSelected[0]], repo[0][fieldSelected[optionSelected[0]]], list, repo[0].list)
+        updateField(fieldSelected[optionSelected[0]], repo[0][fieldSelected[optionSelected[0]]], list, repo[0].id)
 
         return
     } catch (error) {
@@ -768,7 +868,7 @@ async function deleteWithNameRepo(name, type) {
         deleteWithoutNameRepo(type)
         return
     }
-    const result = db.get(list).filter({ name: name }).value()
+    const result = db.get("repositories").filter({ type: type, name: name }).value()
     if (result.length <= 0) {
         console.log(`there is no match with ${name} name into ${list} list`)
         deleteWithoutNameRepo(type)
@@ -780,10 +880,10 @@ async function deleteWithNameRepo(name, type) {
     ])
     if (!res.delete) return
     console.log("deleting...")
-    db.get(list).remove({ name: result[0].name }).write()
+    db.get("repositories").remove({ name: result[0].name }).write()
     db.get("lastest_repos").remove({ name: result[0].name }).write()
     if (type === "project") {
-        db.get("lastest_project").remove({ name: result[0].name }).write()
+        db.set("lastest_project", {}).write()
         let projects_length = db.get("user.projects_length").value();
         projects_length = projects_length - 1;
         db.set("user.projects_length", projects_length).write();
@@ -803,7 +903,7 @@ async function deleteWithNameRepo(name, type) {
 }
 async function deleteWithoutNameRepo(type) {
     const list = type === "project" ? "projects" : "exercises"
-    const result = db.get(list).map("name").value()
+    const result = db.get("repositories").filter({ type: type }).map("name").value()
     if (result.length <= 0) {
         console.log(`the ${list} list is empty`)
         return
@@ -812,17 +912,17 @@ async function deleteWithoutNameRepo(type) {
     const repoNameSeleted = await inquirer.prompt([
         questions.delete.list,
     ])
-    const repo = db.get(list).filter({ name: repoNameSeleted.repo_selected }).value()
+    const repo = db.get("repositories").filter({ type: type, name: repoNameSeleted.repo_selected }).value()
     console.log(repo)
     const res = await inquirer.prompt([
         questions.delete.confirm,
     ])
     if (!res.delete) return
     console.log("deleting...")
-    db.get(list).remove({ name: repoNameSeleted.repo_selected }).write()
+    db.get("repositories").remove({ name: repoNameSeleted.repo_selected }).write()
     db.get("lastest_repos").remove({ name: repoNameSeleted.repo_selected }).write()
     if (type === "project") {
-        db.get("lastest_project").remove({ name: repoNameSeleted.repo_selected }).write()
+        db.set("lastest_project", {}).write()
         let projects_length = db.get("user.projects_length").value();
         projects_length = projects_length - 1;
         db.set("user.projects_length", projects_length).write();
@@ -871,6 +971,13 @@ async function interfaceListCommand(options) {
             console.log(db.getState())
             return
         }
+        if (optionSelected.option === "projects" || optionSelected.option === "exercises") {
+            const type = optionSelected.option === "exercises" ? "exercise" : "project";
+            const result = db.get("repositories").filter({ type: type }).value()
+            console.log(`Result:`)
+            console.log(result)
+            return
+        }
         const result = db.get(optionSelected.option).value()
         console.log(`Result:`)
         console.log(result)
@@ -883,6 +990,13 @@ async function interfaceListCommand(options) {
         console.log("\n")
         console.log(`Result:`)
         console.log(db.getState())
+        return
+    }
+    if (optionSelected[0] === "projects" || optionSelected[0] === "exercises") {
+        const type = optionSelected[0] === "exercises" ? "exercise" : "project";
+        const result = db.get("repositories").filter({ type: type }).value()
+        console.log(`Result:`)
+        console.log(result)
         return
     }
     const result = db.get(optionSelected).value()

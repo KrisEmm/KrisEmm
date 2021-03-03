@@ -33,8 +33,8 @@ module.exports = {
             }
         ]
         this.requirements = []
-        this.install = ""
-        this.run = ""
+        this.install = []
+        this.run = []
     },
     Exercise: function () {
         this.id = ""
@@ -47,16 +47,18 @@ module.exports = {
         this.languages = []
         this.code_url = ""
         this.status = ""
-        this.repos_related = {
-            name: "",
-            url: ""
-        }
+        this.repos_related = [
+            {
+                name: "",
+                url: ""
+            }
+        ]
         this.reference = {
             source: "",
             url: ""
         }
         this.requirements = []
-        this.install = ""
-        this.run = ""
+        this.install = []
+        this.run = []
     }
 }

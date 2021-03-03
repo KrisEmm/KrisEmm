@@ -1,24 +1,19 @@
 {
   "user": {
-    "full_name": "",
-    "github_username": "",
-    "phone": "",
-    "email": "",
+    "github_username": "KrisEmm",
+    "phone": "(55) 4089 6724",
+    "email": "krisemm.info@gmail.com",
     "social": {
-      "github": "",
-      "linkedin": "",
-      "twitter": ""
+      "github": "https://github.com/krisemm",
+      "linkedin": "https://twitter.com/_kristianEmm",
+      "twitter": "https://www.linkedin.com/in/krisemm/"
     },
-    "from": "",
-    "languages": "",
-    "hobbies": "",
-    "experence": "",
-    "websites": 0,
+    "experence": 1,
+    "websites": 1,
     "projects_length": 0,
     "repos_length": 0
   },
   "lastest_project": {},
   "lastest_repos": [],
-  "exercises": [],
-  "projects": []
+  "repositories": []
 }
