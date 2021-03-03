@@ -1,5 +1,3 @@
-console.log("About")
-
 const $role = document.querySelector("#role")
 const $tool = document.querySelector("#tool")
 const $object1 = document.querySelector(".object-1")

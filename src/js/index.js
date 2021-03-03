@@ -1,5 +1,3 @@
-console.log("Running")
-
 const $header_menu_button = document.querySelector('#header_menu_button');
 const $menu_modal = document.querySelector('#menu_modal');
 const $menu_modal_close_button = document.querySelector("#menu_modal-close")

@@ -1,4 +1,3 @@
-console.log("Portfolio")
 const $containerPortfolio = document.querySelector("#portfolio-seccion-projects")
 const $portfolio = document.querySelector("#portfolio")
 const $query_filter_input = document.querySelector("#projects_filter_query")
@@ -69,12 +68,8 @@ function setResultNoMatch(message) {
 }
 autofill()
 function autofill() {
-    console.clear();
     const heightPortfolio = window.getComputedStyle($portfolio).getPropertyValue("height").replace("px", "")
     const heightContainerPortfolio = window.getComputedStyle($containerPortfolio).getPropertyValue("height").replace("px", "")
-    console.log(`portfolio: ${parseInt(heightPortfolio, 10)}`)
-    console.log(`container: ${parseInt(heightContainerPortfolio, 10)}`)
-    console.log(`windowHeight: ${window.innerHeight}`)
     if (window.innerHeight > 699) {
         if (parseInt(heightPortfolio, 10) <= 600) {
             $containerPortfolio.style.height = "100vh"

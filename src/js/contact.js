@@ -1,4 +1,3 @@
-console.log("Contact");
 const $form_contact = document.querySelector("#contact_form")
 const $notify_contact_success = document.querySelector("#notify_contact_success")
 const $notify_contact_error = document.querySelector("#notify_contact_error")
