@@ -267,7 +267,7 @@ main {
   margin-right: 1.5rem;
 }
 
-@media screen and (min-height: 800px) {
+@media screen and (min-height: 700px) {
   .autofill {
     height: 100vh;
   }
@@ -1345,6 +1345,34 @@ aside {
   align-items: center;
 }
 
+.not_found {
+  text-align: center;
+  font-family: "font-primary-title-3";
+  font-size: 1.1rem;
+  color: #747474;
+  padding: 2rem 0;
+}
+@media screen and (min-width: 768px) and (max-width: 899px) {
+  .not_found {
+    font-size: 1.18rem;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1209px) {
+  .not_found {
+    font-size: 1.18rem;
+  }
+}
+@media screen and (min-width: 1210px) and (max-width: 1399px) {
+  .not_found {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (min-width: 1400px) and (max-width: 3000px) {
+  .not_found {
+    font-size: 1.2rem;
+  }
+}
+
 .about-seccion-title {
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
@@ -2329,32 +2357,35 @@ aside {
   }
 }
 .project_image {
-  min-width: 280px;
-  min-height: 200px;
+  display: block;
+  width: 100%;
+  height: 200px;
   background-color: #C4C4C4;
   margin-bottom: 0.6rem;
 }
 @media screen and (min-width: 768px) and (max-width: 899px) {
   .project_image {
-    min-height: 300px;
+    width: 100%;
+    height: 300px;
   }
 }
 @media screen and (min-width: 900px) and (max-width: 1209px) {
   .project_image {
-    min-height: 300px;
+    width: 100%;
+    height: 300px;
   }
 }
 @media screen and (min-width: 1210px) and (max-width: 1399px) {
   .project_image {
-    width: 80%;
-    height: 350px;
+    width: 75%;
+    height: 400px;
     margin: 0 auto;
   }
 }
 @media screen and (min-width: 1400px) and (max-width: 3000px) {
   .project_image {
-    width: 80%;
-    height: 350px;
+    width: 75%;
+    height: 400px;
     margin: 0 auto;
   }
 }
@@ -2380,6 +2411,7 @@ aside {
   text-align: center;
   text-transform: capitalize;
   color: #383E45;
+  margin-bottom: 0.8rem;
 }
 @media screen and (min-width: 768px) and (max-width: 899px) {
   .project_info_name {
@@ -3379,6 +3411,34 @@ details[open] summary[class=projects_list_project_header] .projects_list_project
   user-select: none;
 }
 
+.not_found_repos {
+  text-align: center;
+  font-family: "font-primary-title-3";
+  font-size: 1.1rem;
+  color: #747474;
+  padding: 2rem 0;
+}
+@media screen and (min-width: 768px) and (max-width: 899px) {
+  .not_found_repos {
+    font-size: 1.18rem;
+  }
+}
+@media screen and (min-width: 900px) and (max-width: 1209px) {
+  .not_found_repos {
+    font-size: 1.18rem;
+  }
+}
+@media screen and (min-width: 1210px) and (max-width: 1399px) {
+  .not_found_repos {
+    font-size: 1.3rem;
+  }
+}
+@media screen and (min-width: 1400px) and (max-width: 3000px) {
+  .not_found_repos {
+    font-size: 1.3rem;
+  }
+}
+
 .projects_filter {
   display: flex;
   justify-content: center;
@@ -3593,7 +3653,7 @@ details[open] summary[class=projects_list_project_header] .projects_list_project
   font-family: "font-primary-control-1";
   font-size: 0.9rem;
   padding: 0.8rem;
-  color: #747474;
+  color: #383E45;
   margin-right: 1.5rem;
 }
 @media screen and (min-width: 0px) and (max-width: 599px) {
@@ -3603,6 +3663,7 @@ details[open] summary[class=projects_list_project_header] .projects_list_project
 }
 .projects_list_project_footer_status span {
   text-transform: capitalize;
+  color: #383E45;
 }
 
 .filtered {
@@ -3663,13 +3724,19 @@ summary:focus {
 }
 
 .project_details_project {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 .project_details_project_title {
   font-family: "font-primary-title-3";
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   color: #383E45;
   text-align: center;
+}
+.project_details_project_image img {
+  display: block;
+  width: 90%;
+  height: 400px;
+  margin: 0 auto;
 }
 
 .project_details_description {
@@ -3688,6 +3755,23 @@ summary:focus {
   padding-right: 0.5rem;
 }
 
+.project_details_status {
+  margin-bottom: 1rem;
+}
+.project_details_status_title {
+  font-family: "font-primary-title-3";
+  font-size: 1.1rem;
+  color: #383E45;
+}
+.project_details_status_text {
+  text-transform: capitalize;
+  font-family: "font-primary-text-2";
+  font-size: 1.1rem;
+  color: #262C35;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .project_details_repo {
   margin-bottom: 1rem;
 }
@@ -3697,6 +3781,8 @@ summary:focus {
   color: #383E45;
 }
 .project_details_repo_link {
+  display: inline;
+  text-decoration: underline;
   font-family: "font-primary-text-2";
   font-size: 1.1rem;
   color: #262C35;
@@ -3749,6 +3835,7 @@ summary:focus {
   user-select: none;
 }
 .project_details_related_list {
+  display: inline-block;
   font-family: "font-primary-text-2";
   font-size: 1.1rem;
   color: #262C35;

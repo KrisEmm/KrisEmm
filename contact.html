@@ -55,7 +55,7 @@
         </div>
         <nav class="header_nav"><a class="header_nav_link header_nav_link-phone" title="Contact me!" href="contact.html"><img alt="phone-icon" src="./assets/icons/phone-first.svg">
             <p>(55) 4089 6724</p></a><a class="header_nav_link header_nav_link-email" title="Contact me!" href="contact.html"><img alt="email-icon" src="./assets/icons/email-first.svg">
-            <p>kristian.emm@gmail.com</p></a><a class="header_nav_link header_nav_link-github" title="Github" href="https://github.com/krisemm" target="_blank"><img alt="menu-icon" src="./assets/icons/github-first.svg"></a><a class="header_nav_link header_nav_link-linkedin" title="Linkedin" href="https://www.linkedin.com/in/krisemm/" target="_blank"><img alt="linkedin-icon" src="./assets/icons/linkedin-first.svg"></a><a class="header_nav_link header_nav_link-twitter" title="Twitter" href="https://twitter.com/_kristianEmm" target="_blank"><img alt="twitter-icon" src="./assets/icons/twitter-first.svg"></a>
+            <p>krisemm.info@gmail.com</p></a><a class="header_nav_link header_nav_link-github" title="Github" href="https://github.com/krisemm" target="_blank"><img alt="menu-icon" src="./assets/icons/github-first.svg"></a><a class="header_nav_link header_nav_link-linkedin" title="Linkedin" href="https://twitter.com/_kristianEmm" target="_blank"><img alt="linkedin-icon" src="./assets/icons/linkedin-first.svg"></a><a class="header_nav_link header_nav_link-twitter" title="Twitter" href="https://www.linkedin.com/in/krisemm/" target="_blank"><img alt="twitter-icon" src="./assets/icons/twitter-first.svg"></a>
           <div class="header_nav_menu-icon" id="header_menu_button"><img alt="menu-icon" src="./assets/icons/menu.svg"></div>
         </nav>
       </header>
@@ -109,9 +109,9 @@
           <div class="footer_body_seccion footer_body-contact">
             <h1>Hava a suggestions ?</h1>
             <div class="contact_group"> 
-              <div class="contact_group_email"><img class="icon" alt="email-icon" src="./assets/icons/email-first.svg"><a class="link link-first" href="contact.html">kristian.emm@gmail.com</a></div>
+              <div class="contact_group_email"><img class="icon" alt="email-icon" src="./assets/icons/email-first.svg"><a class="link link-first" href="contact.html">krisemm.info@gmail.com</a></div>
               <div class="contact_group_phone"><img class="icon" alt="phone-icon" src="./assets/icons/phone-first.svg"><span>(55) 4089 6724</span></div>
-              <div class="contact_group_socialNetworksIcons"><a class="contact_group_socialNetworkIcons_icon" href="https://github.com/krisemm" target="_blank"><img class="icon" alt="github-icon" src="./assets/icons/github-second.svg"></a><a class="contact_group_socialNetworksIcons_icon" href="https://www.linkedin.com/in/krisemm/" target="_blank"><img class="icon" alt="linkedin-icon" src="./assets/icons/linkedin-second.svg"></a><a class="contact_group_socialNetworksIcons_icon" href="https://twitter.com/_kristianEmm" target="_blank"><img class="icon" alt="twitter-icon" src="./assets/icons/twitter-second.svg"></a></div>
+              <div class="contact_group_socialNetworksIcons"><a class="contact_group_socialNetworkIcons_icon" href="https://github.com/krisemm" target="_blank"><img class="icon" alt="github-icon" src="./assets/icons/github-second.svg"></a><a class="contact_group_socialNetworksIcons_icon" href="https://twitter.com/_kristianEmm" target="_blank"><img class="icon" alt="linkedin-icon" src="./assets/icons/linkedin-second.svg"></a><a class="contact_group_socialNetworksIcons_icon" href="https://www.linkedin.com/in/krisemm/" target="_blank"><img class="icon" alt="twitter-icon" src="./assets/icons/twitter-second.svg"></a></div>
             </div>
           </div>
         </div>
@@ -122,9 +122,7 @@
       </footer>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
       <script>
-        console.log("Running")
-
-const $header_menu_button = document.querySelector('#header_menu_button');
+        const $header_menu_button = document.querySelector('#header_menu_button');
 const $menu_modal = document.querySelector('#menu_modal');
 const $menu_modal_close_button = document.querySelector("#menu_modal-close")
 const $classToShowModal = "menu-show";
@@ -143,8 +141,7 @@ function cilckHandlerMenuModalCloseButton(e) {
 function cilckHandlerMenuButton(e) {
     if (!$menu_modal) return;
     $menu_modal.classList.toggle($classToShowModal);
-}console.log("Contact");
-const $form_contact = document.querySelector("#contact_form")
+}const $form_contact = document.querySelector("#contact_form")
 const $notify_contact_success = document.querySelector("#notify_contact_success")
 const $notify_contact_error = document.querySelector("#notify_contact_error")
 const $btn_close_notify_contact = document.querySelector("#btn_close_notify_contact")
