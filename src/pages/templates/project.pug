@@ -6,42 +6,53 @@ html(lang="en")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel="stylesheet" href="./styles/index.css")
     link(rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon")
-    title Name Project
+    - const name = repo.name.replace(/-/g," ")
+    title= name
   body
-    include components/menu.pug
+    include ../components/menu.pug
     div(class="layout-container")
-      include components/header.pug
+      include ../components/header.pug
       aside
-        include components/navbar.pug
+        include ../components/navbar.pug
       main
         seccion(class="seccion container_details")
           a(class="backAction link-second" href="portfolio.html") &#8592; back
-          h1(id="page_project_title") Project
+          h1(id="page_project_title")= repo.type
+          h2(class="project_details_project_title")= name
         seccion(class="seccion container_details")
-          h2(class="project_details_project_title") Name Project
           div(class="project_details_project_image")
-            img()
+            img(src=repo.image_url)
         hr(class="line_break container_details")
         seccion(class="seccion container_details")
           div(class="project_details_description")
             h2(class="project_details_description_title") Description
-            p(class="project_details_description_text") Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras maximus ligula nisl, eu iaculis purus porttitor eget. Ut augue sapien, iaculis quis porttitor sit amet, laoreet et ipsum.
+            p(class="project_details_description_text")= repo.description
+          div(class="project_details_status")
+            h2(class="project_details_status_title") Status
+            p(class="project_details_status_text")= repo.status
           div(class="project_details_repo")
             h2(class="project_details_repo_title") Github Repository
-            a(class="project_details_repo_link") Readme.md
+            a(class="project_details_repo_link" target="_blank" href=repo.code_url) Readme.md
           div(class="project_details_lenguages")
+          if repo.languages.length > 0    
             h2(class="project_details_lenguages_title") Lenguages
             ul(class="project_details_lenguages_list")
-              li(class="project_details_lenguages_list_lenguage") Javascript
+              each language in repo.languages
+                li(class="project_details_lenguages_list_lenguage")= language
           div(class="project_details_techs")
+          if repo.technologies.length > 0       
             h2(class="project_details_techs_title") Techonologies
             ul(class="project_details_techs_list")
-              li(class="project_details_techs_list_tech")
+              each tech in repo.technologies
+                li(class="project_details_techs_list_tech")= tech
           div(class="project_details_related")
+          if repo.repos_related.length > 0
             h2(class="project_details_related_title") Projects Related
             ul(class="project_details_related_list")
-              li(class="project_details_related_list_project")
+              each repo_related in repo.repos_related
+                a(class="project_details_related_list_project link link-second-decorated" target="_blank" href=repo_related.url)= repo_related.name
         seccion(class="seccion container_details")
+        if repo.requirements.length > 0 && repo.install.length > 0 && repo.run.length > 0
           details(class="project_tryout")
             summary(class="project_tryout_title") 
               h2 Try it out now
@@ -58,6 +69,6 @@ html(lang="en")
 
 
 
-      include components/footer.pug
+      include ../components/footer.pug
       script
-        include ../js/index.js
+        include ../../js/index.js

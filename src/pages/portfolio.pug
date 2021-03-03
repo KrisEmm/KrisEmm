@@ -17,135 +17,40 @@ html(lang="en")
         seccion(class="seccion" id="portfolio-seccion-projects")
           div(class="projects_title")
             h1 Portfolio
-          div(class="projects_filter")
-            input(id="projects_filter_query" type="search" placeholder="Search..." name="projects_filter_query" autofocus)
-          div(class="projects_tabs")
-            span(class="projects_tabs_tab projects_tabs_tab-selected" id="tab_all" data-filter-value="all") All
-            span(class="projects_tabs_tab" id="tab_projects" data-filter-value="project") Projects
-            span(class="projects_tabs_tab" id="tab_exercises" data-filter-value="exercise") Exercises
-          div(class="projects_filter_result")
-            p 
+          if locals.repositories.length > 0   
+            div(class="projects_filter")
+              input(id="projects_filter_query" type="search" placeholder="Search..." name="projects_filter_query" autofocus)
+          if locals.repositories.length > 0 
+            div(class="projects_tabs")
+              span(class="projects_tabs_tab projects_tabs_tab-selected" id="tab_all" data-filter-value="all") All
+              span(class="projects_tabs_tab" id="tab_projects" data-filter-value="project") Projects
+              span(class="projects_tabs_tab" id="tab_exercises" data-filter-value="exercise") Exercises
+            div(class="projects_filter_result")
+              p 
           ul(class="projects_list" id="portfolio")
-            details(class="projects_list_project portfolio-project" data-name="a")
-              summary(class="projects_list_project_header")
-                div(class="projects_list_project_header_title")
-                  span(class="projects_list_project_header_title_icon")
-                    include components/focus.pug
-                  a(class="projects_list_project_header_title_name link link-second" href="project.html") name project
-                p(class="projects_list_project_header_skills") lenguages and tecnologias
-                div(class="projects_list_project_header_toogle")
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline>
-                  </svg>
-              div(class="projects_list_project_body")
-                p(class="projects_list_project_body_text") Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac ante et eros placerat auctor vitae eget erat. Nam congue urna rutrum, congue nunc sit amet, malesuada sapien.
-              div(class="projects_list_project_footer")
-                a(class="projects_list_project_footer_link link link-second" href="#") source
-                p(class="projects_list_project_footer_status") Status: #[span completed]
-            details(class="projects_list_project portfolio-project" data-name="b")
-              summary(class="projects_list_project_header")
-                div(class="projects_list_project_header_title")
-                  span(class="projects_list_project_header_title_icon")
-                    include components/focus.pug
-                  a(class="projects_list_project_header_title_name link link-second" href="#") name project
-                p(class="projects_list_project_header_skills") lenguages and tecnologias
-                div(class="projects_list_project_header_toogle")
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline>
-                  </svg>
-              div(class="projects_list_project_body")
-                p(class="projects_list_project_body_text") Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac ante et eros placerat auctor vitae eget erat. Nam congue urna rutrum, congue nunc sit amet, malesuada sapien.
-              div(class="projects_list_project_footer")
-                a(class="projects_list_project_footer_link link link-second" href="#") source
-                p(class="projects_list_project_footer_status") Status: #[span completed]
-            details(class="projects_list_project portfolio-project" data-name="ac")
-              summary(class="projects_list_project_header")
-                div(class="projects_list_project_header_title")
-                  span(class="projects_list_project_header_title_icon")
-                    include components/focus.pug
-                  a(class="projects_list_project_header_title_name link link-second" href="#") name project
-                p(class="projects_list_project_header_skills") lenguages and tecnologias
-                div(class="projects_list_project_header_toogle")
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline>
-                  </svg>
-              div(class="projects_list_project_body")
-                p(class="projects_list_project_body_text") Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac ante et eros placerat auctor vitae eget erat. Nam congue urna rutrum, congue nunc sit amet, malesuada sapien.
-              div(class="projects_list_project_footer")
-                a(class="projects_list_project_footer_link link link-second" href="#") source
-                p(class="projects_list_project_footer_status") Status: #[span completed]
-            details(class="projects_list_project portfolio-exercise" data-name="bc")
-              summary(class="projects_list_project_header")
-                div(class="projects_list_project_header_title")
-                  span(class="projects_list_project_header_title_icon")
-                    include components/focus.pug
-                  a(class="projects_list_project_header_title_name link link-second" href="#") name exercise
-                p(class="projects_list_project_header_skills") lenguages and tecnologias
-                div(class="projects_list_project_header_toogle")
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline>
-                  </svg>
-              div(class="projects_list_project_body")
-                p(class="projects_list_project_body_text") Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac ante et eros placerat auctor vitae eget erat. Nam congue urna rutrum, congue nunc sit amet, malesuada sapien.
-              div(class="projects_list_project_footer")
-                a(class="projects_list_project_footer_link link link-second" href="#") source
-                p(class="projects_list_project_footer_status") Status: #[span completed]
-            details(class="projects_list_project portfolio-project" data-name="cd")
-              summary(class="projects_list_project_header")
-                div(class="projects_list_project_header_title")
-                  span(class="projects_list_project_header_title_icon")
-                    include components/focus.pug
-                  a(class="projects_list_project_header_title_name link link-second" href="#") name project
-                p(class="projects_list_project_header_skills") lenguages and tecnologias
-                div(class="projects_list_project_header_toogle")
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline>
-                  </svg>
-              div(class="projects_list_project_body")
-                p(class="projects_list_project_body_text") Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac ante et eros placerat auctor vitae eget erat. Nam congue urna rutrum, congue nunc sit amet, malesuada sapien.
-              div(class="projects_list_project_footer")
-                a(class="projects_list_project_footer_link link link-second" href="#") source
-                p(class="projects_list_project_footer_status") Status: #[span completed]
-            details(class="projects_list_project portfolio-exercise" data-name="d")
-              summary(class="projects_list_project_header")
-                div(class="projects_list_project_header_title")
-                  span(class="projects_list_project_header_title_icon")
-                    include components/focus.pug
-                  a(class="projects_list_project_header_title_name link link-second" href="#") name exercise
-                p(class="projects_list_project_header_skills") lenguages and tecnologias
-                div(class="projects_list_project_header_toogle")
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline>
-                  </svg>
-              div(class="projects_list_project_body")
-                p(class="projects_list_project_body_text") Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac ante et eros placerat auctor vitae eget erat. Nam congue urna rutrum, congue nunc sit amet, malesuada sapien.
-              div(class="projects_list_project_footer")
-                a(class="projects_list_project_footer_link link link-second" href="#") source
-                p(class="projects_list_project_footer_status") Status: #[span completed]
-            details(class="projects_list_project portfolio-exercise" data-name="c")
-              summary(class="projects_list_project_header")
-                div(class="projects_list_project_header_title")
-                  span(class="projects_list_project_header_title_icon")
-                    include components/focus.pug
-                  a(class="projects_list_project_header_title_name link link-second" href="#") name exercise
-                p(class="projects_list_project_header_skills") lenguages and tecnologias
-                div(class="projects_list_project_header_toogle")
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline>
-                  </svg>
-              div(class="projects_list_project_body")
-                p(class="projects_list_project_body_text") Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac ante et eros placerat auctor vitae eget erat. Nam congue urna rutrum, congue nunc sit amet, malesuada sapien.
-              div(class="projects_list_project_footer")
-                a(class="projects_list_project_footer_link link link-second" href="#") source
-                p(class="projects_list_project_footer_status") Status: #[span completed]
-            details(class="projects_list_project portfolio-project" data-name="abcd")
-              summary(class="projects_list_project_header")
-                div(class="projects_list_project_header_title")
-                  span(class="projects_list_project_header_title_icon")
-                    include components/focus.pug
-                  a(class="projects_list_project_header_title_name link link-second" href="#") name project
-                p(class="projects_list_project_header_skills") lenguages and tecnologias
-                div(class="projects_list_project_header_toogle")
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline>
-                  </svg>
-              div(class="projects_list_project_body")
-                p(class="projects_list_project_body_text") Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac ante et eros placerat auctor vitae eget erat. Nam congue urna rutrum, congue nunc sit amet, malesuada sapien.
-              div(class="projects_list_project_footer")
-                a(class="projects_list_project_footer_link link link-second" href="#") source
-                p(class="projects_list_project_footer_status") Status: #[span completed]
+            if locals.repositories.length > 0
+              each repo in locals.repositories
+                - const skills = [...repo.languages,...repo.technologies].toString()
+                - const url = `${repo.name}.html`
+                - const name= repo.name.replace(/-/g," ") 
+                - const type_filter = `projects_list_project portfolio-${repo.type}`
+                details(class=type_filter data-name=repo.name)
+                  summary(class="projects_list_project_header")
+                    div(class="projects_list_project_header_title")
+                      span(class="projects_list_project_header_title_icon")
+                        include components/focus.pug
+                      a(class="projects_list_project_header_title_name link link-second" href=url)= name
+                    p(class="projects_list_project_header_skills")= skills.replace(/\,/g,", ")
+                    div(class="projects_list_project_header_toogle")
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                  div(class="projects_list_project_body")
+                    p(class="projects_list_project_body_text")= repo.description
+                  div(class="projects_list_project_footer")
+                    a(class="projects_list_project_footer_link link link-second" target="_blank" href=repo.code_url) source
+                    p(class="projects_list_project_footer_status") Status: #[span= repo.status]
+            else
+              p(class="not_found_repos") There is no project or exercise for the portfolio yet
       include components/footer.pug
       script
         include ../js/index.js

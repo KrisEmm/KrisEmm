@@ -30,7 +30,7 @@ html(lang="en")
               p(class="generalInfo_group_title") From
               p(class="generalInfo_group_subtitle") México
             div(class="generalInfo_group") 
-              p(class="generalInfo_group_title") Languages
+              p(class="generalInfo_group_title") Native Language
               p(class="generalInfo_group_subtitle") Spanish
             div(class="generalInfo_group") 
               p(class="generalInfo_group_title") Hobbies
@@ -85,23 +85,43 @@ html(lang="en")
             h1 Personal score
           div(class="score")
             div(class="score_group")
-              div(class="score_group_number") 
-                p 00
+              div(class="score_group_number")
+                if  locals.user.projects_length > 0 && locals.user.projects_length <= 9
+                  p= `0${locals.user.projects_length}`
+                else if  locals.user.projects_length >= 10 
+                  p= locals.user.projects_length
+                else
+                  p 00
               div(class="score_group_activity") 
                 p Personal Projects
             div(class="score_group")
-              div(class="score_group_number") 
-                p 00
+              div(class="score_group_number")
+                if locals.user.repos_length > 0 && locals.user.repos_length <= 9
+                  p= `0${locals.user.repos_length}`
+                else if locals.user.repos_length >= 10 
+                  p= locals.user.repos_length
+                else
+                  p 00
               div(class="score_group_activity") 
                 p Github Repos
             div(class="score_group")
               div(class="score_group_number")  
-                p 00
+                if locals.user.websites > 0 &&  locals.user.websites<=9
+                  p= `0${locals.user.websites}`
+                else if locals.user.websites >= 10 
+                  p= locals.user.websites
+                else 
+                  p 00 
               div(class="score_group_activity") 
                 p Websites
             div(class="score_group")
               div(class="score_group_number") 
-                p 00
+                if locals.user.experence > 0 && locals.user.experence <=9
+                  p= `0${locals.user.experence}`
+                else if locals.user.experence >= 10 
+                  p= locals.user.experence
+                else 
+                  p 00 
               div(class="score_group_activity") 
                 p Years Practicing
         hr(class="line_break" id="lastest-project")
@@ -109,53 +129,45 @@ html(lang="en")
           div(class="about-seccion-title")
             h1 Latest Project
             a(class="link link-second-decorated" href="portfolio.html") View All Projects
-          div(class="project")
-            div(class="project_info")
-              a(class="project_info_name link link-second" href="#") project name
-            div(class="project_image")
-            div(class="project_info")
-              p(class="project_info_skills") technologies and lenguages
-              p(class="project_info_description") Donec et viverra odio. Fusce nec pretium nunc. Nulla eu odio ac libero dapibus commodo. Nullam egestas lacinia nulla, vitae dapibus ex facilisis at. In in nisi convallis, tempus nisi non, gravida.
-              a(class="project_info_source link link-second" href="#") source
+          if Object.entries(locals.lastest_project).length > 0  
+            div(class="project")
+              div(class="project_info")
+                -const url = `${locals.lastest_project.name}.html`
+                -const name = locals.lastest_project.name.replace(/-/g," ")
+                a(class="project_info_name link link-second" href=url )= name 
+              img(class="project_image" src=locals.lastest_project.image_url)
+              div(class="project_info")
+                - const skills = [...locals.lastest_project.languages,...locals.lastest_project.technologies].toString()
+                  p(class="project_info_skills")= skills.replace(/\,/g,", ")
+                  p(class="project_info_description")= locals.lastest_project.description
+                  a(class="project_info_source link link-second" target="_blank" href=locals.lastest_project.code_url) source
+          else
+            div(class="project")
+              p(class="not_found") No project exists yet    
         hr(class="line_break")
         seccion(class="seccion" id="about-seccion-repos")
           div(class="about-seccion-title")
             h1 Github Repos
             a() Currently working with:
           ul(class="repos")
-            li(class="repos_repo")
-              div(class="repos_repo_icon")
-                include components/push-pin.pug
-              div(class="repos_repo_info")
-                a(class="repos_repo_info_name link link-second" href="project.html") 
-                  span(class="repos_repo_info_name_icon") 
+            if locals.lastest_repos.length > 0
+              each lastest_repo in locals.lastest_repos
+                - const url = `${lastest_repo.name}.html`
+                - const name = lastest_repo.name.replace(/-/g," ")
+                - const skills = [...lastest_repo.languages, ...lastest_repo.technologies].toString()
+                li(class="repos_repo")
+                  div(class="repos_repo_icon")
                     include components/push-pin.pug
-                  span project name
-                p(class="repos_repo_info_skills") technologies and lenguages
-              div(class="repos_repo_source")
-                a(class="link link-second-decorated" href="#") source
-            li(class="repos_repo")
-              div(class="repos_repo_icon")
-                include components/push-pin.pug
-              div(class="repos_repo_info")
-                a(class="repos_repo_info_name link link-second" href="#") 
-                  span(class="repos_repo_info_name_icon") 
-                    include components/push-pin.pug
-                  span project name
-                p(class="repos_repo_info_skills") technologies and lenguages
-              div(class="repos_repo_source")
-                a(class="link link-second-decorated" href="#") source
-            li(class="repos_repo")
-              div(class="repos_repo_icon")
-                include components/push-pin.pug
-              div(class="repos_repo_info")
-                a(class="repos_repo_info_name link link-second" href="#") 
-                  span(class="repos_repo_info_name_icon") 
-                    include components/push-pin.pug
-                  span project name
-                p(class="repos_repo_info_skills") technologies and lenguages
-              div(class="repos_repo_source")
-                a(class="link link-second-decorated" href="#") source
+                  div(class="repos_repo_info")
+                    a(class="repos_repo_info_name link link-second" href=url) 
+                      span(class="repos_repo_info_name_icon") 
+                        include components/push-pin.pug
+                      span= name  
+                    p(class="repos_repo_info_skills")= skills.replace(/\,/g,", ")
+                  div(class="repos_repo_source")
+                    a(class="link link-second-decorated" target="_blank" href=lastest_repo.code_url) source
+            else
+              p(class="not_found") No repository exists yet.      
         hr(class="line_break")
         seccion(class="seccion" id="about-seccion-contact")
           div(class="about_contact")

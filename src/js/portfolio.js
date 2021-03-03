@@ -187,7 +187,7 @@ function filterByQueryInto(query, list) {
 }
 function searchAndFilter(query, list) {
     for (let item of list) {
-        const nameToCompare = item.getAttribute("data-name")
+        const nameToCompare = item.getAttribute("data-name").toLowerCase()
         if (nameToCompare === null) break
         if (!nameToCompare.includes(query)) {
             item.classList.add("filtered")

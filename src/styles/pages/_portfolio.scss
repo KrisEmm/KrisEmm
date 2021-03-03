@@ -38,6 +38,25 @@ details[open]{
         user-select: none;
     }
 }
+.not_found_repos{
+     text-align: center;
+    font-family: "font-primary-title-3";
+    font-size: 1.1rem;
+    color:$first-dark-color;
+    padding: 2rem 0;
+    @include mediaQuery("tablet-portrait"){
+        font-size: 1.18rem;
+    }
+    @include mediaQuery("tablet-landscape"){
+        font-size: 1.18rem;
+    }
+    @include mediaQuery("desktop"){
+        font-size: 1.3rem;
+    }
+    @include mediaQuery("full"){
+        font-size: 1.3rem;
+    }
+}
 .projects_filter{
     display: flex;
     justify-content: center;
@@ -227,13 +246,14 @@ details[open]{
                 font-family: "font-primary-control-1";
                 font-size: 0.9rem;
                 padding: 0.8rem;
-                color: $first-dark-color;
+                color: $second-light-color;
                 margin-right: 1.5rem;
                 @include mediaQuery("mobil-portrait"){
                     margin-right: 0.5rem;
                 }
                 span{
                     text-transform: capitalize;
+                    color: $second-light-color;
                 }
             }
         }

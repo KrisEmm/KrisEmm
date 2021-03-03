@@ -4,16 +4,16 @@ div(class="contactInfo")
   div(class="contactInfo_generalIcons")  
     div(class="contactInfo_generalIcons_icon")
       img(class="icon" alt="email-icon" src="./assets/icons/email-first.svg")
-      a(href="contact.html") kristian.emm@gmail.com
+      a(href="contact.html")= user.email
     div(class="contactInfo_generalIcons_icon")
       img(class="icon" alt="phone-icon" src="./assets/icons/phone-first.svg")
-      span() (55) 4089 6724
+      span()= user.phone
   div(class="contactInfo_socialNetworksIcons")
-    a(class="contactInfo_socialNetworkIcons_icon" href="https://github.com/krisemm" target="_blank")
+    a(class="contactInfo_socialNetworkIcons_icon" href=user.social.github target="_blank")
       img(class="icon" alt="github-icon" src="./assets/icons/github-second.svg")
-    a(class="contactInfo_socialNetworksIcons_icon"  href="https://www.linkedin.com/in/krisemm/" target="_blank")
+    a(class="contactInfo_socialNetworksIcons_icon"  href=user.social.linkedin target="_blank")
       img(class="icon" alt="linkedin-icon" src="./assets/icons/linkedin-second.svg")
-    a(class="contactInfo_socialNetworksIcons_icon" href="https://twitter.com/_kristianEmm" target="_blank")
+    a(class="contactInfo_socialNetworksIcons_icon" href=user.social.twitter target="_blank")
       img(class="icon" alt="twitter-icon" src="./assets/icons/twitter-second.svg")
   div(class="contactInfo_button")
     a(class="button" href="contact.html") drop your message
