@@ -2,30 +2,31 @@ footer(class="footer")
   div(class="footer_body")
     div(class="footer_body_seccion footer_body-whoIAm")
       h1 who I am
-      p I am an Industrial Robotics Engineer with a great passion for Web Development. This is my website where I share some projects that I have develop in my free time as a web programmer
+      p I am an Industrial Robotics Engineer with a great passion for Software Development. This is my website and here you will find all my projects that I have developed and information about me.
       a(class="link link-first" href="./assets/files/Resume-Cristian_Emmanuel_Castillo_Medina.pdf" target="_blank" ) - Download CV
     div(class="footer_body_seccion footer_body-links")
       h1 Links
       ul
-        a(class="link link-first" href="index.html") - Home
-        a(class="link link-first" href="portfolio.html") - Portfolio
-        a(class="link link-first" href="about.html#lastest-project") - Lastest Project
-        a(class="link link-first" href="contact.html") - Contact
+        a(class="link link-first notranslate" href="index.html") - Home
+        a(class="link link-first notranslate" href="portfolio.html") - Portfolio
+        a(class="link link-first notranslate" href="about.html#lastest-project") - Lastest Project
+        a(class="link link-first notranslate" href="about.html#lastest-project") - Training
+        a(class="link link-first notranslate" href="contact.html") - Contact
     div(class="footer_body_seccion footer_body-contact")
       h1 Hava a suggestions ?
       div(class="contact_group")  
-        div(class="contact_group_email")
+        div(class="contact_group_email" title="Contact me!")
           img(class="icon" alt="email-icon" src="./assets/icons/email-first.svg")
           a(class="link link-first" href="contact.html")= user.email 
-        div(class="contact_group_phone")
+        div(class="contact_group_phone" title="Contact me!")
           img(class="icon" alt="phone-icon" src="./assets/icons/phone-first.svg")
           span()= user.phone 
         div(class="contact_group_socialNetworksIcons")
-          a(class="contact_group_socialNetworkIcons_icon" href=user.social.github target="_blank")
+          a(class="contact_group_socialNetworkIcons_icon" title="Github" href=user.social.github target="_blank")
             img(class="icon" alt="github-icon" src="./assets/icons/github-second.svg")
-          a(class="contact_group_socialNetworksIcons_icon" href=user.social.linkedin target="_blank")
+          a(class="contact_group_socialNetworksIcons_icon" title="Linkedin" href=user.social.linkedin target="_blank")
             img(class="icon" alt="linkedin-icon" src="./assets/icons/linkedin-second.svg")
-          a(class="contact_group_socialNetworksIcons_icon" href=user.social.twitter target="_blank")
+          a(class="contact_group_socialNetworksIcons_icon" title="Twitter" href=user.social.twitter target="_blank")
             img(class="icon" alt="twitter-icon" src="./assets/icons/twitter-second.svg")
   div(class="footer_footer")
     p This website was created by 
