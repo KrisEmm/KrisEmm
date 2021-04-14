@@ -19,6 +19,38 @@ html(lang="en")
         seccion(class="seccion" id="about-seccion-banner")
           include components/bannerAbout.pug
         hr(class="line_break")
+        seccion(class="seccion" id="about-seccion-whoIam")
+          div(class="about-seccion-title")
+            h1 Who I am
+          div(class="whoIam")
+            div(class="whoIam_text")
+              p I am an engineer and industrial robots programmer. And I have participated in automation projects and industrial robots maintenance and programming services for companies in the automotive sector such as:
+            div(class="whoIam_image")
+        hr(class="line_break")
+        seccion(class="seccion" id="about-seccion-newJob")
+          div(class="about-seccion-title")
+            h1 However
+          div(class="newJob")
+            div(class="newJob_text")
+              p My passion is creating web applications and software development. I love to practice and learn new web programming technologies and languages in my free time. I have developed personal projects using HTML, CSS, Javascript, NodeJs, React, Java, and Spring Boot that you can find here on this site or my Github's repository.
+            div(class="newJob_group")
+              div(class="newJob_group_skills")
+                p(class="newJob_group_skills_role notranslate" id="role") Frontend
+                p(class="newJob_group_skills_lenguages_technologies notranslate" id="tool") Javascript
+              div(class="newJob_group_image")
+                <svg id="path-robot-1" width="47" height="158" viewBox="0 0 47 158" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 0V90L46.5 110V157.5"/>
+                </svg>
+                <svg id="path-robot-2"width="240" height="108" viewBox="0 0 240 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0.5 0.5C1.7 1.3 6.33333 44.5 8.5 66L186.5 72.5L239.5 107"/>
+                </svg>
+                <svg class="object-1" role="img" title="css_logo">
+                  <use id="obj_1" href="#js"/>
+                </svg>
+                <svg class="object-2" role="img" title="css_logo">
+                  <use id="obj_2"/>
+                </svg>
+        hr(class="line_break")
         seccion(class="seccion" id="about-seccion-generalInfo")
           div(class="about-seccion-title")
             h1 general information
@@ -47,38 +79,6 @@ html(lang="en")
               div(class="generalInfo_likes_item huhu_down") 
                 img(src="./assets/illustrations/movies.svg")
                 p action movies
-        hr(class="line_break")
-        seccion(class="seccion" id="about-seccion-whoIam")
-          div(class="about-seccion-title")
-            h1 Who I am
-          div(class="whoIam")
-            div(class="whoIam_text")
-              p I am an engineer and industrial robots programmer. I have participated in automation projects and robots maintenance and programming services for companies in the automotive sector such as:
-            div(class="whoIam_image")
-        hr(class="line_break")
-        seccion(class="seccion" id="about-seccion-newJob")
-          div(class="about-seccion-title")
-            h1 However
-          div(class="newJob")
-            div(class="newJob_text")
-              p My passion is creating web applications and software development. I love to practice and learn new web programming technologies and languages. And I have developed some personal projects that are posted on this website.
-            div(class="newJob_group")
-              div(class="newJob_group_skills")
-                p(class="newJob_group_skills_role notranslate" id="role") Frontend
-                p(class="newJob_group_skills_lenguages_technologies notranslate" id="tool") Javascript
-              div(class="newJob_group_image")
-                <svg id="path-robot-1" width="47" height="158" viewBox="0 0 47 158" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 0V90L46.5 110V157.5"/>
-                </svg>
-                <svg id="path-robot-2"width="240" height="108" viewBox="0 0 240 108" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0.5 0.5C1.7 1.3 6.33333 44.5 8.5 66L186.5 72.5L239.5 107"/>
-                </svg>
-                <svg class="object-1" role="img" title="css_logo">
-                  <use id="obj_1" href="#js"/>
-                </svg>
-                <svg class="object-2" role="img" title="css_logo">
-                  <use id="obj_2"/>
-                </svg>
         hr(class="line_break")
         seccion(class="seccion" id="about-seccion-score")
           div(class="about-seccion-title")
@@ -124,6 +124,45 @@ html(lang="en")
                   p 00 
               div(class="score_group_activity") 
                 p Years Practicing
+        hr(class="line_break" id="lastest-training")
+        seccion(class="seccion" id="about-seccion-training")
+          div(class="about-seccion-title")
+            h1 Training Courses
+            a() Currently Learning
+          ul(class="training_learning")
+            li(class="training_learning_course")
+              div(class="training_learning_course_icon")
+                include components/push-pin.pug            
+              div(class="training_learning_course_details") 
+                h2(class="training_learning_course_details_company") Udemy          
+                div(class="training_learning_course_details_info")
+                  a(class="training_learning_course_details_info_name") Spring Boot 2 & Spring MVC-Desarrollo web profesional(2021)
+                  a(class="training_learning_course_details_info_duration") Duration: 40 hrs
+            li(class="training_learning_course")
+              div(class="training_learning_course_icon")
+                include components/push-pin.pug            
+              div(class="training_learning_course_details") 
+                h2(class="training_learning_course_details_company") Udemy Course          
+                div(class="training_learning_course_details_info")
+                  a(class="training_learning_course_details_info_name") Spring Boot 2 & Spring MVC-Desarrollo web profesional(2021)adasdadsadsafada
+                  a(class="training_learning_course_details_info_duration") Duration: 40 hrs
+
+          div(class="about-seccion-title")
+            h1() Lastest Completed Courses
+            a(class="link link-second-decorated" href="") View All Course
+          ul(class="training_completed")
+            li(class="training_completed_course")
+              img(class="training_completed_course_img" src="https://udemy-certificate.s3.amazonaws.com/image/UC-3e3317c5-3dca-4470-9937-cb24ff72436d.jpg" alt="Certificated")
+              div(class="training_completed_course_details") 
+                a(class="training_completed_course_details_name") Spring Boot 2 & Spring MVC-Desarrollo web profesional(2021)
+            li(class="training_completed_course")
+              img(class="training_completed_course_img" src="https://udemy-certificate.s3.amazonaws.com/image/UC-3e3317c5-3dca-4470-9937-cb24ff72436d.jpg" alt="Certificated")
+              div(class="training_completed_course_details") 
+                a(class="training_completed_course_details_name") Spring Boot 2 & Spring MVC-Desarrollo web profesional(2021)adsdadsadasfsafsaffasfasf
+            li(class="training_completed_course")
+              img(class="training_completed_course_img" src="https://udemy-certificate.s3.amazonaws.com/image/UC-3e3317c5-3dca-4470-9937-cb24ff72436d.jpg" alt="Certificated")
+              div(class="training_completed_course_details") 
+                a(class="training_completed_course_details_name") Spring Boot 2 & Spring MVC-Desarrollo web profesional(2021)adsdadsadasfsafsaffasfasf
         hr(class="line_break" id="lastest-project")
         seccion(class="seccion" id="about-seccion-project")
           div(class="about-seccion-title")

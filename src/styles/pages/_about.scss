@@ -27,6 +27,12 @@
     justify-content: center;
     align-items: center;
 }
+#about-seccion-training{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 #about-seccion-project{
     display: flex;
     flex-direction: column;
@@ -86,11 +92,11 @@
             font-size: 1.8rem;
         }
         @include mediaQuery("desktop"){
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             text-transform: uppercase;
         }
         @include mediaQuery("full"){
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             text-transform: uppercase;
         }
     }
@@ -306,12 +312,12 @@
                 font-size: 1.5rem;
             }
             @include mediaQuery("desktop"){
-                font-size: 1.2rem;
+                font-size: 1.3rem;
                 padding: 1.5rem 2rem;
                  background-color: $surface-color;
             }
             @include mediaQuery("full"){
-                font-size: 1.2rem; 
+                font-size: 1.3rem; 
                 background-color: $surface-color;
             }
         }
@@ -400,12 +406,14 @@
                 font-size: 1.5rem;
             } 
              @include mediaQuery("desktop"){
-            font-size: 1.25rem;
-            text-align: right;
-        }  
-        @include mediaQuery("full"){
-            font-size: 1.25rem;
-            text-align: right;
+                font-size: 1.3rem;
+                margin: 0 auto;
+                width: 85%;
+            }  
+            @include mediaQuery("full"){
+                font-size: 1.3rem;
+                margin: 0 auto;
+                width: 90%;
             }  
         }
     }
@@ -784,6 +792,337 @@
         
    } 
 }
+.training{
+    &_learning{
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 1.1rem 1rem;
+        background-color: $surface-color;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+        @include mediaQuery("mobil-landscape"){
+            padding: 2rem;
+        }
+        @include mediaQuery("tablet-portrait"){
+            padding: 2.5rem;
+        }
+        @include mediaQuery("tablet-landscape"){
+            padding: 2.5rem;
+        }
+        @include mediaQuery("desktop"){
+            padding: 2.5rem;
+            width: 90%;
+        }
+        @include mediaQuery("full"){
+            padding: 2.5rem;
+            width: 90%;
+        }
+        &_course{
+            display: flex;
+            justify-content: space-evenly;
+            margin-bottom: 0.5rem;
+            padding: 0rem;
+            @include mediaQuery("mobil-landscape"){
+                max-width: 585px;
+            }
+            @include mediaQuery("tablet-portrait"){
+                max-width: 670px;
+            }
+            @include mediaQuery("tablet-landscape"){
+                max-width: 670px;
+            }
+            @include mediaQuery("desktop"){
+                margin-bottom: 2rem;
+                max-width: none;
+                
+            }
+            @include mediaQuery("full"){
+                margin-bottom: 2rem;
+                max-width: none;
+            }
+            &_details{
+                padding-top: 0.8rem;
+                margin-left: 0.3rem;
+                &_company{
+                    font-size: 1.1rem;
+                    font-family: "font-primary-title-2";
+                    color: $second-light-color;
+                    margin-bottom: 0.3rem;
+                    padding-bottom: 0.3rem;
+                    border-bottom: 1px solid $second-light-color;
+                    text-align: center;
+                    @include mediaQuery("mobil-landscape"){
+                        font-size: 1.1rem;
+                        border: none;
+                        text-align: left;
+
+                    }
+                    @include mediaQuery("tablet-portrait"){
+                        font-size: 1.2rem;
+                        border: none;
+                        text-align: left;
+
+                    }
+                    @include mediaQuery("tablet-landscape"){
+                        font-size: 1.2rem;
+                        border: none;
+                        text-align: left;
+
+                    }
+                    @include mediaQuery("desktop"){
+                       font-size: 1.1rem;
+                       border: none;
+                        text-align: left;
+                       
+                    }
+                    @include mediaQuery("full"){
+                        font-size: 1.1rem;
+                        border: none;
+                        text-align: center;
+
+                    }
+
+                }
+                &_info{
+
+                    &_name{
+                        font-size: 1.05rem;
+                        font-family: "font-primary-title-2";
+                        color: $second-light-color;
+                        word-break: break-word;
+                        text-align: center;
+
+                        @include mediaQuery("mobil-landscape"){
+                            font-size: 1.05rem;
+                            text-align: left;
+                        }
+                        @include mediaQuery("tablet-portrait"){                                font-size: 1.2rem;
+                            text-align: left;
+                        }
+                        @include mediaQuery("tablet-landscape"){
+                            font-size: 1.2rem;
+                            text-align: left;
+
+                        }
+                        @include mediaQuery("desktop"){
+                            font-size: 1.1rem;
+                            max-width: 540px;
+                            text-align: left;
+                        }
+                        @include mediaQuery("full"){
+                            font-size: 1.1rem;
+                            max-width: 540px;
+                            text-align: left;
+                        }
+                    }
+                    &_duration{
+                        font-size: 1.05rem;
+                        font-family: "font-primary-title-2";
+                        color: $second-light-color;
+                        text-align: center ;
+                        @include mediaQuery("mobil-landscape"){
+                            font-size: 1.05rem;
+                            text-align: left;
+                        }
+                        @include mediaQuery("tablet-portrait"){
+                            font-size:1.2rem;         text-align: left;
+                        }
+                        @include mediaQuery("tablet-landscape"){
+                            font-size: 1.2rem;
+                            text-align: left;
+                        }
+                        @include mediaQuery("desktop"){
+                            font-size: 1.1rem;
+                            margin-left: 5rem;
+                        }
+                        @include mediaQuery("full"){
+                            font-size: 1.1rem;
+                            margin-left: 5rem;
+                        }
+                    }
+                    @include mediaQuery("mobil-landscape"){
+                        padding-left: 0.5rem;
+                    }
+                    @include mediaQuery("tablet-portrait"){
+                        padding-left: 0.8rem;
+                    }
+                    @include mediaQuery("tablet-landscape"){
+                        padding-left: 0.8rem;
+                    }
+                    @include mediaQuery("desktop"){
+                        padding-left: 0.5rem;
+                        display: flex;
+
+                    }
+                    @include mediaQuery("full"){
+                        padding-left: 0.5rem;
+                        display: flex;
+
+                    }
+                }
+            }
+            &_icon{
+                display: none;
+                @include mediaQuery("mobil-landscape"){
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width:56px;                  
+                        height: 56px;
+                }
+                @include mediaQuery("tablet-portrait"){
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width:56px;                  
+                        height: 56px;
+                }
+                @include mediaQuery("tablet-landscape"){
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width:64px;                 
+                        height: 64px;
+                }
+                @include mediaQuery("desktop"){
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width:64px;                 
+                        height: 64px;
+                }
+                @include mediaQuery("full"){
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width:64px;                 
+                        height: 64px;
+                }
+                svg{
+                    @include mediaQuery("mobil-landscape"){
+                        width:56px;                  
+                        height: 56px;
+                    }
+                    @include mediaQuery("tablet-portrait"){
+                        width:56px;                  
+                        height: 56px;
+                    }
+                    @include mediaQuery("tablet-landscape"){
+                        width:64px;                  
+                        height: 64px;
+                    }
+                    @include mediaQuery("desktop"){
+                        width:64px;                  
+                        height: 64px;
+                    }
+                    @include mediaQuery("full"){
+                        width:64px;                 
+                        height: 64px;
+                    }
+                }
+        }
+        }
+    }
+    &_completed{
+        width: 100%;
+        padding: 1rem;
+        background-color: $surface-color;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        @include mediaQuery("mobil-landscape"){
+            padding: 2rem;
+        }
+        @include mediaQuery("tablet-portrait"){
+            padding: 2.5rem;
+        }
+        @include mediaQuery("tablet-landscape"){
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: start;
+            padding: 2.5rem;            
+        }
+        @include mediaQuery("desktop"){
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 2.5rem;
+            width: 90%;
+        }
+        @include mediaQuery("full"){
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 2.5rem;
+            width: 90%;
+        }
+        &_course{
+            margin: 0.8rem auto;
+            &_img{
+                width: 260px;
+                height: 190px;
+                display: block;
+                margin: 0 auto;
+
+                @include mediaQuery("mobil-landscape"){
+                    width: 300px;
+                    height: 225px;
+                }
+                @include mediaQuery("tablet-portrait"){
+                    width: 300px;
+                    height: 225px;
+                }
+                @include mediaQuery("tablet-landscape"){
+                    width: 300px;
+                    height: 225px;
+                    
+                }
+                @include mediaQuery("desktop"){
+                    width: 300px;
+                    height: 225px;
+                    margin: 0.5rem 1.5rem;
+
+                }
+                @include mediaQuery("full"){
+                    width: 300px;
+                    height: 225px;
+                    margin: 0.5rem 1.5rem;
+
+                }
+            }
+            &_details{
+                max-width: 300px;
+                word-break: break-word;
+                margin: 0.3rem auto;
+                &_name{
+                    font-size: 1.03rem;
+                    font-family: "font-primary-title-2";
+                    color: $second-dark-color;
+                    text-align: center;
+                    @include mediaQuery("mobil-landscape"){
+                        font-size: 1.1rem;
+                        
+                    }
+                    @include mediaQuery("tablet-portrait"){
+                       font-size: 1.1rem;
+                    }
+                    @include mediaQuery("tablet-landscape"){
+                        font-size: 1.1rem;
+                        
+                    }
+                    @include mediaQuery("desktop"){
+                        font-size: 1.1rem;
+
+                    }
+                    @include mediaQuery("full"){
+                        font-size: 1.1rem;
+
+                    }
+                }
+            }
+        }
+    }
+}
 .project{
     width: 100%;
     padding: 1rem;
@@ -1043,23 +1382,23 @@
             svg{
                 @include mediaQuery("mobil-landscape"){
                     width: 56px;                    
-                height: 56px;
+                    height: 56px;
                 }
                 @include mediaQuery("tablet-portrait"){
                     width: 56px;                    
-                height: 56px;
+                    height: 56px;
                 }
                 @include mediaQuery("tablet-landscape"){
                     width: 64px;                    
-                height: 64px;
+                    height: 64px;
                 }
                 @include mediaQuery("desktop"){
                     width: 64px;                    
-                height: 64px;
+                    height: 64px;
                 }
                 @include mediaQuery("full"){
                     width: 64px;                    
-                height: 64px;
+                    height: 64px;
                 }
             }
         }
