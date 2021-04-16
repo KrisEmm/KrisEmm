@@ -27,7 +27,6 @@
     }
     &-show{
         display: block;
-        overflow: hidden;
         @include mediaQuery("desktop"){
             display: none;
         }
