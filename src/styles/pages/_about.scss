@@ -1029,9 +1029,7 @@
         width: 100%;
         padding: 1rem;
         background-color: $surface-color;
-        list-style: none;
-        display: flex;
-        flex-direction: column;
+        overflow: hidden;
         @include mediaQuery("mobil-landscape"){
             padding: 2rem;
         }
@@ -1039,62 +1037,57 @@
             padding: 2.5rem;
         }
         @include mediaQuery("tablet-landscape"){
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: start;
             padding: 2.5rem;            
         }
         @include mediaQuery("desktop"){
-            flex-direction: row;
-            flex-wrap: wrap;
             padding: 2.5rem;
             width: 90%;
         }
         @include mediaQuery("full"){
-            flex-direction: row;
-            flex-wrap: wrap;
             padding: 2.5rem;
             width: 90%;
         }
-        &_course{
-            margin: 0.8rem auto;
-            &_img{
-                width: 260px;
-                height: 190px;
-                display: block;
-                margin: 0 auto;
-
-                @include mediaQuery("mobil-landscape"){
-                    width: 300px;
-                    height: 225px;
+        &_courses{
+            display: flex;
+            justify-content: start;
+            list-style: none;
+            animation: moveCarrucel 60s linear infinite;
+            &_course{
+                flex-grow: 0;
+                flex-shrink: 0;
+                box-sizing: border-box;
+                margin: 0.5rem 2.1rem;
+                &_img{
+                    width: 260px;
+                    height: 190px;
+                    display: block;
+                    @include mediaQuery("mobil-landscape"){
+                        width: 300px;
+                        height: 225px;
+                    }
+                    @include mediaQuery("tablet-portrait"){
+                        width: 300px;
+                        height: 225px;
+                    }
+                    @include mediaQuery("tablet-landscape"){
+                        width: 300px;
+                        height: 225px;
+                        
+                    }
+                    @include mediaQuery("desktop"){
+                        width: 300px;
+                        height: 225px;
+                    }
+                    @include mediaQuery("full"){
+                        width: 300px;
+                        height: 225px;
+                    }
                 }
-                @include mediaQuery("tablet-portrait"){
-                    width: 300px;
-                    height: 225px;
-                }
-                @include mediaQuery("tablet-landscape"){
-                    width: 300px;
-                    height: 225px;
-                    
-                }
-                @include mediaQuery("desktop"){
-                    width: 300px;
-                    height: 225px;
-                    margin: 0.5rem 1.5rem;
-
-                }
-                @include mediaQuery("full"){
-                    width: 300px;
-                    height: 225px;
-                    margin: 0.5rem 1.5rem;
-
-                }
-            }
             &_details{
                 max-width: 300px;
                 word-break: break-word;
                 margin: 0.3rem auto;
-                &_name{
+                &_name{ 
                     font-size: 1.03rem;
                     font-family: "font-primary-title-2";
                     color: $second-dark-color;
@@ -1117,6 +1110,7 @@
                     @include mediaQuery("full"){
                         font-size: 1.1rem;
 
+                    }
                     }
                 }
             }
@@ -1720,5 +1714,11 @@
             }
         }
         
+    }
+}
+@keyframes moveCarrucel {
+    100%{
+        transform: translateX(calc(-1101.6px));
+        /* 100% - (( width_elemento + (margin_left + marginright) )) * n_elementos) / 2 */
     }
 }
