@@ -1,0 +1,49 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="./styles/index.css")
+    link(rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon")
+    title Home
+  body
+    include components/menu.pug
+    include components/modal.pug
+    div(class="layout-container")
+      include components/header.pug
+      aside
+        include components/navbar.pug
+      main(id="training_autofill")
+        seccion(class="seccion" id="training-seccion-titile")
+          div(class="training_title")
+            h1  Training Course
+        seccion(class="seccion" id="training-seccion-learning")
+          div(class="training_subtitle")
+            h2 -> Currently Learning
+          div(class="courses" id="learning_courses")
+            //- ul(class="courses_list" id="course_learning")
+            //-   li(class="courses_list_item")
+            //-     img(class="courses_list_item_img" src="https://img-a.udemycdn.com/course/240x135/2479282_3dc1_3.jpg?SodckhHRagWbAloHKIXGBRjetkIzDmKce0Y873qtbQpxEpEmChmd0cBMeE75uYDtus-iWXe7nCqlQolhEvbaCqaxpqn5I9QuZg17qyUf2JBzsWqRdZGUCgT14zdTtiw_" alt="")
+            //-     div(class="courses_list_item_info")
+            //-       a(class="courses_list_item_info_name" href="https://www.udemy.com/course/programacion-reactiva-con-spring-webflux-reactor/" target="_blank") Programación Reactiva con Spring Boot 2 y Spring
+            //-       a(class="courses_list_item_info_company" href="https://www.udemy.com/" target="_blank") Udemy
+            //-       p(class="courses_list_item_info_duration") 30hrs
+            p(class="not_found_courses") At the moment I am probably working on some project.
+
+        seccion(class="seccion" id="training-seccion-completed")
+          div(class="training_subtitle")
+            h2 -> Courses completed
+          div(class="courses" id="completed_courses")
+            //- ul(class="courses_list" id="courses-completed")
+            //-   li(class="courses_list_item")
+            //-     img(class="courses_list_item_img certificated" src="https://udemy-certificate.s3.amazonaws.com/image/UC-3e3317c5-3dca-4470-9937-cb24ff72436d.jpg" alt="")
+            //-     div(class="courses_list_item_info")
+            //-       a(class="courses_list_item_info_name" href="https://www.udemy.com/course/programacion-reactiva-con-spring-webflux-reactor/" target="_blank") Programación Reactiva con Spring Boot 2 y Spring 
+            //-       a(class="courses_list_item_info_company" href="https://www.udemy.com/" target="_blank") Udemy
+            //-       p(class="courses_list_item_info_duration") 30hrs
+            p(class="not_found_courses") No course completed yet
+      include components/footer.pug
+      script
+        include ../js/index.js
+        include ../js/training.js

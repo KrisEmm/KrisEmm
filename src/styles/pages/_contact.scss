@@ -14,14 +14,14 @@ input:-webkit-autofill:focus {
         flex-direction: row;
         justify-content: space-around;
         width: 90%;
-        margin-top: 3rem;
+        margin-top: 1rem;
         margin-bottom: 3rem;
     }
     @include mediaQuery("full"){
         flex-direction: row;
         justify-content: space-around;
         width: 90%;
-        margin-top: 3rem;
+        margin-top: 1rem;
         margin-bottom: 3rem;
 
     }

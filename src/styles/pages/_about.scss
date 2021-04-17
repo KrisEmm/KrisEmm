@@ -1051,12 +1051,6 @@
             display: flex;
             justify-content: start;
             list-style: none;
-            animation: moveCarrucel 20s linear infinite;
-            @include mediaQueryHover(){
-            &:hover{
-                    animation-play-state: paused;
-                }
-            }
             &_course{
                 flex-grow: 0;
                 flex-shrink: 0;
@@ -1064,7 +1058,7 @@
                 margin: 0.5rem 2.1rem;
                 @include mediaQueryHover(){
                     &:hover{
-                        transform: scale(1.1);
+                        transform: scale(1.03);
                     }
                 }
                 &_img{
@@ -1072,7 +1066,7 @@
                     height: 190px;
                     display: block;
                     cursor: pointer;
-
+                    margin: 0 auto;
                     @include mediaQuery("mobil-landscape"){
                         width: 300px;
                         height: 225px;
@@ -1096,7 +1090,7 @@
                     }
                 }
             &_details{
-                max-width: 300px;
+                max-width: 270px;
                 word-break: break-word;
                 margin: 0.3rem auto;
                 &_name{ 
@@ -1727,6 +1721,37 @@
             }
         }
         
+    }
+}
+.carousel-desactived{
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    @include mediaQuery("mobil-landscape"){
+        align-items: center;
+    }
+    @include mediaQuery("tablet-portrait"){
+        justify-content: center;
+    }
+    @include mediaQuery("tablet-landscape"){
+        
+        justify-content: center;
+    }
+    @include mediaQuery("desktop"){
+        justify-content: center;
+    }
+    @include mediaQuery("full"){
+        justify-content: center;
+        
+    }
+}
+.carousel-actived{
+    animation: moveCarrucel 20s linear infinite;
+    @include mediaQueryHover(){
+    &:hover{
+            animation-play-state: paused;
+        }
     }
 }
 @keyframes moveCarrucel {

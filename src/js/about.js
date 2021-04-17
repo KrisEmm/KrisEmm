@@ -6,12 +6,6 @@ const $object2 = document.querySelector(".object-2")
 const $object2_use = document.querySelector("#obj_2")
 const $icon_pushpin = document.querySelectorAll(".push_random_color")
 const $icon_focus = document.querySelectorAll(".focus_random_color")
-const $modal = document.querySelector('#modal');
-const $modal_close_button = document.querySelector("#modal-close");
-const $courses_completed = document.querySelector("#courses-completed");
-const $classToShowModal = "modal-show";
-const $certificated_course_seleted_class = "training_completed_courses_course_img";
-const $image_modal = document.querySelector("#image_certificated");
 const frontend_list = [
     "html",
     "css",
@@ -85,12 +79,6 @@ const colors = [
     "cyan",
 ]
 let flatActive = false;
-if ($modal_close_button) {
-    $modal_close_button.addEventListener("click", cilckHandlerModalCloseButton)
-}
-if ($courses_completed) {
-    $courses_completed.addEventListener("click", clickHandleCourseCertificatedSelected)
-}
 document.addEventListener("DOMContentLoaded", setClassColorRandom)
 document.addEventListener("scroll", () => {
     if (window.scrollY >= 1200 && window.scrollY <= 3000) {
@@ -117,23 +105,6 @@ $object2.addEventListener('animationend', (e) => {
     setRandomElementToObj1()
     $object1.classList.toggle("object-1-active")
 })
-
-function cilckHandlerModalCloseButton(e) {
-    if (!$modal) return;
-    $modal.classList.toggle($classToShowModal);
-    document.body.style.overflow = "visible"
-}
-function clickHandleCourseCertificatedSelected(e) {
-    const certificated_seleted = e.target;
-    if (!certificated_seleted.classList.contains($certificated_course_seleted_class)) {
-        return
-    }
-    const src_image_certificated_selected = certificated_seleted.getAttribute("src")
-    if (!$modal) return;
-    $modal.classList.toggle($classToShowModal);
-    $image_modal.setAttribute("src", src_image_certificated_selected)
-    document.body.style.overflow = "hidden"
-}
 function getColor(colors) {
     const color = Math.floor(Math.random() * colors.length)
     return colors[color];

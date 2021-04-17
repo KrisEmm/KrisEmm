@@ -1,0 +1,200 @@
+#training-seccion-title{
+    margin-top: 1.8rem ;
+    @include mediaQuery("mobil-landscape"){
+    }
+    @include mediaQuery("tablet-portrait"){
+    }
+    @include mediaQuery("tablet-landscape"){  
+    }
+    @include mediaQuery("desktop"){
+    }
+    @include mediaQuery("full"){
+    }
+}
+#training-seccion-learning{
+    padding: 0;
+    text-align: center;
+    @include mediaQuery("mobil-landscape"){
+        padding: 0;
+    }
+    @include mediaQuery("tablet-portrait"){
+        text-align: left;
+        padding: 0 5rem;
+    }
+    @include mediaQuery("tablet-landscape"){  
+        text-align: left;
+        padding: 0 5rem;
+    }
+    @include mediaQuery("desktop"){
+        text-align: left;
+        padding: 0 5rem;
+    }
+    @include mediaQuery("full"){
+        text-align: left;
+        padding: 0 5rem;
+    }
+}
+#training-seccion-completed{
+    padding: 0;
+    margin-bottom: 2.5rem;
+    text-align: center;
+
+    @include mediaQuery("mobil-landscape"){
+        padding: 0;
+    }
+    @include mediaQuery("tablet-portrait"){
+        text-align: left;
+        padding: 0 5rem;
+    }
+    @include mediaQuery("tablet-landscape"){  
+        text-align: left;
+        padding: 0 5rem;
+    }
+    @include mediaQuery("desktop"){
+        text-align: left;
+        padding: 0 5rem;
+    }
+    @include mediaQuery("full"){
+        text-align: left;
+        padding: 0 5rem;
+    }
+}
+.training_title{
+    h1{
+        font-family: "font-primary-title-3";
+        font-size: 1.6rem;
+        text-align: center;
+        color: $second-light-color;
+        user-select: none;
+        margin-top: 1rem;
+    }
+}
+.training_subtitle{    
+    h2{
+        font-family: "font-primary-subtitle-1";
+        font-size: 1.3rem;
+        color:$second-color;
+        user-select: none;
+        margin-bottom: 1rem;
+        @include mediaQuery("mobil-landscape"){
+            font-size: 1.45rem;
+
+        }
+        @include mediaQuery("tablet-portrait"){
+            font-size: 1.45rem;
+
+        }
+        @include mediaQuery("tablet-landscape"){  
+            font-size: 1.45rem;
+
+        }
+        @include mediaQuery("desktop"){
+            font-size: 1.45rem;
+
+        }
+        @include mediaQuery("full"){
+            font-size: 1.45rem;
+        }
+    }
+}
+
+.courses{
+    &_list{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0 1rem;
+        @include mediaQuery("mobil-landscape"){
+        }
+        @include mediaQuery("tablet-portrait"){
+            flex-direction: row;
+            justify-content: start;
+        }
+        @include mediaQuery("tablet-landscape"){
+            flex-direction: row;
+            justify-content: start;
+        }
+        @include mediaQuery("desktop"){
+            flex-direction: row;
+            justify-content: start;
+            
+        }
+        @include mediaQuery("full"){
+            flex-direction: row;
+            justify-content: start;
+        }
+        &_item{
+            margin: 1rem;
+            max-width: 240px;
+            max-height: 300px;
+            flex-grow: 0;
+            flex-shrink: 0;
+            img{
+                width: 240px;
+                @include mediaQueryHover(){
+                    &:hover{
+                        transform: scale(1.03);
+                    }
+                }
+            }
+            overflow: hidden;
+            text-overflow: ellipsis; 
+            &_info{
+                &_name{
+                    font-family: "font-primary-title-1";
+                    font-size: 1.1rem;
+                    color:$second-light-color;
+                    margin-bottom: 0.3rem;
+                    @include mediaQueryHover(){
+                    &:hover{
+                        transform: scale(1.01);
+                    }
+                }
+                }
+                &_company{
+                    font-family: "font-primary-title-3";
+                    font-size: 1.1rem;
+                    color:$second-light-color;
+                    margin-left: 0.3rem;
+                }
+                &_duration{
+                    font-family: "font-primary-text-2";
+                    font-size: 1rem;
+                    color:$second-dark-color;
+                    margin-left: 0.6rem;
+                }
+            }
+        }
+    }
+}
+.not_found_courses {
+    font-family: "font-primary-title-3";
+    font-size: 1.2rem;
+    color: #747474;
+    @include mediaQuery("mobil-landscape"){
+        font-size: 1.2rem;
+
+    }
+    @include mediaQuery("tablet-portrait"){
+        font-size: 1.3rem;
+        margin-left: 2rem;
+        
+    }
+    @include mediaQuery("tablet-landscape"){  
+        font-size: 1.3rem;
+        margin-left: 2rem;
+        
+    }
+    @include mediaQuery("desktop"){
+        font-size: 1.3rem;
+        margin-left: 2rem;
+        
+    }
+    @include mediaQuery("full"){
+        font-size: 1.3rem;
+        margin-left: 2rem;
+    }
+}
