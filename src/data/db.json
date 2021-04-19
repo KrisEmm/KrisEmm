@@ -11,9 +11,13 @@
     "experence": 1,
     "websites": 1,
     "projects_length": 0,
-    "repos_length": 0
+    "repos_length": 0,
+    "courses_length": 0
   },
+  "lastest_courses_learning": [],
+  "lastest_courses_completed": [],
   "lastest_project": {},
   "lastest_repos": [],
-  "repositories": []
+  "repositories": [],
+  "courses": []
 }

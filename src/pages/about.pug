@@ -131,53 +131,31 @@ html(lang="en")
             h1 Training Courses
             a() Currently Learning
           ul(class="training_learning")
-            p(class="not_found") At the moment I am probably working on some project.
-            //- li(class="training_learning_course")
-            //-   div(class="training_learning_course_icon")
-            //-     include components/push-pin.pug            
-            //-   div(class="training_learning_course_details") 
-            //-     h2(class="training_learning_course_details_company") Udemy          
-            //-     div(class="training_learning_course_details_info")
-            //-       a(class="training_learning_course_details_info_name") Spring Boot 2 & Spring MVC-Desarrollo web profesional(2021)
-            //-       a(class="training_learning_course_details_info_duration") Duration: 40 hrs
-            //- li(class="training_learning_course")
-            //-   div(class="training_learning_course_icon")
-            //-     include components/push-pin.pug            
-            //-   div(class="training_learning_course_details") 
-            //-     h2(class="training_learning_course_details_company") Udemy Course          
-            //-     div(class="training_learning_course_details_info")
-            //-       a(class="training_learning_course_details_info_name") Spring Boot 2 & Spring MVC-Desarrollo web profesional(2021)adasdadsadsafada
-            //-       a(class="training_learning_course_details_info_duration") Duration: 40 hrs
+            if locals.lastest_courses_learning.length > 0 
+              each course_learning in locals.lastest_courses_learning           
+                li(class="training_learning_course")
+                  div(class="training_learning_course_icon")
+                    include components/push-pin.pug            
+                  div(class="training_learning_course_details") 
+                    h2(class="training_learning_course_details_company")=course_learning.company       
+                    div(class="training_learning_course_details_info")
+                      a(class="training_learning_course_details_info_name" href= course_learning.url target="_blank")=course_learning.name 
+                      a(class="training_learning_course_details_info_duration")=course_learning.duration
+            else
+              p(class="not_found") At the moment I am probably working on some project.
           div(class="about-seccion-title" )
             h1() Lastest Completed Courses
             a(class="link link-second-decorated" href="training.html") View All Course
           div(class="training_completed")
-            //- ul(class="training_completed_courses carousel-desactived" id="courses-completed")
-            //-   li(class="training_completed_courses_course")
-            //-     img(class="training_completed_courses_course_img certificated" src="https://udemy-certificate.s3.amazonaws.com/image/UC-3e3317c5-3dca-4470-9937-cb24ff72436d.jpg" alt="Certificated")
-            //-     div(class="training_completed_courses_course_details") 
-            //-       a(class="training_completed_courses_course_details_name") Spring Boot 2 & Spring MVC-Desarrollo web profesional(2021) 1x
-            //-   li(class="training_completed_courses_course")
-            //-     img(class="training_completed_courses_course_img certificated" src="https://udemy-certificate.s3.amazonaws.com/image/UC-3e3317c5-3dca-4470-9937-cb24ff72436d.jpg" alt="Certificated")
-            //-     div(class="training_completed_courses_course_details") 
-            //-       a(class="training_completed_courses_course_details_name") Spring Boot 2 & Spring MVC-Desarrollo web profesional(2021)  2
-            //-   li(class="training_completed_courses_course")
-            //-     img(class="training_completed_courses_course_img certificated" src="https://udemy-certificate.s3.amazonaws.com/image/UC-3e3317c5-3dca-4470-9937-cb24ff72436d.jpg" alt="Certificated")
-            //-     div(class="training_completed_courses_course_details") 
-            //-       a(class="training_completed_courses_course_details_name") Spring Boot 2 & Spring MVC-Desarrollo web profesional(2021)  3
-            //-   li(class="training_completed_courses_course")
-            //-     img(class="training_completed_courses_course_img certificated" src="https://udemy-certificate.s3.amazonaws.com/image/UC-3e3317c5-3dca-4470-9937-cb24ff72436d.jpg" alt="Certificated")
-            //-     div(class="training_completed_courses_course_details") 
-            //-       a(class="training_completed_courses_course_details_name") Spring Boot 2 & Spring MVC-Desarrollo web profesional(2021) 1xx
-            //-   li(class="training_completed_courses_course")
-            //-     img(class="training_completed_courses_course_img certificated" src="https://udemy-certificate.s3.amazonaws.com/image/UC-3e3317c5-3dca-4470-9937-cb24ff72436d.jpg" alt="Certificated")
-            //-     div(class="training_completed_courses_course_details") 
-            //-       a(class="training_completed_courses_course_details_name") Spring Boot 2 & Spring MVC-Desarrollo web profesional(2021)  2
-            //-   li(class="training_completed_courses_course")
-            //-     img(class="training_completed_courses_course_img certificated" src="https://udemy-certificate.s3.amazonaws.com/image/UC-3e3317c5-3dca-4470-9937-cb24ff72436d.jpg" alt="Certificated")
-            //-     div(class="training_completed_courses_course_details") 
-            //-       a(class="training_completed_courses_course_details_name") Spring Boot 2 & Spring MVC-Desarrollo web profesional(2021)  3
-            p(class="not_found") No course completed yet
+            if locals.lastest_courses_completed.length > 0 
+              ul(class="training_completed_courses carousel-desactived" id="courses-completed")
+                each course_completed in locals.lastest_courses_completed           
+                  li(class="training_completed_courses_course")
+                    img(class="training_completed_courses_course_img certificated" src=course_completed.certificate alt="Certificate")
+                    div(class="training_completed_courses_course_details") 
+                      a(class="training_completed_courses_course_details_name" href=course_completed.url target="_blank")=course_completed.name
+            else
+              p(class="not_found") No course completed yet
 
         hr(class="line_break" id="lastest-project")
         seccion(class="seccion" id="about-seccion-project")

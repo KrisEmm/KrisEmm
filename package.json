@@ -4,7 +4,7 @@
     "license": "MIT",
     "homepage": "https://krisemm.github.io/KrisEmm/",
     "scripts": {
-        "cms": "node ./bin/cli-cms.js",
+        "cms": "node ./bin/cms.js",
         "build": "gulp prod",
         "clean": "rm -rf public/",
         "dev": "gulp dev",
@@ -25,6 +25,7 @@
         "gulp-sass": "^4.1.0",
         "inquirer": "^7.3.3",
         "lowdb": "^1.0.0",
+        "nanoid": "^3.1.22",
         "pug-cli": "^1.0.0-alpha6",
         "sass": "^1.32.6"
     }

@@ -1,20 +1,4 @@
 module.exports = {
-    LastestProject: function () {
-        this.name = ""
-        this.description = ""
-        this.image_url = ""
-        this.technologies = []
-        this.languages = []
-        this.code_url = ""
-        this.status = ""
-    },
-    LastestRepos: function () {
-        this.name = ""
-        this.technologies = []
-        this.languages = []
-        this.code_url = ""
-        this.status = ""
-    },
     Project: function () {
         this.id = ""
         this.type = ""
@@ -60,5 +44,15 @@ module.exports = {
         this.requirements = []
         this.install = []
         this.run = []
+    },
+    Course: function () {
+        this.id = ""
+        this.name = ""
+        this.company = ""
+        this.image = ""
+        this.url = ""
+        this.certificate = ""
+        this.duration = ""
+        this.status = ""
     }
 }

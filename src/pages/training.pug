@@ -22,27 +22,33 @@ html(lang="en")
           div(class="training_subtitle")
             h2 -> Currently Learning
           div(class="courses" id="learning_courses")
-            //- ul(class="courses_list" id="course_learning")
-            //-   li(class="courses_list_item")
-            //-     img(class="courses_list_item_img" src="https://img-a.udemycdn.com/course/240x135/2479282_3dc1_3.jpg?SodckhHRagWbAloHKIXGBRjetkIzDmKce0Y873qtbQpxEpEmChmd0cBMeE75uYDtus-iWXe7nCqlQolhEvbaCqaxpqn5I9QuZg17qyUf2JBzsWqRdZGUCgT14zdTtiw_" alt="")
-            //-     div(class="courses_list_item_info")
-            //-       a(class="courses_list_item_info_name" href="https://www.udemy.com/course/programacion-reactiva-con-spring-webflux-reactor/" target="_blank") Programación Reactiva con Spring Boot 2 y Spring
-            //-       a(class="courses_list_item_info_company" href="https://www.udemy.com/" target="_blank") Udemy
-            //-       p(class="courses_list_item_info_duration") 30hrs
-            p(class="not_found_courses") At the moment I am probably working on some project.
+            ul(class="courses_list" id="course_learning")
+              if locals.lastest_courses_learning.length > 0 
+                each course_learning in locals.lastest_courses_learning           
+                  li(class="courses_list_item")
+                    img(class="courses_list_item_img" src=course_learning.image alt="")
+                    div(class="courses_list_item_info")
+                      a(class="courses_list_item_info_name" href=course_learning.url target="_blank")=course_learning.name  
+                      a(class="courses_list_item_info_company" href=course_learning.url target="_blank")=course_learning.company
+                      p(class="courses_list_item_info_duration")=course_learning.duration
+              else
+                p(class="not_found_courses") At the moment I am probably working on some project.
 
         seccion(class="seccion" id="training-seccion-completed")
           div(class="training_subtitle")
             h2 -> Courses completed
           div(class="courses" id="completed_courses")
-            //- ul(class="courses_list" id="courses-completed")
-            //-   li(class="courses_list_item")
-            //-     img(class="courses_list_item_img certificated" src="https://udemy-certificate.s3.amazonaws.com/image/UC-3e3317c5-3dca-4470-9937-cb24ff72436d.jpg" alt="")
-            //-     div(class="courses_list_item_info")
-            //-       a(class="courses_list_item_info_name" href="https://www.udemy.com/course/programacion-reactiva-con-spring-webflux-reactor/" target="_blank") Programación Reactiva con Spring Boot 2 y Spring 
-            //-       a(class="courses_list_item_info_company" href="https://www.udemy.com/" target="_blank") Udemy
-            //-       p(class="courses_list_item_info_duration") 30hrs
-            p(class="not_found_courses") No course completed yet
+            ul(class="courses_list" id="courses-completed")
+              if locals.lastest_courses_completed.length > 0 
+                each course_completed in locals.lastest_courses_completed
+                  li(class="courses_list_item")
+                    img(class="courses_list_item_img certificated" src=course_completed.certificate alt="Certificate")
+                    div(class="courses_list_item_info")
+                      a(class="courses_list_item_info_name" href=course_completed.url target="_blank")=course_completed.name 
+                      a(class="courses_list_item_info_company" href=course_completed.url target="_blank")=course_completed.company
+                      p(class="courses_list_item_info_duration")=course_completed.duration 
+              else      
+                p(class="not_found_courses") No course completed yet
       include components/footer.pug
       script
         include ../js/index.js
