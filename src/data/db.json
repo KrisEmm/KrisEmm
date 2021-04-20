@@ -1,23 +1,23 @@
 {
-  "user": {
-    "github_username": "KrisEmm",
-    "phone": "(55) 4089 6724",
-    "email": "krisemm.info@gmail.com",
-    "social": {
-      "github": "https://github.com/krisemm",
-      "linkedin": "https://twitter.com/_kristianEmm",
-      "twitter": "https://www.linkedin.com/in/krisemm/"
+    "user": {
+        "github_username": "KrisEmm",
+        "phone": "(55) 4089 6724",
+        "email": "krisemm.info@gmail.com",
+        "social": {
+            "github": "https://github.com/krisemm",
+            "linkedin": "https://www.linkedin.com/in/krisemm/",
+            "twitter": "https://twitter.com/_kristianEmm"
+        },
+        "experence": 1,
+        "websites": 1,
+        "projects_length": 0,
+        "repos_length": 0,
+        "courses_length": 0
     },
-    "experence": 1,
-    "websites": 1,
-    "projects_length": 0,
-    "repos_length": 0,
-    "courses_length": 0
-  },
-  "lastest_courses_learning": [],
-  "lastest_courses_completed": [],
-  "lastest_project": {},
-  "lastest_repos": [],
-  "repositories": [],
-  "courses": []
+    "lastest_courses_learning": [],
+    "lastest_courses_completed": [],
+    "lastest_project": {},
+    "lastest_repos": [],
+    "repositories": [],
+    "courses": []
 }
