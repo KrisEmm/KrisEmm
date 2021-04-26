@@ -11,7 +11,7 @@ I invite you to know more about me:
 
 ## :pushpin: **Currently**
 
-- I’m learning **Java, Spring Boot, PHP & Symfony**
+- I’m learning **Java, Spring Boot**
 - I’m practicing **Javascript, React & Nodejs**
 - I’m exploring **Typescript**
 - I’m looking for **Job Opportunities as a Frontend or Backend Developer Jr**
